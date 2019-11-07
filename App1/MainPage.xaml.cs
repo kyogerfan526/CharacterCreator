@@ -23,9 +23,9 @@ namespace App1
     public sealed partial class MainPage : Page
     {
         public MainPage()
-            //test
         {
             this.InitializeComponent();
         }
+        //Is this working yet because this is getting seriously old
     }
 }
