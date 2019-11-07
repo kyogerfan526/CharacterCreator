@@ -1,13 +1,15 @@
 ﻿<Page
-    x:Class="App1.MainPage"
+    x:Class="CharacterMaker.MainPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:App1"
+    xmlns:local="using:CharacterMaker"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
+     <!-- This is the Master Branch -->
+     
     <Grid>
         
     </Grid>
