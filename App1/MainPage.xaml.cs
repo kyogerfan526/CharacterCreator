@@ -23,6 +23,14 @@ namespace CharacterMaker
     public sealed partial class MainPage : Page
     {
 
+        String[] FNames = { "Kevin", "Mark", "Linda", "James", "Josh", "Leon", "Carly", "Bridget", "Tim", "Carl", "Arthur", "Ben", "Greg", "Craig", "Laura", "Jessie"
+        , "Alex", "Paul", "Anthony", "Tyler"};
+        String[] LNames = { "Him", "Quent", "Hue", "" };
+        String[] Professions = { "Athlete", "Actor", "Physicasist", "Teacher", "Translator", "Manager", "CEO", "Janitor", "Coach", "Personal trainer", "Musician",
+        "Computer Scientist", "Sales person", "Groundskeeper", "Stunt double", "Youtuber", "Twitch streamer", "Artist", "Chef", "Military"};
+        String[] Races = { "" };
+        string[] Genders = { "Male", "Female" };
+
         String Name = "";
         int age;
         String Profession = "";
@@ -30,13 +38,8 @@ namespace CharacterMaker
         String Gender = "";
 
         public MainPage()
-
-            //test
-            //I am no longer dead
-
         {
             this.InitializeComponent();
         }
-        //Is this working yet because this is getting seriously old
     }
 }
