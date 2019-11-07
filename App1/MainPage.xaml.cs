@@ -23,6 +23,10 @@ namespace App1
     public sealed partial class MainPage : Page
     {
         public MainPage()
+
+            //test
+            //I am no longer dead
+
         {
             this.InitializeComponent();
         }
