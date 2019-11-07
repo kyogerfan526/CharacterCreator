@@ -8,7 +8,12 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
+    <!-- Comment by Lane -->
+    
     <Grid>
-        
+        <TextBlock Text="Test | Lane"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   FontSize="64"/>
     </Grid>
 </Page>
