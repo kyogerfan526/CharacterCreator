@@ -22,10 +22,20 @@ namespace App1
     /// </summary>
     public sealed partial class MainPage : Page
     {
+
+        String Name = "";
+        int age;
+        String Profession = "";
+        String Race = "";
+        String Gender = "";
+
         public MainPage()
             //test
         {
             this.InitializeComponent();
         }
+
+
+
     }
 }
