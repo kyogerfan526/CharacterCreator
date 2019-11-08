@@ -8,7 +8,114 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
+
+    <!-- Comment by Lane -->
+    <!-- This will be a test page to show off layout of the character info screen -->
+    
+    
+    <Grid x:Name="MainGrid"
+          Background="CadetBlue"
+          MinHeight="720"
+          MinWidth="1080">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="26*"/>
+            <RowDefinition Height="37*"/>
+            <RowDefinition Height="37*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <Rectangle Grid.ColumnSpan="3"
+                   Fill="DarkBlue"
+                   Margin="25"/>
+        <Rectangle Grid.ColumnSpan="3"
+                   Fill="AliceBlue"
+                   Margin="50"/>
+        <TextBlock Grid.ColumnSpan="3" 
+                   Text="Hello"
+                   FontSize="64"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Center"/>
+
+        <StackPanel Grid.Row="1"
+                    Grid.RowSpan="2">
+            
+            <Button Content="Button 1"
+                HorizontalContentAlignment="Left"
+                Padding="5 0 50 0"
+                Height="75"
+                FontSize="42"
+                HorizontalAlignment="Left"
+                Margin="30 25 0 0"
+                BorderThickness="5"
+                BorderBrush="Black"/>
+            <Button Content="Button 2: Do Stuff"
+                HorizontalContentAlignment="Left"
+                Padding="5 0 50 0"
+                Height="75"
+                FontSize="42"
+                HorizontalAlignment="Left"
+                Margin="30 25 0 0"
+                BorderThickness="5"
+                BorderBrush="Black"/>
+        </StackPanel>
+        <Button Content="Back"
+            HorizontalContentAlignment="Left"
+            Padding="5 0 50 0"
+            Height="75"
+            FontSize="42"
+            HorizontalAlignment="Left"
+            Margin="30 25 0 25"
+            BorderThickness="5"
+            BorderBrush="Black"
+            VerticalAlignment="Bottom"
+            Grid.Row="2"/>
+        
+
+        <Rectangle Fill="DarkOliveGreen" 
+                   Grid.Row="1"
+                   Grid.Column="1"
+                   Grid.RowSpan="2"
+                   Grid.ColumnSpan="2"
+                   Margin="25"/>
+        <Rectangle Fill="Olive" 
+                   Grid.Row="1"
+                   Grid.Column="1"
+                   Grid.RowSpan="2"
+                   Grid.ColumnSpan="2"
+                   Margin="50"/>
+        <ScrollViewer HorizontalScrollBarVisibility="Auto"
+                      VerticalScrollBarVisibility="Auto"
+                      Grid.Row="1"
+                      Grid.Column="1"
+                      Grid.RowSpan="2"
+                      Grid.ColumnSpan="2"
+                      Margin="50">
+            <StackPanel Padding="25">
+                <TextBlock
+                       Text="Hello aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+                       FontSize="64" Margin="0 0 0 50"/>
+                <TextBlock
+                       Text="Hello aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+                       FontSize="64" Margin="0 0 0 50"/>
+                <TextBlock
+                       Text="Hello aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+                       FontSize="64" Margin="0 0 0 50"/>
+                <TextBlock
+                       Text="Hello aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+                       FontSize="64" Margin="0 0 0 50"/>
+                <TextBlock
+                       Text="Hello aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+                       FontSize="64" Margin="0 0 0 50"/>
+            </StackPanel>
+        </ScrollViewer>
+
      <!-- This is the Master Branch -->
+     
+    <Grid>
 
     </Grid>
 </Page>
