@@ -60,7 +60,8 @@
                 HorizontalAlignment="Left"
                 Margin="30 25 0 0"
                 BorderThickness="5"
-                BorderBrush="Black"/>
+                BorderBrush="Black"
+                Click="DoStuff_Click"/>
         </StackPanel>
         <Button Content="Back"
             HorizontalContentAlignment="Left"
@@ -114,8 +115,6 @@
         </ScrollViewer>
 
      <!-- This is the Master Branch -->
-     
-    <Grid>
 
     </Grid>
 </Page>
