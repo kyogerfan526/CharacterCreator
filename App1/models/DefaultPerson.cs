@@ -8,16 +8,23 @@ namespace App1.models
 {
     class DefaultPerson
     {
-        private String name;
+        private String Fname;
+        private String Lname;
         private int age;
         private String profession;
         private String race;
         private String gender;
 
-        public String Name
+        public String FName
         {
-            get { return name; }
-            set { name = value; }
+            get { return Fname; }
+            set { Fname = value; }
+        }
+
+        public String LName
+        {
+            get { return Lname; }
+            set { Lname = value; }
         }
 
         public int Age
@@ -42,6 +49,11 @@ namespace App1.models
         {
             get { return gender; }
             set { gender = value; }
+        }
+
+        public override string ToString()
+        {
+            return FName + LName + "\n" + Age + "\n" + Race + "\n" + Profession + "\n" + Gender;
         }
 
     }
