@@ -9,8 +9,6 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
      <!-- This is the Master Branch -->
-     
-    <Grid>
-        
+
     </Grid>
 </Page>
