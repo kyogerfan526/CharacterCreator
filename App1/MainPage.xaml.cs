@@ -40,6 +40,9 @@ namespace CharacterMaker
         public MainPage()
         {
             this.InitializeComponent();
+
+            
+
         }
     }
 }
