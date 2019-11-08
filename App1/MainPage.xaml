@@ -51,7 +51,7 @@
                 HorizontalAlignment="Left"
                 Margin="30 25 0 0"
                 BorderThickness="5"
-                BorderBrush="Black"/>
+                BorderBrush="Black" Click="Button_Click"/>
             <Button Content="Button 2: Do Stuff"
                 HorizontalContentAlignment="Left"
                 Padding="5 0 50 0"
@@ -114,8 +114,6 @@
         </ScrollViewer>
 
      <!-- This is the Master Branch -->
-     
-    <Grid>
 
     </Grid>
 </Page>
