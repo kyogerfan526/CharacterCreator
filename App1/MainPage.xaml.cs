@@ -76,39 +76,43 @@ namespace CharacterMaker
 
         List<String> Genders = new List<String> { "Male", "Female" };
 
-        String Name = "";
-        int age;
-        String Profession = "";
-        String Race = "";
-        String Gender = "";
-
         Random rand = new Random();
+
+        private DefaultPerson pagePerson;
 
         public MainPage()
         {
             this.InitializeComponent();
+            pagePerson = new DefaultPerson();
 
-            
+            MainGrid.DataContext = pagePerson;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            long possibilities = CalculatePossiblities();
-
-            DefaultPerson DP = new DefaultPerson();
-            DP.FName = FNames[rand.Next(6)];
-            DP.LName = LNames[rand.Next(6)];
-            DP.Age = rand.Next(101);
-            DP.Profession = Professions[rand.Next(20)];
-            DP.Gender = Genders[rand.Next(2)];
-            DP.Race = Races[rand.Next(7)];
+            // Hm
         }
 
-        private long CalculatePossiblities()
+        private void RandomizeButton_Click(object sender, RoutedEventArgs e)
         {
-            long totalPossibilities = FNames.Count() * LNames.Count() * Professions.Count() * Races.Count() * Genders.Count();
+            // Randomize Button
+            
+            pagePerson.FName = FNames[rand.Next(6)];
+            pagePerson.LName = LNames[rand.Next(6)];
+            pagePerson.Age = rand.Next(101);
+            pagePerson.Profession = Professions[rand.Next(20)];
+            pagePerson.Gender = Genders[rand.Next(2)];
+            pagePerson.Race = Races[rand.Next(7)];
+        }
 
-            return totalPossibilities;
+        private void EditButton_Click(object sender, RoutedEventArgs e)
+        {
+            // Edit Button
+        }
+
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            // Back Button
         }
     }
 }
