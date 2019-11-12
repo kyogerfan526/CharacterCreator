@@ -21,6 +21,7 @@ namespace CharacterMaker
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
+    
     public sealed partial class MainPage : Page
     {
 
@@ -54,23 +55,55 @@ namespace CharacterMaker
 
         Random rand = new Random();
 
+        private DefaultPerson pagePerson;
+
         public MainPage()
         {
             this.InitializeComponent();
+            pagePerson = new DefaultPerson();
 
-            
 
+            //pagePerson.FName = "Test Name";
+            //pagePerson.Age = 12;
+            //pagePerson.Race = "Test Race";
+            //pagePerson.Profession = "Test Profession";
+            //pagePerson.Gender = "Test Gender";
+
+            pagePerson.FName = FNames[rand.Next(6)];
+            pagePerson.LName = LNames[rand.Next(6)];
+            pagePerson.Age = rand.Next(101);
+            pagePerson.Profession = Professions[rand.Next(20)];
+            pagePerson.Gender = Genders[rand.Next(2)];
+            pagePerson.Race = Races[rand.Next(7)];
+
+            MainGrid.DataContext = pagePerson;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            DefaultPerson DP = new DefaultPerson();
-            DP.FName = FNames[rand.Next(6)];
-            DP.LName = LNames[rand.Next(6)];
-            DP.Age = rand.Next(101);
-            DP.Profession = Professions[rand.Next(20)];
-            DP.Gender = Genders[rand.Next(2)];
-            DP.Race = Races[rand.Next(7)];
+            // Hm
+        }
+
+        private void RandomizeButton_Click(object sender, RoutedEventArgs e)
+        {
+            // Randomize Button
+            //DefaultPerson p = new DefaultPerson();
+            pagePerson.FName = FNames[rand.Next(6)];
+            pagePerson.LName = LNames[rand.Next(6)];
+            pagePerson.Age = rand.Next(101);
+            pagePerson.Profession = Professions[rand.Next(20)];
+            pagePerson.Gender = Genders[rand.Next(2)];
+            pagePerson.Race = Races[rand.Next(7)];
+        }
+
+        private void EditButton_Click(object sender, RoutedEventArgs e)
+        {
+            // Edit Button
+        }
+
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            // Back Button
         }
     }
 }

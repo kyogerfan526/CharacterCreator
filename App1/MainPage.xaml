@@ -34,16 +34,18 @@
         <Rectangle Grid.ColumnSpan="3"
                    Fill="AliceBlue"
                    Margin="50"/>
-        <TextBlock Grid.ColumnSpan="3" 
-                   Text="Hello"
+        <TextBlock Name="CharacterNameBlock"
+                   Grid.ColumnSpan="3" 
                    FontSize="64"
                    VerticalAlignment="Center"
-                   HorizontalAlignment="Center"/>
+                   HorizontalAlignment="Center"
+                   Text="{Binding Path=FName, Mode=OneWay}"/>
 
         <StackPanel Grid.Row="1"
                     Grid.RowSpan="2">
 
-            <Button Content="Button 1"
+            <Button x:Name="RandomizeButton"
+                Content="Randomize"
                 HorizontalContentAlignment="Left"
                 Padding="5 0 50 0"
                 Height="75"
@@ -51,8 +53,10 @@
                 HorizontalAlignment="Left"
                 Margin="30 25 0 0"
                 BorderThickness="5"
-                BorderBrush="Black"/>
-            <Button Content="Button 2: Do Stuff"
+                BorderBrush="Black"
+                Click="RandomizeButton_Click"/>
+            <Button x:Name="EditButton"
+                Content="Edit"
                 HorizontalContentAlignment="Left"
                 Padding="5 0 50 0"
                 Height="75"
@@ -60,9 +64,11 @@
                 HorizontalAlignment="Left"
                 Margin="30 25 0 0"
                 BorderThickness="5"
-                BorderBrush="Black"/>
+                BorderBrush="Black"
+                Click="EditButton_Click"/>
         </StackPanel>
-        <Button Content="Back"
+        <Button x:Name="BackButton"
+            Content="Back"
             HorizontalContentAlignment="Left"
             Padding="5 0 50 0"
             Height="75"
@@ -72,7 +78,8 @@
             BorderThickness="5"
             BorderBrush="Black"
             VerticalAlignment="Bottom"
-            Grid.Row="2"/>
+            Grid.Row="2"
+            Click="BackButton_Click"/>
 
 
         <Rectangle Fill="DarkOliveGreen" 
@@ -95,20 +102,20 @@
                       Grid.ColumnSpan="2"
                       Margin="50">
             <StackPanel Padding="25">
-                <TextBlock
-                       Text="Hello aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+                <TextBlock x:Name="AgeBlock"
+                       Text="{Binding Path=Age, Mode=OneWay}"
                        FontSize="64" Margin="0 0 0 50"/>
-                <TextBlock
-                       Text="Hello aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+                <TextBlock x:Name="ProfessionBlock"
+                       Text="{Binding Path=Profession, Mode=OneWay}"
                        FontSize="64" Margin="0 0 0 50"/>
-                <TextBlock
-                       Text="Hello aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+                <TextBlock x:Name="GenderBlock"
+                       Text="{Binding Path=Gender, Mode=OneWay}"
                        FontSize="64" Margin="0 0 0 50"/>
-                <TextBlock
-                       Text="Hello aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+                <TextBlock x:Name="RaceBlock"
+                       Text="{Binding Path=Race, Mode=OneWay}"
                        FontSize="64" Margin="0 0 0 50"/>
-                <TextBlock
-                       Text="Hello aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+                <TextBlock x:Name="ETCBlock"
+                       Text="ETC"
                        FontSize="64" Margin="0 0 0 50"/>
             </StackPanel>
         </ScrollViewer>
