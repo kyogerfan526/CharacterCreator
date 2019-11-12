@@ -11,8 +11,8 @@
 
     <!-- Comment by Lane -->
     <!-- This will be a test page to show off layout of the character info screen -->
-    
-    
+
+
     <Grid x:Name="MainGrid"
           Background="CadetBlue"
           MinHeight="720"
@@ -42,7 +42,7 @@
 
         <StackPanel Grid.Row="1"
                     Grid.RowSpan="2">
-            
+
             <Button Content="Button 1"
                 HorizontalContentAlignment="Left"
                 Padding="5 0 50 0"
@@ -60,8 +60,7 @@
                 HorizontalAlignment="Left"
                 Margin="30 25 0 0"
                 BorderThickness="5"
-                BorderBrush="Black"
-                Click="DoStuff_Click"/>
+                BorderBrush="Black"/>
         </StackPanel>
         <Button Content="Back"
             HorizontalContentAlignment="Left"
@@ -74,7 +73,7 @@
             BorderBrush="Black"
             VerticalAlignment="Bottom"
             Grid.Row="2"/>
-        
+
 
         <Rectangle Fill="DarkOliveGreen" 
                    Grid.Row="1"
@@ -114,7 +113,6 @@
             </StackPanel>
         </ScrollViewer>
 
-     <!-- This is the Master Branch -->
-
-    </Grid>
+        <!-- This is the Master Branch -->
+     </Grid>
 </Page>
