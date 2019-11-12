@@ -53,7 +53,7 @@ namespace App1.models
 
         public override string ToString()
         {
-            return FName + LName + "\n" + Age + "\n" + Race + "\n" + Profession + "\n" + Gender;
+            return FName + " " + LName + "\n " + Age + "\n " + Race + "\n " + Profession + "\n " + Gender;
         }
 
     }

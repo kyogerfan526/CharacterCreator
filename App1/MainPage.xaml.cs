@@ -46,12 +46,6 @@ namespace CharacterMaker
 
         List<String> Genders = new List<String> { "Male", "Female" };
 
-        String Name = "";
-        int age;
-        String Profession = "";
-        String Race = "";
-        String Gender = "";
-
         Random rand = new Random();
 
         public MainPage()
@@ -65,12 +59,12 @@ namespace CharacterMaker
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             DefaultPerson DP = new DefaultPerson();
-            DP.FName = FNames[rand.Next(6)];
-            DP.LName = LNames[rand.Next(6)];
+            DP.FName = FNames[rand.Next(FNames.Count() - 1)];
+            DP.LName = LNames[rand.Next(LNames.Count() - 1)];
             DP.Age = rand.Next(101);
-            DP.Profession = Professions[rand.Next(20)];
+            DP.Profession = Professions[rand.Next(Professions.Count() - 1)];
             DP.Gender = Genders[rand.Next(2)];
-            DP.Race = Races[rand.Next(7)];
+            DP.Race = Races[rand.Next(Races.Count() - 1)];
         }
     }
 }
