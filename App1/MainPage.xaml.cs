@@ -1,4 +1,5 @@
-﻿using System;
+﻿using App1.models;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -51,12 +52,25 @@ namespace CharacterMaker
         String Race = "";
         String Gender = "";
 
+        Random rand = new Random();
+
         public MainPage()
         {
             this.InitializeComponent();
 
             
 
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            DefaultPerson DP = new DefaultPerson();
+            DP.FName = FNames[rand.Next(6)];
+            DP.LName = LNames[rand.Next(6)];
+            DP.Age = rand.Next(101);
+            DP.Profession = Professions[rand.Next(20)];
+            DP.Gender = Genders[rand.Next(2)];
+            DP.Race = Races[rand.Next(7)];
         }
     }
 }
