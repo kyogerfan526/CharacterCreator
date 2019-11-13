@@ -18,11 +18,13 @@ namespace App1.models
         private String profession;
         private String race;
         private String gender;
+        private string fullName;
 
         public String FName
         {
             get { return Fname; }
             set { Fname = value;
+                FullName = "";
                 FieldChanged();
             }
         }
@@ -31,6 +33,7 @@ namespace App1.models
         {
             get { return Lname; }
             set { Lname = value;
+                FullName = "";
                 FieldChanged();
             }
         }
@@ -63,6 +66,13 @@ namespace App1.models
         {
             get { return gender; }
             set { gender = value;
+                FieldChanged();
+            }
+        }
+        public string FullName
+        {
+            get { return fullName; }
+            set { fullName = $"{FName} {Lname}";
                 FieldChanged();
             }
         }
