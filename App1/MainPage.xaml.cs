@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.IO;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -116,6 +117,40 @@ namespace CharacterMaker
         }
 
         private void SaveButton_Click(object sender, RoutedEventArgs e)
+        {
+
+            FileInfo file = new FileInfo(@"C:\Users\Adam\Desktop\sample.txt");
+            if(file.Exists)
+            {
+                StreamWriter writer = file.CreateText();
+                writer.WriteLine(pagePerson.FName + " " + pagePerson.FName
+                + "\n " + pagePerson.Gender + "\n " + pagePerson.Age + "\n " + pagePerson.Race + "\n " + pagePerson.Profession);
+                writer.Close();
+            }
+            else
+            {
+                File.Create(@"C:\Users\Adam\Desktop\sample.txt");
+                StreamWriter writer = file.CreateText();
+                writer.WriteLine(pagePerson.FName + " " + pagePerson.FName
+                + "\n " + pagePerson.Gender + "\n " + pagePerson.Age + "\n " + pagePerson.Race + "\n " + pagePerson.Profession);
+                writer.Close();
+
+            }
+            
+
+        }
+
+        private void Real_Life_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Fantasy_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Sci_Fi_Click(object sender, RoutedEventArgs e)
         {
 
         }

@@ -131,6 +131,33 @@
             </StackPanel>
         </ScrollViewer>
 
+        <MenuBar x:Name="TopBar" Background="DarkGray" VerticalAlignment="Top">
+            <MenuBarItem 
+                x:Name="Genre_selction"
+                Title="Genre selection"  
+                >
+
+                <MenuFlyoutItem 
+                    x:Name="Real_Life"
+                    Text="Real life"
+                    Click="Real_Life_Click">
+                </MenuFlyoutItem>
+
+                <MenuFlyoutItem 
+                    x:Name="Fantasy"
+                    Text="Fantasy"
+                    Click="Fantasy_Click">
+                </MenuFlyoutItem>
+
+                <MenuFlyoutItem 
+                    x:Name="Sci_Fi"
+                    Text="Sci-Fi"
+                    Click="Sci_Fi_Click">
+                </MenuFlyoutItem>
+
+            </MenuBarItem>
+        </MenuBar>
+
         <!-- This is the Master Branch -->
      </Grid>
 </Page>
