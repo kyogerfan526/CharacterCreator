@@ -66,6 +66,17 @@
                 BorderThickness="5"
                 BorderBrush="Black"
                 Click="EditButton_Click"/>
+            <Button x:Name="SaveButton"
+                Content="Save"
+                HorizontalContentAlignment="Left"
+                Padding="5 0 50 0"
+                Height="75"
+                FontSize="42"
+                HorizontalAlignment="Left"
+                Margin="30 25 0 0"
+                BorderThickness="5"
+                BorderBrush="Black"
+                Click="SaveButton_Click"/>
         </StackPanel>
         <Button x:Name="BackButton"
             Content="Back"
