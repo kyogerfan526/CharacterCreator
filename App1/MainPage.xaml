@@ -9,6 +9,7 @@
     MinHeight ="600"
     MinWidth  ="775"
     xmlns:vc="using:App1.Value_Converters"
+    Foreground="Black"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
     <Page.Resources>
         <vc:PersonToFullNameStringConverter x:Key="FullNameConverter"/>
@@ -101,13 +102,21 @@
                    Grid.RowSpan="2"
                    Grid.ColumnSpan="2"
                    Margin="25"/>
+        <Border BorderThickness="3"
+                CornerRadius="30"
+                Margin="50"
+                Grid.Row="1"
+                Grid.RowSpan="2"
+                Grid.ColumnSpan="2"
+                Grid.Column="1">
             <Rectangle Fill="Olive" 
                    Grid.Row="1"
                    Grid.Column="1"
                    Grid.RowSpan="2"
                    Grid.ColumnSpan="2"
-                   Margin="50"/>
-            <ScrollViewer HorizontalScrollBarVisibility="Auto"
+                   Margin="0"/>
+        </Border>
+        <ScrollViewer HorizontalScrollBarVisibility="Auto"
                       VerticalScrollBarVisibility="Auto"
                       Grid.Row="1"
                       Grid.Column="1"
