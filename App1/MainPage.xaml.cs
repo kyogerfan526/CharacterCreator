@@ -83,6 +83,7 @@ namespace CharacterMaker
         public MainPage()
         {
             this.InitializeComponent();
+            
             pagePerson = new DefaultPerson();
 
             MainGrid.DataContext = pagePerson;

@@ -6,17 +6,19 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
+    MinHeight ="600"
+    MinWidth  ="775"
+    xmlns:vc="using:App1.Value_Converters"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
+    <Page.Resources>
+        <vc:PersonToFullNameStringConverter x:Key="FullNameConverter"/>
+    </Page.Resources>
 
     <!-- Comment by Lane -->
     <!-- This will be a test page to show off layout of the character info screen -->
 
-
     <Grid x:Name="MainGrid"
-          Background="CadetBlue"
-          MinHeight="720"
-          MinWidth="1080">
+          Background="CadetBlue">
         <Grid.RowDefinitions>
             <RowDefinition Height="26*"/>
             <RowDefinition Height="37*"/>
@@ -28,26 +30,26 @@
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
 
-        <Rectangle Grid.ColumnSpan="3"
+            <Rectangle Grid.ColumnSpan="3"
                    Fill="DarkBlue"
                    Margin="25"/>
-        <Rectangle Grid.ColumnSpan="3"
+            <Rectangle Grid.ColumnSpan="3"
                    Fill="AliceBlue"
-                   Margin="50"/>
-        <TextBlock Name="CharacterNameBlock"
+                   Margin="35"/>
+            <TextBlock Name="CharacterNameBlock"
                    Grid.ColumnSpan="3" 
                    FontSize="64"
                    VerticalAlignment="Center"
                    HorizontalAlignment="Center"
-                   Text="{Binding Path=FName, Mode=OneWay}"/>
+                   Text="{Binding Path=FullName, Mode=OneWay}"/>
 
-        <StackPanel Grid.Row="1"
+            <StackPanel Grid.Row="1"
                     Grid.RowSpan="2">
 
-            <Button x:Name="RandomizeButton"
+                <Button x:Name="RandomizeButton"
                 Content="Randomize"
                 HorizontalContentAlignment="Left"
-                Padding="5 0 50 0"
+                Padding="5 0 5 0"
                 Height="75"
                 FontSize="42"
                 HorizontalAlignment="Left"
@@ -55,10 +57,10 @@
                 BorderThickness="5"
                 BorderBrush="Black"
                 Click="RandomizeButton_Click"/>
-            <Button x:Name="EditButton"
+                <Button x:Name="EditButton"
                 Content="Edit"
                 HorizontalContentAlignment="Left"
-                Padding="5 0 50 0"
+                Padding="5 0 5 0"
                 Height="75"
                 FontSize="42"
                 HorizontalAlignment="Left"
@@ -66,10 +68,10 @@
                 BorderThickness="5"
                 BorderBrush="Black"
                 Click="EditButton_Click"/>
-            <Button x:Name="SaveButton"
+                <Button x:Name="SaveButton"
                 Content="Save"
                 HorizontalContentAlignment="Left"
-                Padding="5 0 50 0"
+                Padding="5 0 5 0"
                 Height="75"
                 FontSize="42"
                 HorizontalAlignment="Left"
@@ -77,11 +79,11 @@
                 BorderThickness="5"
                 BorderBrush="Black"
                 Click="SaveButton_Click"/>
-        </StackPanel>
-        <Button x:Name="BackButton"
+            </StackPanel>
+            <Button x:Name="BackButton"
             Content="Back"
             HorizontalContentAlignment="Left"
-            Padding="5 0 50 0"
+            Padding="5 0 5 0"
             Height="75"
             FontSize="42"
             HorizontalAlignment="Left"
@@ -93,44 +95,42 @@
             Click="BackButton_Click"/>
 
 
-        <Rectangle Fill="DarkOliveGreen" 
+            <Rectangle Fill="DarkOliveGreen" 
                    Grid.Row="1"
                    Grid.Column="1"
                    Grid.RowSpan="2"
                    Grid.ColumnSpan="2"
                    Margin="25"/>
-        <Rectangle Fill="Olive" 
+            <Rectangle Fill="Olive" 
                    Grid.Row="1"
                    Grid.Column="1"
                    Grid.RowSpan="2"
                    Grid.ColumnSpan="2"
                    Margin="50"/>
-        <ScrollViewer HorizontalScrollBarVisibility="Auto"
+            <ScrollViewer HorizontalScrollBarVisibility="Auto"
                       VerticalScrollBarVisibility="Auto"
                       Grid.Row="1"
                       Grid.Column="1"
                       Grid.RowSpan="2"
                       Grid.ColumnSpan="2"
                       Margin="50">
-            <StackPanel Padding="25">
-                <TextBlock x:Name="AgeBlock"
+                <StackPanel Padding="25">
+                    <TextBlock x:Name="AgeBlock"
                        Text="{Binding Path=Age, Mode=OneWay}"
-                       FontSize="64" Margin="0 0 0 50"/>
-                <TextBlock x:Name="ProfessionBlock"
+                       FontSize="32" Margin="0 0 0 25"/>
+                    <TextBlock x:Name="ProfessionBlock"
                        Text="{Binding Path=Profession, Mode=OneWay}"
-                       FontSize="64" Margin="0 0 0 50"/>
-                <TextBlock x:Name="GenderBlock"
+                       FontSize="32" Margin="0 0 0 25"/>
+                    <TextBlock x:Name="GenderBlock"
                        Text="{Binding Path=Gender, Mode=OneWay}"
-                       FontSize="64" Margin="0 0 0 50"/>
-                <TextBlock x:Name="RaceBlock"
+                       FontSize="32" Margin="0 0 0 25"/>
+                    <TextBlock x:Name="RaceBlock"
                        Text="{Binding Path=Race, Mode=OneWay}"
-                       FontSize="64" Margin="0 0 0 50"/>
-                <TextBlock x:Name="ETCBlock"
+                       FontSize="32" Margin="0 0 0 25"/>
+                    <TextBlock x:Name="ETCBlock"
                        Text="ETC"
-                       FontSize="64" Margin="0 0 0 50"/>
-            </StackPanel>
-        </ScrollViewer>
-
-        <!-- This is the Master Branch -->
-     </Grid>
+                       FontSize="32" Margin="0 0 0 25"/>
+                </StackPanel>
+            </ScrollViewer>
+    </Grid>
 </Page>
