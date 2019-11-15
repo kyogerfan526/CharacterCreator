@@ -93,13 +93,17 @@ namespace CharacterMaker
         //Race lock
         //Genre lock
         String raceLock = null;
-        Genre genreLock = Genre.FANTASY;
+        Genre genreLock = Genre.CONTEMPORARY;
 
 
         public MainPage()
         {
             this.InitializeComponent();
             pagePerson = new DefaultPerson();
+
+            StreamWriter writer = new StreamWriter("c:\\KBTest.txt");
+            writer.WriteLine("File created using StreamWriter class.");
+            writer.Close();
 
             MainGrid.DataContext = pagePerson;
         }
@@ -134,7 +138,14 @@ namespace CharacterMaker
             {
                 if (pagePerson.Age < 18)
                 {
+                    if (pagePerson.Age < 14)
+                    {
+                        pagePerson.Profession = "Unemployed";
+                    }
+                    else 
+                    {
                         pagePerson.Profession = MinorProfessions[rand.Next(MinorProfessions.Count)];
+                    }
                 }
                 else
                 {
