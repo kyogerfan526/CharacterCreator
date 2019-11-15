@@ -99,6 +99,7 @@ namespace CharacterMaker
         public MainPage()
         {
             this.InitializeComponent();
+            
             pagePerson = new DefaultPerson();
 
             StreamWriter writer = new StreamWriter("c:\\KBTest.txt");
