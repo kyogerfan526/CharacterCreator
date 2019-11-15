@@ -131,7 +131,7 @@
             </StackPanel>
         </ScrollViewer>
 
-        <MenuBar x:Name="TopBar" Background="DarkGray" VerticalAlignment="Top">
+        <MenuBar x:Name="TopBar" Grid.ColumnSpan="3" Background="DarkGray" VerticalAlignment="Top">
             <MenuBarItem 
                 x:Name="Genre_selction"
                 Title="Genre selection"  
