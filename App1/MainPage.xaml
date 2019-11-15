@@ -39,7 +39,7 @@
                    FontSize="64"
                    VerticalAlignment="Center"
                    HorizontalAlignment="Center"
-                   Text="{Binding Path=FName, Mode=OneWay}"/>
+                   Text="{Binding Path=FullName, Mode=OneWay}"/>
 
         <StackPanel Grid.Row="1"
                     Grid.RowSpan="2">
