@@ -57,7 +57,7 @@ namespace CharacterMaker
 
         List<String> MinorProfessions = new List<String> { "Actor", "Manager", "Janitor", "Musician", "Groundskeeper", "Youtuber", "Twitch streamer", "Artist", "Fry Cook",
         "Unemployed", "Dairy Farmer", "Rancher", "Monocultural Farmer", "Comedian", "Rockstar", "Panhandler", "Small Business Owner",
-        "Mixer Sellout Streamer", "MLG Pro", "Indie Film Director", "Dog Breeder", "Undertaker", "Supermarket Employee", "Supermarket Manager", "Circus Clown"};
+        "Mixer Sellout Streamer", "MLG Pro", "Indie Film Director", "Dog Breeder", "Supermarket Employee", "Supermarket Manager", "Circus Clown"};
 
         List<String> FantasyProfessions = new List<String> { "Wheat Farmer", "Lord", "Quartermaster", "Guild Head", "Necromancer", "Wizard", "Warlock", "Witch", "Monk", "Priest", "Cleric"
         , "Doctor", "Plague Doctor", "Knight", "Personal Guard", "Town Guard", "Militia", "Bandit", "Thief", "Smuggler", "Barkeeper", "Barmaid", "Tavern Wench", "Barbarian", "Town Fool",
