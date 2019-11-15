@@ -207,16 +207,19 @@ namespace CharacterMaker
 
         private void Real_Life_Click(object sender, RoutedEventArgs e)
         {
+            genreLock = Genre.CONTEMPORARY;
 
         }
 
         private void Fantasy_Click(object sender, RoutedEventArgs e)
         {
+             genreLock = Genre.FANTASY;
 
         }
 
         private void Sci_Fi_Click(object sender, RoutedEventArgs e)
         {
+             genreLock = Genre.SCIFI;
 
         }
     }
