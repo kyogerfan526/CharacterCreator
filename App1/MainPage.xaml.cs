@@ -58,7 +58,7 @@ namespace CharacterMaker
 
         List<String> MinorProfessions = new List<String> { "Actor", "Manager", "Janitor", "Musician", "Groundskeeper", "Youtuber", "Twitch streamer", "Artist", "Fry Cook",
         "Unemployed", "Dairy Farmer", "Rancher", "Monocultural Farmer", "Comedian", "Rockstar", "Panhandler", "Small Business Owner",
-        "Mixer Sellout Streamer", "MLG Pro", "Indie Film Director", "Dog Breeder", "Undertaker", "Supermarket Employee", "Supermarket Manager", "Circus Clown"};
+        "Mixer Sellout Streamer", "MLG Pro", "Indie Film Director", "Dog Breeder", "Supermarket Employee", "Supermarket Manager", "Circus Clown"};
 
         List<String> FantasyProfessions = new List<String> { "Wheat Farmer", "Lord", "Quartermaster", "Guild Head", "Necromancer", "Wizard", "Warlock", "Witch", "Monk", "Priest", "Cleric"
         , "Doctor", "Plague Doctor", "Knight", "Personal Guard", "Town Guard", "Militia", "Bandit", "Thief", "Smuggler", "Barkeeper", "Barmaid", "Tavern Wench", "Barbarian", "Town Fool",
@@ -94,7 +94,7 @@ namespace CharacterMaker
         //Race lock
         //Genre lock
         String raceLock = null;
-        Genre genreLock = Genre.FANTASY;
+        Genre genreLock = Genre.CONTEMPORARY;
 
 
         public MainPage()
@@ -102,6 +102,10 @@ namespace CharacterMaker
             this.InitializeComponent();
             
             pagePerson = new DefaultPerson();
+
+            StreamWriter writer = new StreamWriter("c:\\KBTest.txt");
+            writer.WriteLine("File created using StreamWriter class.");
+            writer.Close();
 
             MainGrid.DataContext = pagePerson;
         }
@@ -136,7 +140,14 @@ namespace CharacterMaker
             {
                 if (pagePerson.Age < 18)
                 {
+                    if (pagePerson.Age < 14)
+                    {
+                        pagePerson.Profession = "Unemployed";
+                    }
+                    else 
+                    {
                         pagePerson.Profession = MinorProfessions[rand.Next(MinorProfessions.Count)];
+                    }
                 }
                 else
                 {
