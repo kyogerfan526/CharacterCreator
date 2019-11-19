@@ -107,10 +107,6 @@ namespace CharacterMaker
             
             pagePerson = new DefaultPerson();
 
-            StreamWriter writer = new StreamWriter("c:\\KBTest.txt");
-            writer.WriteLine("File created using StreamWriter class.");
-            writer.Close();
-
             MainGrid.DataContext = pagePerson;
         }
 
