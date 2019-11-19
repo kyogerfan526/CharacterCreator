@@ -181,26 +181,26 @@ namespace CharacterMaker
             // Back Button
         }
 
-        private void SaveButton_Click(object sender, RoutedEventArgs e)
+        private async void SaveButton_Click(object sender, RoutedEventArgs e)
         {
+                var savePicker = new Windows.Storage.Pickers.FileSavePicker();
+                savePicker.SuggestedStartLocation =
+                Windows.Storage.Pickers.PickerLocationId.DocumentsLibrary;
+                // Dropdown of file types the user can save the file as
+                savePicker.FileTypeChoices.Add("Plain Text", new List<string>() { ".txt" });
+                // Default file name if the user does not type one in or select a file to replace
+                savePicker.SuggestedFileName = "New Document";
+                Windows.Storage.StorageFile file = await savePicker.PickSaveFileAsync();
+                if (file != null)
+                {
+                    Windows.Storage.CachedFileManager.DeferUpdates(file);
+                    await Windows.Storage.FileIO.WriteTextAsync(file, file.Name);
 
-            FileInfo file = new FileInfo(@"C:\Users\Adam\Desktop\sample.txt");
-            if(file.Exists)
-            {
-                StreamWriter writer = file.CreateText();
-                writer.WriteLine(pagePerson.FName + " " + pagePerson.FName
-                + "\n " + pagePerson.Gender + "\n " + pagePerson.Age + "\n " + pagePerson.Race + "\n " + pagePerson.Profession);
-                writer.Close();
-            }
-            else
-            {
-                File.Create(@"C:\Users\Adam\Desktop\sample.txt");
-                StreamWriter writer = file.CreateText();
-                writer.WriteLine(pagePerson.FName + " " + pagePerson.FName
-                + "\n " + pagePerson.Gender + "\n " + pagePerson.Age + "\n " + pagePerson.Race + "\n " + pagePerson.Profession);
-                writer.Close();
+                    await Windows.Storage.FileIO.WriteTextAsync(file, pagePerson.ToString());
 
-            }
+                    Windows.Storage.Provider.FileUpdateStatus status =
+                    await Windows.Storage.CachedFileManager.CompleteUpdatesAsync(file);
+                }
             
 
         }
@@ -208,19 +208,16 @@ namespace CharacterMaker
         private void Real_Life_Click(object sender, RoutedEventArgs e)
         {
             genreLock = Genre.CONTEMPORARY;
-
         }
 
         private void Fantasy_Click(object sender, RoutedEventArgs e)
         {
              genreLock = Genre.FANTASY;
-
         }
 
         private void Sci_Fi_Click(object sender, RoutedEventArgs e)
         {
              genreLock = Genre.SCIFI;
-
         }
     }
 }
