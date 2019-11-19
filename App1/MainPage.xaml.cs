@@ -110,14 +110,8 @@ namespace CharacterMaker
             MainGrid.DataContext = pagePerson;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void GeneratePerson()
         {
-            // Hm
-        }
-
-        private void RandomizeButton_Click(object sender, RoutedEventArgs e)
-        {
-            // Randomize Button
             if (genderLock)
             {
                 if (lockedGender == "Male")
@@ -180,6 +174,22 @@ namespace CharacterMaker
             {
                 pagePerson.Race = Races[rand.Next(Races.Count)];
             }
+        
+        }
+
+
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            // Hm
+        }
+
+        private void RandomizeButton_Click(object sender, RoutedEventArgs e)
+        {
+            // Randomize Button
+            GeneratePerson();
+
+
         }
 
         private void EditButton_Click(object sender, RoutedEventArgs e)
@@ -230,5 +240,14 @@ namespace CharacterMaker
         {
              genreLock = Genre.SCIFI;
         }
+
+
+
+
+
+
+
+
+
     }
 }
