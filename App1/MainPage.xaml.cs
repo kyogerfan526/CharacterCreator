@@ -85,6 +85,7 @@ namespace CharacterMaker
 
         private DefaultPerson pagePerson;
         public enum Genre { CONTEMPORARY, FANTASY, SCIFI };
+        public enum Complexity { Simple, ModeratlyComplex, Complex, ModeratlyComplexTableTop };
 
         //Bool for male/female lock
         //Gender for male/female lock
@@ -95,6 +96,7 @@ namespace CharacterMaker
         //Genre lock
         String raceLock = null;
         Genre genreLock = Genre.FANTASY;
+        Complexity complock = Complexity.Simple;
 
 
         public MainPage()
@@ -218,6 +220,26 @@ namespace CharacterMaker
         private void Sci_Fi_Click(object sender, RoutedEventArgs e)
         {
              genreLock = Genre.SCIFI;
+        }
+
+        private void Simple_Click(object sender, RoutedEventArgs e)
+        {
+            complock = Complexity.Simple;
+        }
+
+        private void Moderatly_complex_Click(object sender, RoutedEventArgs e)
+        {
+            complock = Complexity.ModeratlyComplex;
+        }
+
+        private void Moderatly_complex_table_top_Click(object sender, RoutedEventArgs e)
+        {
+            complock = Complexity.ModeratlyComplexTableTop;
+        }
+
+        private void Complex_Click(object sender, RoutedEventArgs e)
+        {
+            complock = Complexity.Complex;
         }
     }
 }
