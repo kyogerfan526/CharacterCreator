@@ -116,68 +116,210 @@ namespace CharacterMaker
 
         private void GeneratePerson()
         {
-            if (genderLock)
+            if(complock == Complexity.Simple)
             {
-                if (lockedGender == "Male")
+                if (genderLock)
                 {
-                    pagePerson.FName = MFNames[rand.Next(MFNames.Count)];
-                }
-                else if (lockedGender == "Female")
-                {
-                    pagePerson.FName = FFNames[rand.Next(FFNames.Count)];
-                }
-            }
-            else 
-            {
-                pagePerson.FName = FNames[rand.Next(FNames.Count)];
-            }
-            pagePerson.LName = LNames[rand.Next(LNames.Count)];
-
-            pagePerson.Age = rand.Next(101);
-            if (genreLock == Genre.CONTEMPORARY)
-            {
-                if (pagePerson.Age < 18)
-                {
-                    if (pagePerson.Age < 14)
+                    if (lockedGender == "Male")
                     {
-                        pagePerson.Profession = "Unemployed";
+                        pagePerson.FName = MFNames[rand.Next(MFNames.Count)];
                     }
-                    else 
+                    else if (lockedGender == "Female")
                     {
-                        pagePerson.Profession = MinorProfessions[rand.Next(MinorProfessions.Count)];
+                        pagePerson.FName = FFNames[rand.Next(FFNames.Count)];
                     }
                 }
                 else
                 {
+                    pagePerson.FName = FNames[rand.Next(FNames.Count)];
+                }
+                pagePerson.LName = LNames[rand.Next(LNames.Count)];
+
+                pagePerson.Age = rand.Next(101);
+                if (genreLock == Genre.CONTEMPORARY)
+                {
+                    if (pagePerson.Age < 18)
+                    {
+                        if (pagePerson.Age < 14)
+                        {
+                            pagePerson.Profession = "Unemployed";
+                        }
+                        else
+                        {
+                            pagePerson.Profession = MinorProfessions[rand.Next(MinorProfessions.Count)];
+                        }
+                    }
+                    else
+                    {
                         pagePerson.Profession = Professions[rand.Next(Professions.Count)];
+                    }
+                }
+                else if (genreLock == Genre.FANTASY)
+                {
+                    pagePerson.Profession = FantasyProfessions[rand.Next(FantasyProfessions.Count)];
+                }
+                else if (genreLock == Genre.SCIFI)
+                {
+                    pagePerson.Profession = FantasyProfessions[rand.Next(FantasyProfessions.Count)];
+                }
+
+                if (genderLock)
+                {
+                    pagePerson.Gender = lockedGender;
+                }
+                else
+                {
+                    pagePerson.Gender = Genders[rand.Next(Genders.Count)];
+                }
+
+                if (raceLock != null)
+                {
+                    pagePerson.Race = raceLock;
+                }
+                else
+                {
+                    pagePerson.Race = Races[rand.Next(Races.Count)];
                 }
             }
-            else if (genreLock == Genre.FANTASY)
+            else if(complock == Complexity.ModeratlyComplex) //complexity
             {
+                if (genderLock)
+                {
+                    if (lockedGender == "Male")
+                    {
+                        pagePerson.FName = MFNames[rand.Next(MFNames.Count)];
+                    }
+                    else if (lockedGender == "Female")
+                    {
+                        pagePerson.FName = FFNames[rand.Next(FFNames.Count)];
+                    }
+                }
+                else
+                {
+                    pagePerson.FName = FNames[rand.Next(FNames.Count)];
+                }
+                pagePerson.LName = LNames[rand.Next(LNames.Count)];
+
+                pagePerson.Age = rand.Next(101);
+                if (genreLock == Genre.CONTEMPORARY)
+                {
+                    if (pagePerson.Age < 18)
+                    {
+                        if (pagePerson.Age < 14)
+                        {
+                            pagePerson.Profession = "Unemployed";
+                        }
+                        else
+                        {
+                            pagePerson.Profession = MinorProfessions[rand.Next(MinorProfessions.Count)];
+                        }
+                    }
+                    else
+                    {
+                        pagePerson.Profession = Professions[rand.Next(Professions.Count)];
+                    }
+                }
+                else if (genreLock == Genre.FANTASY)
+                {
                     pagePerson.Profession = FantasyProfessions[rand.Next(FantasyProfessions.Count)];
+                }
+                else if (genreLock == Genre.SCIFI)
+                {
+                    pagePerson.Profession = FantasyProfessions[rand.Next(FantasyProfessions.Count)];
+                }
+
+                if (genderLock)
+                {
+                    pagePerson.Gender = lockedGender;
+                }
+                else
+                {
+                    pagePerson.Gender = Genders[rand.Next(Genders.Count)];
+                }
+
+                if (raceLock != null)
+                {
+                    pagePerson.Race = raceLock;
+                }
+                else
+                {
+                    pagePerson.Race = Races[rand.Next(Races.Count)];
+                }
+
+
+
+
             }
-            else if (genreLock == Genre.SCIFI)
+            else if(complock == Complexity.Complex)
             {
+                if (genderLock)
+                {
+                    if (lockedGender == "Male")
+                    {
+                        pagePerson.FName = MFNames[rand.Next(MFNames.Count)];
+                    }
+                    else if (lockedGender == "Female")
+                    {
+                        pagePerson.FName = FFNames[rand.Next(FFNames.Count)];
+                    }
+                }
+                else
+                {
+                    pagePerson.FName = FNames[rand.Next(FNames.Count)];
+                }
+                pagePerson.LName = LNames[rand.Next(LNames.Count)];
+
+                pagePerson.Age = rand.Next(101);
+                if (genreLock == Genre.CONTEMPORARY)
+                {
+                    if (pagePerson.Age < 18)
+                    {
+                        if (pagePerson.Age < 14)
+                        {
+                            pagePerson.Profession = "Unemployed";
+                        }
+                        else
+                        {
+                            pagePerson.Profession = MinorProfessions[rand.Next(MinorProfessions.Count)];
+                        }
+                    }
+                    else
+                    {
+                        pagePerson.Profession = Professions[rand.Next(Professions.Count)];
+                    }
+                }
+                else if (genreLock == Genre.FANTASY)
+                {
                     pagePerson.Profession = FantasyProfessions[rand.Next(FantasyProfessions.Count)];
+                }
+                else if (genreLock == Genre.SCIFI)
+                {
+                    pagePerson.Profession = FantasyProfessions[rand.Next(FantasyProfessions.Count)];
+                }
+
+                if (genderLock)
+                {
+                    pagePerson.Gender = lockedGender;
+                }
+                else
+                {
+                    pagePerson.Gender = Genders[rand.Next(Genders.Count)];
+                }
+
+                if (raceLock != null)
+                {
+                    pagePerson.Race = raceLock;
+                }
+                else
+                {
+                    pagePerson.Race = Races[rand.Next(Races.Count)];
+                }
+
+
+
             }
 
-            if (genderLock)
-            {
-                pagePerson.Gender = lockedGender;
-            }
-            else
-            {
-                pagePerson.Gender = Genders[rand.Next(Genders.Count)];
-            }
-
-            if (raceLock != null)
-            {
-                pagePerson.Race = raceLock;
-            }
-            else 
-            {
-                pagePerson.Race = Races[rand.Next(Races.Count)];
-            }
+            
         
         }
 
