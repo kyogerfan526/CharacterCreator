@@ -81,6 +81,34 @@ namespace CharacterMaker
 
         List<String> Genders = new List<String> { "Male", "Female" };
 
+        List<String> Nationalities = new List<String> { "USA", "China", "Russia", "UK", "Canada", "Mexico", "Japan", "Saudi Arabia", "South Africa", "Sudan" };
+
+        List<String> fantasyNationalities = new List<String>();
+
+        List<String> scifiNationalities = new List<String>();
+
+        List<String> hairColors = new List<String> { "Blonde", "Gray", "Brown", "Red", "Ginger", "Brunette", "Black", "Dark Brown", "White", "Platinum Blonde", "Dirty Blonde", "Reddish Brown"};
+
+        List<String> eyeColors = new List<String> { "Blue", "Brown", "Dark Brown", "Hazel", "Green" };
+
+        List<String> personalities = new List<String> { "Reserved", "Snobby", "Sporty", "Kindhearted", "Merrymaker", "Jokester", "Angry", "Bitter", "Depressed", "Bubbly", "Quiet", "Timid" };
+
+        List<String> likes = new List<String> { "Cats", "Dogs", "Memes", "Sportsball", "Poker", "Gambling", "Movies", "Adventures", "Swimming", "Fishing", "Cartoons", "Cooking", "Cars", "Sleeping" };
+
+        List<String> accents = new List<String> { "Southern", "Yooper", "New Orleans", "Valley", "New York", "Boston", "Jersey", "Chicago", "Manitowoc", "non-native", "Cockney", "London", "Hindi", "Slavic", "Irish", "Scottish" };
+
+        List<String> dressStyles = new List<String> { "Basic", "Urban", "Nerdy", "Formal", "Trendy", "Business", "Business Casual", "Casual", "Extreme Casual", "punk", "athletic" };
+
+        List<String> fightingStyles = new List<String> { "Scrappy", "Wimpy", "Western Martial Arts", "Eastern Martial Arts", "MMA", "Wrestling", "Dirty", "Police/Military" };
+
+        List<String> foods = new List<String> { "Lasgna", "Pizza", "Bacon and Eggs", "Cake", "Candy", "Fried Chicken", "Pasta", "Steak", "Burger and Fries", "Milkshake", "Donuts", "Ice Cream" };
+
+        List<String> groups = new List<String> { "PTA", "Volunteer Firefighters", "Book Club", "Local Boxing Gym", "Local Cult", "Worker's Union" };
+
+        List<String> fantasyGroups = new List<String> { "Monster Hunters Guild", "Mages Guild", "Order of The Holy Knights", "Necromancies Congregation", "Church of Dagon", "Church of The Holy Goddess", "Royal Inquisitors" };
+
+        List<String> scifiGroups = new List<String> { "Megacorp Union", "Hacker Gang", "Space Mafia", "Cyborg Advocates" };
+
         Random rand = new Random();
 
         private DefaultPerson pagePerson;
