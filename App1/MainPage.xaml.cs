@@ -58,7 +58,7 @@ namespace CharacterMaker
 
         List<String> MinorProfessions = new List<String> { "Actor", "Manager", "Janitor", "Musician", "Groundskeeper", "Youtuber", "Twitch streamer", "Artist", "Fry Cook",
         "Unemployed", "Dairy Farmer", "Rancher", "Monocultural Farmer", "Comedian", "Rockstar", "Panhandler", "Small Business Owner",
-        "Mixer Sellout Streamer", "MLG Pro", "Indie Film Director", "Dog Breeder", "Undertaker", "Supermarket Employee", "Supermarket Manager", "Circus Clown"};
+        "Mixer Sellout Streamer", "MLG Pro", "Indie Film Director", "Dog Breeder", "Supermarket Employee", "Supermarket Manager", "Circus Clown"};
 
         List<String> FantasyProfessions = new List<String> { "Wheat Farmer", "Lord", "Quartermaster", "Guild Head", "Necromancer", "Wizard", "Warlock", "Witch", "Monk", "Priest", "Cleric"
         , "Doctor", "Plague Doctor", "Knight", "Personal Guard", "Town Guard", "Militia", "Bandit", "Thief", "Smuggler", "Barkeeper", "Barmaid", "Tavern Wench", "Barbarian", "Town Fool",
@@ -95,8 +95,10 @@ namespace CharacterMaker
         //Race lock
         //Genre lock
         String raceLock = null;
+
         Genre genreLock = Genre.FANTASY;
         Complexity complock = Complexity.Simple;
+
 
 
         public MainPage()
@@ -105,17 +107,15 @@ namespace CharacterMaker
             
             pagePerson = new DefaultPerson();
 
+            StreamWriter writer = new StreamWriter("c:\\KBTest.txt");
+            writer.WriteLine("File created using StreamWriter class.");
+            writer.Close();
+
             MainGrid.DataContext = pagePerson;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void GeneratePerson()
         {
-            // Hm
-        }
-
-        private void RandomizeButton_Click(object sender, RoutedEventArgs e)
-        {
-            // Randomize Button
             if (genderLock)
             {
                 if (lockedGender == "Male")
@@ -138,7 +138,14 @@ namespace CharacterMaker
             {
                 if (pagePerson.Age < 18)
                 {
+                    if (pagePerson.Age < 14)
+                    {
+                        pagePerson.Profession = "Unemployed";
+                    }
+                    else 
+                    {
                         pagePerson.Profession = MinorProfessions[rand.Next(MinorProfessions.Count)];
+                    }
                 }
                 else
                 {
@@ -171,6 +178,22 @@ namespace CharacterMaker
             {
                 pagePerson.Race = Races[rand.Next(Races.Count)];
             }
+        
+        }
+
+
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            // Hm
+        }
+
+        private void RandomizeButton_Click(object sender, RoutedEventArgs e)
+        {
+            // Randomize Button
+            GeneratePerson();
+
+
         }
 
         private void EditButton_Click(object sender, RoutedEventArgs e)
@@ -241,5 +264,6 @@ namespace CharacterMaker
         {
             complock = Complexity.Complex;
         }
+
     }
 }
