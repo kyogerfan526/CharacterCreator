@@ -192,6 +192,8 @@ namespace App1.models
 
             string compiledLikes = "Likes: " + sb.ToString();
 
+            sb.Clear();
+
             foreach (string dislike in dislikes)
             {
                 sb.Append(dislike + ", ");
