@@ -156,6 +156,37 @@
                 </MenuFlyoutItem>
 
             </MenuBarItem>
+
+            <MenuBarItem 
+                x:Name="Complexity_selction"
+                Title="Complexity"  
+                >
+
+                <MenuFlyoutItem 
+                    x:Name="Simple"
+                    Text="Simple"
+                    Click="Simple_Click">
+                </MenuFlyoutItem>
+
+                <MenuFlyoutItem 
+                    x:Name="Moderatly_complex"
+                    Text="Moderatly complex"
+                    Click="Moderatly_complex_Click">
+                </MenuFlyoutItem>
+
+                <MenuFlyoutItem 
+                    x:Name="Moderatly_complex_table_top"
+                    Text="Moderatly complex table top"
+                    Click="Moderatly_complex_table_top_Click">
+                </MenuFlyoutItem>
+
+                <MenuFlyoutItem 
+                    x:Name="Complex"
+                    Text="Complex"
+                    Click="Complex_Click">
+                </MenuFlyoutItem>
+
+            </MenuBarItem>
         </MenuBar>
 
         <!-- This is the Master Branch -->
