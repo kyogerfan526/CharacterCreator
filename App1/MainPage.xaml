@@ -112,7 +112,7 @@
                       Grid.RowSpan="2"
                       Grid.ColumnSpan="2"
                       Margin="50">
-            <StackPanel Padding="25">
+            <StackPanel x:Name="Display" Padding="25">
                 <TextBlock x:Name="AgeBlock"
                        Text="{Binding Path=Age, Mode=OneWay}"
                        FontSize="64" Margin="0 0 0 50"/>
@@ -184,6 +184,12 @@
                     x:Name="Complex"
                     Text="Complex"
                     Click="Complex_Click">
+                </MenuFlyoutItem>
+
+                <MenuFlyoutItem 
+                    x:Name="complex_table_top"
+                    Text="Complex table top"
+                    Click="complex_table_top_Click">
                 </MenuFlyoutItem>
 
             </MenuBarItem>
