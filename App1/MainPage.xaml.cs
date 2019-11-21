@@ -14,6 +14,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using System.Collections.ObjectModel;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -111,6 +112,7 @@ namespace CharacterMaker
 
         Random rand = new Random();
 
+        ObservableCollection<CharacterTrait> traitsList = new ObservableCollection<CharacterTrait>();
         private DefaultPerson pagePerson;
         public enum Genre { CONTEMPORARY, FANTASY, SCIFI };
         public enum Complexity { Simple, ModeratlyComplex, Complex, ModeratlyComplexTableTop };
@@ -127,19 +129,22 @@ namespace CharacterMaker
         Genre genreLock = Genre.FANTASY;
         Complexity complock = Complexity.Simple;
 
-
-
         public MainPage()
         {
             this.InitializeComponent();
             
             pagePerson = new DefaultPerson();
 
-            MainGrid.DataContext = pagePerson;
+            CharacterNameBlock.DataContext = pagePerson;
+            CharacterTraitsArea.ItemsSource = traitsList;
         }
 
         private void GeneratePerson()
         {
+            // Clears the traitsList so that all previous values are discarded and new values can take their place.
+            traitsList.Clear();
+
+
             if(complock == Complexity.Simple)
             {
                 if (genderLock)
@@ -212,6 +217,7 @@ namespace CharacterMaker
                     if (lockedGender == "Male")
                     {
                         pagePerson.FName = MFNames[rand.Next(MFNames.Count)];
+                        traitsList.Add(new CharacterTrait("First Name", pagePerson.FName));
                     }
                     else if (lockedGender == "Female")
                     {
@@ -251,6 +257,7 @@ namespace CharacterMaker
                 {
                     pagePerson.Profession = FantasyProfessions[rand.Next(FantasyProfessions.Count)];
                 }
+                traitsList.Add(new CharacterTrait("Profession", pagePerson.Profession));
 
                 if (genderLock)
                 {
@@ -343,8 +350,11 @@ namespace CharacterMaker
 
             }
 
-            
-        
+            // Adds the basic traits; use this format wherever you randomize a value on the pagePerson and then remove these
+            traitsList.Add(new CharacterTrait("Age", pagePerson.Age));
+            traitsList.Add(new CharacterTrait("Profession", pagePerson.Profession));
+            traitsList.Add(new CharacterTrait("Race", pagePerson.Race));
+            traitsList.Add(new CharacterTrait("Gender", pagePerson.Gender));
         }
 
 
@@ -392,7 +402,11 @@ namespace CharacterMaker
                     Windows.Storage.Provider.FileUpdateStatus status =
                     await Windows.Storage.CachedFileManager.CompleteUpdatesAsync(file);
                 }
-            
+        }
+
+        private async void LoadButton_Click(object sender, RoutedEventArgs e)
+        {
+            // LoadButton
 
         }
 
@@ -431,5 +445,16 @@ namespace CharacterMaker
             complock = Complexity.Complex;
         }
 
+    }
+
+    public struct CharacterTrait
+    {
+        public CharacterTrait(string traitName, object traitValue)
+        {
+            TraitName = traitName;
+            TraitValue = traitValue;
+        }
+        public string TraitName { get; set; }
+        public object TraitValue { get; set; }
     }
 }

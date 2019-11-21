@@ -12,126 +12,11 @@
     <!-- Comment by Lane -->
     <!-- This will be a test page to show off layout of the character info screen -->
 
-
-    <Grid x:Name="MainGrid"
-          Background="CadetBlue"
-          MinHeight="720"
-          MinWidth="1080">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="26*"/>
-            <RowDefinition Height="37*"/>
-            <RowDefinition Height="37*"/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition />
-            <ColumnDefinition />
-            <ColumnDefinition />
-        </Grid.ColumnDefinitions>
-
-        <Rectangle Grid.ColumnSpan="3"
-                   Fill="DarkBlue"
-                   Margin="25"/>
-        <Rectangle Grid.ColumnSpan="3"
-                   Fill="AliceBlue"
-                   Margin="50"/>
-        <TextBlock Name="CharacterNameBlock"
-                   Grid.ColumnSpan="3" 
-                   FontSize="64"
-                   VerticalAlignment="Center"
-                   HorizontalAlignment="Center"
-                   Text="{Binding Path=FullName, Mode=OneWay}"/>
-
-        <StackPanel Grid.Row="1"
-                    Grid.RowSpan="2">
-
-            <Button x:Name="RandomizeButton"
-                Content="Randomize"
-                HorizontalContentAlignment="Left"
-                Padding="5 0 50 0"
-                Height="75"
-                FontSize="42"
-                HorizontalAlignment="Left"
-                Margin="30 25 0 0"
-                BorderThickness="5"
-                BorderBrush="Black"
-                Click="RandomizeButton_Click"/>
-            <Button x:Name="EditButton"
-                Content="Edit"
-                HorizontalContentAlignment="Left"
-                Padding="5 0 50 0"
-                Height="75"
-                FontSize="42"
-                HorizontalAlignment="Left"
-                Margin="30 25 0 0"
-                BorderThickness="5"
-                BorderBrush="Black"
-                Click="EditButton_Click"/>
-            <Button x:Name="SaveButton"
-                Content="Save"
-                HorizontalContentAlignment="Left"
-                Padding="5 0 50 0"
-                Height="75"
-                FontSize="42"
-                HorizontalAlignment="Left"
-                Margin="30 25 0 0"
-                BorderThickness="5"
-                BorderBrush="Black"
-                Click="SaveButton_Click"/>
-        </StackPanel>
-        <Button x:Name="BackButton"
-            Content="Back"
-            HorizontalContentAlignment="Left"
-            Padding="5 0 50 0"
-            Height="75"
-            FontSize="42"
-            HorizontalAlignment="Left"
-            Margin="30 25 0 25"
-            BorderThickness="5"
-            BorderBrush="Black"
-            VerticalAlignment="Bottom"
-            Grid.Row="2"
-            Click="BackButton_Click"/>
-
-
-        <Rectangle Fill="DarkOliveGreen" 
-                   Grid.Row="1"
-                   Grid.Column="1"
-                   Grid.RowSpan="2"
-                   Grid.ColumnSpan="2"
-                   Margin="25"/>
-        <Rectangle Fill="Olive" 
-                   Grid.Row="1"
-                   Grid.Column="1"
-                   Grid.RowSpan="2"
-                   Grid.ColumnSpan="2"
-                   Margin="50"/>
-        <ScrollViewer HorizontalScrollBarVisibility="Auto"
-                      VerticalScrollBarVisibility="Auto"
-                      Grid.Row="1"
-                      Grid.Column="1"
-                      Grid.RowSpan="2"
-                      Grid.ColumnSpan="2"
-                      Margin="50">
-            <StackPanel Padding="25">
-                <TextBlock x:Name="AgeBlock"
-                       Text="{Binding Path=Age, Mode=OneWay}"
-                       FontSize="64" Margin="0 0 0 50"/>
-                <TextBlock x:Name="ProfessionBlock"
-                       Text="{Binding Path=Profession, Mode=OneWay}"
-                       FontSize="64" Margin="0 0 0 50"/>
-                <TextBlock x:Name="GenderBlock"
-                       Text="{Binding Path=Gender, Mode=OneWay}"
-                       FontSize="64" Margin="0 0 0 50"/>
-                <TextBlock x:Name="RaceBlock"
-                       Text="{Binding Path=Race, Mode=OneWay}"
-                       FontSize="64" Margin="0 0 0 50"/>
-                <TextBlock x:Name="ETCBlock"
-                       Text="ETC"
-                       FontSize="64" Margin="0 0 0 50"/>
-            </StackPanel>
-        </ScrollViewer>
-
-        <MenuBar x:Name="TopBar" Grid.ColumnSpan="3" Background="DarkGray" VerticalAlignment="Top">
+    <StackPanel>
+        <MenuBar x:Name="TopBar" 
+                 Height="45"
+                 Background="DarkGray" 
+                 VerticalAlignment="Top">
             <MenuBarItem 
                 x:Name="Genre_selction"
                 Title="Genre selection"  
@@ -189,6 +74,145 @@
             </MenuBarItem>
         </MenuBar>
 
-        <!-- This is the Master Branch -->
-     </Grid>
+        <Grid x:Name="MainGrid"
+          Background="CadetBlue"
+          Height="650"
+          MinWidth="1080">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="26*"/>
+                <RowDefinition Height="37*"/>
+                <RowDefinition Height="37*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <Border BorderBrush="DarkBlue"
+                    BorderThickness="5"
+                    CornerRadius="30"
+                    Grid.ColumnSpan="3"
+                    Margin="50 15">
+                <Rectangle Fill="AliceBlue"/>
+            </Border>
+            <TextBlock Name="CharacterNameBlock"
+                   Grid.ColumnSpan="3" 
+                   FontSize="64"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Center"
+                   Text="{Binding Path=FullName, Mode=OneWay}"/>
+
+            <StackPanel Grid.Row="1"
+                    Grid.RowSpan="2">
+
+                <Button x:Name="RandomizeButton"
+                Content="Randomize"
+                HorizontalContentAlignment="Left"
+                Padding="5 0 50 0"
+                Height="75"
+                FontSize="42"
+                HorizontalAlignment="Left"
+                Margin="30 10 0 0"
+                BorderThickness="5"
+                BorderBrush="Black"
+                Click="RandomizeButton_Click"/>
+                <Button x:Name="EditButton"
+                Content="Edit"
+                HorizontalContentAlignment="Left"
+                Padding="5 0 50 0"
+                Height="75"
+                FontSize="42"
+                HorizontalAlignment="Left"
+                Margin="30 10 0 0"
+                BorderThickness="5"
+                BorderBrush="Black"
+                Click="EditButton_Click"/>
+                <Button x:Name="SaveButton"
+                Content="Save"
+                HorizontalContentAlignment="Left"
+                Padding="5 0 50 0"
+                Height="75"
+                FontSize="42"
+                HorizontalAlignment="Left"
+                Margin="30 10 0 0"
+                BorderThickness="5"
+                BorderBrush="Black"
+                Click="SaveButton_Click"/>
+                <Button x:Name="LoadButotn"
+                Content="Load"
+                HorizontalContentAlignment="Left"
+                Padding="5 0 50 0"
+                Height="75"
+                FontSize="42"
+                HorizontalAlignment="Left"
+                Margin="30 10 0 0"
+                BorderThickness="5"
+                BorderBrush="Black"
+                Click="LoadButton_Click"/>
+            </StackPanel>
+            <Button x:Name="BackButton"
+            Content="Back"
+            HorizontalContentAlignment="Left"
+            Padding="5 0 50 0"
+            Height="75"
+            FontSize="42"
+            HorizontalAlignment="Left"
+            Margin="30 25 0 25"
+            BorderThickness="5"
+            BorderBrush="Black"
+            VerticalAlignment="Bottom"
+            Grid.Row="2"
+            Click="BackButton_Click"/>
+
+
+            <Rectangle Fill="DarkOliveGreen" 
+                   Grid.Row="1"
+                   Grid.Column="1"
+                   Grid.RowSpan="2"
+                   Grid.ColumnSpan="2"
+                   Margin="25"/>
+            <Rectangle Fill="Olive" 
+                   Grid.Row="1"
+                   Grid.Column="1"
+                   Grid.RowSpan="2"
+                   Grid.ColumnSpan="2"
+                   Margin="50"/>
+            <ScrollViewer HorizontalScrollBarVisibility="Auto"
+                      VerticalScrollBarVisibility="Auto"
+                      Grid.Row="1"
+                      Grid.Column="1"
+                      Grid.RowSpan="2"
+                      Grid.ColumnSpan="2"
+                      Margin="50">
+                <ListView x:Name="CharacterTraitsArea"
+                          SelectionMode="None">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="175"/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+
+                                <TextBlock x:Name="TraitName"
+                                           Text="{Binding TraitName}"
+                                           HorizontalAlignment="Right"
+                                           FontSize="28"
+                                           Grid.Column="0"
+                                           Margin="0 0 25 0"
+                                           VerticalAlignment="Bottom"
+                                           FontWeight="Bold"/>
+                                <TextBlock x:Name="TraitValue"
+                                           Text="{Binding TraitValue}"
+                                           FontSize="24"
+                                           Grid.Column="1"
+                                           VerticalAlignment="Bottom"/>
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </ScrollViewer>
+        </Grid>
+    </StackPanel>
 </Page>
