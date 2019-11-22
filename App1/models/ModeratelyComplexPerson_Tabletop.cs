@@ -175,7 +175,7 @@ namespace App1.models
             }
         }
 
-        public string[] Disikes
+        public string[] Dislikes
         {
             get { return dislikes; }
             set
@@ -312,6 +312,8 @@ namespace App1.models
             }
 
             string compiledDislikes = "dislikes: " + sb.ToString();
+
+            sb.Clear();
 
 
             return FName + LName + "\n" + Age + "\n" + Race + "\n" + Profession + "\n" + Gender + "\n" + "HP: " + hitPoints + "\n" + "SP: " + specialPoints + "\n" + "LV: " + level +
