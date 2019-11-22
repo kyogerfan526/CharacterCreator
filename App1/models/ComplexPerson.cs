@@ -169,7 +169,7 @@ namespace App1.models
             }
         }
 
-        public string[] Disikes
+        public string[] Dislikes
         {
             get { return dislikes; }
             set
@@ -285,6 +285,8 @@ namespace App1.models
                 sb.Append(friend + ", ");
             }
 
+            sb.Clear();
+
             string compiledFriends = "friends: " + sb.ToString();
 
             foreach (string enemy in enemies)
@@ -300,6 +302,8 @@ namespace App1.models
             {
                 sb.Append(group + ", ");
             }
+
+            sb.Clear();
 
             string compiledGroups = "groups: " + sb.ToString();
 

@@ -283,6 +283,39 @@ namespace CharacterMaker
 
                 ModeratlyComplexPagePerson.Personality = personalities[rand.Next(personalities.Count)];
 
+                ModeratlyComplexPagePerson.Likes = new string[3];
+
+                for (int i = 0; i < ModeratlyComplexPagePerson.Likes.Length - 1; i++)
+                {
+                    ModeratlyComplexPagePerson.Likes[i] = likes[rand.Next(likes.Count)];
+                }
+
+                ModeratlyComplexPagePerson.Dislikes = new string[3];
+
+                for (int i = 0; i < ModeratlyComplexPagePerson.Dislikes.Length - 1; i++)
+                {
+                    bool same = false;
+                    string tempDislike = likes[rand.Next(likes.Count)];
+
+                    foreach (string like in ModeratlyComplexPagePerson.Likes)
+                    {
+                        if (tempDislike == like)
+                        {
+                            same = true;
+                            i--;
+                        }
+                        else 
+                        {
+
+                        }
+                    }
+
+                    if (!same)
+                    { 
+                        ModeratlyComplexPagePerson.Dislikes[i] = tempDislike;
+                    }
+                }
+
             }
             else if(complock == Complexity.Complex) // complexity
             {
@@ -356,6 +389,57 @@ namespace CharacterMaker
                 ComplexPagePerson.EyeColor = eyeColors[rand.Next(eyeColors.Count)];
 
                 ComplexPagePerson.Personality = personalities[rand.Next(personalities.Count)];
+
+                ComplexPagePerson.Likes = new string[3];
+
+                for (int i = 0; i < ComplexPagePerson.Likes.Length - 1; i++)
+                {
+                    ComplexPagePerson.Likes[i] = likes[rand.Next(likes.Count)];
+                }
+
+                ComplexPagePerson.Dislikes = new string[3];
+
+                for (int i = 0; i < ComplexPagePerson.Dislikes.Length - 1; i++)
+                {
+                    bool same = false;
+                    string tempDislike = likes[rand.Next(likes.Count)];
+
+                    foreach (string like in ComplexPagePerson.Likes)
+                    {
+                        if (tempDislike == like)
+                        {
+                            same = true;
+                            i--;
+                        }
+                        else
+                        {
+
+                        }
+                    }
+
+                    if (!same)
+                    {
+                        ComplexPagePerson.Dislikes[i] = tempDislike;
+                    }
+                }
+
+                ComplexPagePerson.Friends = new string[3];
+
+                for (int i = 0; i < ComplexPagePerson.Friends.Length - 1; i++)
+                {
+                    string tempFriend = FNames[rand.Next(FNames.Count)] + LNames[rand.Next(LNames.Count)];
+
+                    ComplexPagePerson.Friends[i] = tempFriend;
+                }
+
+                ComplexPagePerson.Enemies = new string[3];
+
+                for (int i = 0; i < ComplexPagePerson.Enemies.Length - 1; i++)
+                {
+                    string tempEnemy = FNames[rand.Next(FNames.Count)] + LNames[rand.Next(LNames.Count)];
+
+                    ComplexPagePerson.Enemies[i] = tempEnemy;
+                }
 
             }
             else if(complock == Complexity.ModeratlyComplexTableTop) //complexity
@@ -452,6 +536,39 @@ namespace CharacterMaker
                 ModeratelyComplexPerson_Tabletop_PagePerson.Charisma = rand.Next(36);
 
 
+
+                ModeratelyComplexPerson_Tabletop_PagePerson.Likes = new string[3];
+
+                for (int i = 0; i < ModeratelyComplexPerson_Tabletop_PagePerson.Likes.Length - 1; i++)
+                {
+                    ModeratlyComplexPagePerson.Likes[i] = likes[rand.Next(likes.Count)];
+                }
+
+                ModeratelyComplexPerson_Tabletop_PagePerson.Dislikes = new string[3];
+
+                for (int i = 0; i < ModeratelyComplexPerson_Tabletop_PagePerson.Dislikes.Length - 1; i++)
+                {
+                    bool same = false;
+                    string tempDislike = likes[rand.Next(likes.Count)];
+
+                    foreach (string like in ModeratelyComplexPerson_Tabletop_PagePerson.Likes)
+                    {
+                        if (tempDislike == like)
+                        {
+                            same = true;
+                            i--;
+                        }
+                        else
+                        {
+
+                        }
+                    }
+
+                    if (!same)
+                    {
+                        ModeratelyComplexPerson_Tabletop_PagePerson.Dislikes[i] = tempDislike;
+                    }
+                }
             }
             else if(complock == Complexity.ComplexTableTop)
             {
@@ -561,6 +678,57 @@ namespace CharacterMaker
                 ComplexPerson_Tabletop_PagePerson.Spell_attack_bonus = rand.Next(16);
 
                 ComplexPerson_Tabletop_PagePerson.EXP = rand.Next(10001);
+
+                ComplexPerson_Tabletop_PagePerson.Likes = new string[3];
+
+                for (int i = 0; i < ComplexPerson_Tabletop_PagePerson.Likes.Length - 1; i++)
+                {
+                    ComplexPerson_Tabletop_PagePerson.Likes[i] = likes[rand.Next(likes.Count)];
+                }
+
+                ComplexPerson_Tabletop_PagePerson.Dislikes = new string[3];
+
+                for (int i = 0; i < ComplexPerson_Tabletop_PagePerson.Dislikes.Length - 1; i++)
+                {
+                    bool same = false;
+                    string tempDislike = likes[rand.Next(likes.Count)];
+
+                    foreach (string like in ComplexPerson_Tabletop_PagePerson.Likes)
+                    {
+                        if (tempDislike == like)
+                        {
+                            same = true;
+                            i--;
+                        }
+                        else
+                        {
+
+                        }
+                    }
+
+                    if (!same)
+                    {
+                        ComplexPerson_Tabletop_PagePerson.Dislikes[i] = tempDislike;
+                    }
+                }
+
+                ComplexPerson_Tabletop_PagePerson.Friends = new string[3];
+
+                for (int i = 0; i < ComplexPerson_Tabletop_PagePerson.Friends.Length - 1; i++)
+                {
+                    string tempFriend = FNames[rand.Next(FNames.Count)] + LNames[rand.Next(LNames.Count)];
+
+                    ComplexPerson_Tabletop_PagePerson.Friends[i] = tempFriend;
+                }
+
+                ComplexPerson_Tabletop_PagePerson.Enemies = new string[3];
+
+                for (int i = 0; i < ComplexPerson_Tabletop_PagePerson.Enemies.Length - 1; i++)
+                {
+                    string tempEnemy = FNames[rand.Next(FNames.Count)] + LNames[rand.Next(LNames.Count)];
+
+                    ComplexPerson_Tabletop_PagePerson.Enemies[i] = tempEnemy;
+                }
 
             }
 
