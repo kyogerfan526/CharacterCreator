@@ -163,7 +163,7 @@ namespace App1.models
             }
         }
 
-        public string[] Disikes
+        public string[] Dislikes
         {
             get { return dislikes; }
             set
