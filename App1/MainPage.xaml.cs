@@ -14,6 +14,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using App1;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -109,7 +110,7 @@ namespace CharacterMaker
 
         List<String> scifiGroups = new List<String> { "Megacorp Union", "Hacker Gang", "Space Mafia", "Cyborg Advocates" };
 
-        List<String> ArmorClasses = new List<string> { "Heavy", "Light", "Cloke", "Shroud", "Wizard robes", "Leaves", "Wood", "Chainmail" };
+        List<String> ArmorClasses = new List<string> { "Heavy", "Light", "Cloak", "Shroud", "Wizard robes", "Leaves", "Wood", "Chainmail", "No armor" };
 
         Random rand = new Random();
 
@@ -581,7 +582,6 @@ namespace CharacterMaker
             // Randomize Button
             GeneratePerson();
 
-
         }
 
         private void EditButton_Click(object sender, RoutedEventArgs e)
@@ -608,13 +608,30 @@ namespace CharacterMaker
                 {
                     Windows.Storage.CachedFileManager.DeferUpdates(file);
                     await Windows.Storage.FileIO.WriteTextAsync(file, file.Name);
-
-                    await Windows.Storage.FileIO.WriteTextAsync(file, pagePerson.ToString());
+                    if(complock == Complexity.Simple && pagePerson != null)
+                    {
+                        await Windows.Storage.FileIO.WriteTextAsync(file, pagePerson.ToString());
+                    }
+                    else if(complock == Complexity.ModeratlyComplex && ModeratlyComplexPagePerson != null)
+                    {
+                        await Windows.Storage.FileIO.WriteTextAsync(file, ModeratlyComplexPagePerson.ToString());
+                    }
+                    else if(complock == Complexity.ModeratlyComplexTableTop && ModeratelyComplexPerson_Tabletop_PagePerson != null)
+                    {
+                        await Windows.Storage.FileIO.WriteTextAsync(file, ModeratelyComplexPerson_Tabletop_PagePerson.ToString());
+                    }
+                    else if(complock == Complexity.Complex && ComplexPagePerson != null)
+                    {
+                        await Windows.Storage.FileIO.WriteTextAsync(file, ComplexPagePerson.ToString());
+                    }
+                    else if(complock == Complexity.ComplexTableTop && ComplexPerson_Tabletop_PagePerson != null)
+                    {
+                        await Windows.Storage.FileIO.WriteTextAsync(file, ComplexPerson_Tabletop_PagePerson.ToString());
+                    }
 
                     Windows.Storage.Provider.FileUpdateStatus status =
                     await Windows.Storage.CachedFileManager.CompleteUpdatesAsync(file);
                 }
-            
 
         }
 
@@ -656,6 +673,11 @@ namespace CharacterMaker
         private void complex_table_top_Click(object sender, RoutedEventArgs e)
         {
             complock = Complexity.ComplexTableTop;
+        }
+
+        private void Custom_randomization_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(CustomComplexityScreen));
         }
     }
 }

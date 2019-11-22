@@ -193,6 +193,17 @@
                 </MenuFlyoutItem>
 
             </MenuBarItem>
+
+            <MenuBarItem
+                x:Name="Custom_Complexity"
+                Title="Custom Complexity">
+                
+                <MenuFlyoutItem 
+                    x:Name="Custom_randomization"
+                    Text="Custom randomize"
+                    Click="Custom_randomization_Click">
+                </MenuFlyoutItem>
+            </MenuBarItem>
         </MenuBar>
 
         <!-- This is the Master Branch -->
