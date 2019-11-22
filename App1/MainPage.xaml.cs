@@ -25,7 +25,6 @@ namespace CharacterMaker
     /// </summary>
     public sealed partial class MainPage : Page
     {
-
         List<String> FNames = new List<String> { "Kevin", "Mark", "Linda", "James", "Josh", "Leon", "Carly", "Bridget", "Tim", "Carl", "Arthur", "Ben", "Greg", "Craig", "Laura", "Jessie",
         "Alex", "Paul", "Anthony", "Tyler", "Cheeki", "Gopnik", "Joseph", "Broseph", "Adolf", "Rudolf", "Hans", "Xiang", "Po", "Wei", "Sun", "Cho", "Sho", "Mizuki", "Kanada", "Tsubaraya",
         "Jacque", "Edmon", "Amy", "Lee", "Sandra", "Monique", "Shawna", "Monica", "Troy", "Randall", "Michaeal", "Jacob", "Tyrone", "Tyson", "Kyle", "Adam", "Lilith", "Eve", "Eva", "Leonidas",
@@ -113,7 +112,7 @@ namespace CharacterMaker
         Random rand = new Random();
 
         ObservableCollection<CharacterTrait> traitsList = new ObservableCollection<CharacterTrait>();
-        private DefaultPerson pagePerson;
+        private Person pagePerson;
         public enum Genre { CONTEMPORARY, FANTASY, SCIFI };
         public enum Complexity { Simple, ModeratlyComplex, Complex, ModeratlyComplexTableTop };
 
@@ -133,7 +132,7 @@ namespace CharacterMaker
         {
             this.InitializeComponent();
             
-            pagePerson = new DefaultPerson();
+            pagePerson = new Person();
 
             CharacterNameBlock.DataContext = pagePerson;
             CharacterTraitsArea.ItemsSource = traitsList;
@@ -143,6 +142,7 @@ namespace CharacterMaker
         {
             // Clears the traitsList so that all previous values are discarded and new values can take their place.
             traitsList.Clear();
+
 
 
             if(complock == Complexity.Simple)
@@ -368,8 +368,6 @@ namespace CharacterMaker
         {
             // Randomize Button
             GeneratePerson();
-
-
         }
 
         private void EditButton_Click(object sender, RoutedEventArgs e)

@@ -46,7 +46,7 @@
                 x:Name="Complexity_selction"
                 Title="Complexity"  
                 >
-
+                
                 <MenuFlyoutItem 
                     x:Name="Simple"
                     Text="Simple"
@@ -71,6 +71,11 @@
                     Click="Complex_Click">
                 </MenuFlyoutItem>
 
+                <MenuFlyoutItem 
+                    x:Name="complex_table_top"
+                    Text="Complex table top"
+                    Click="complex_table_top_Click">
+                </MenuFlyoutItem>
             </MenuBarItem>
         </MenuBar>
 

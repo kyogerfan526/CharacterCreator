@@ -8,22 +8,31 @@ using System.Threading.Tasks;
 
 namespace App1.models
 {
-    class DefaultPerson : INotifyPropertyChanged
+    // This is the base Person class; Moderately and Complex Person inherit from this class.
+    public class Person : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
-    
+
+        public Person()
+        {
+            Stats = null;
+        }
+
         private String Fname;
         private String Lname;
         private int age;
         private String profession;
         private String race;
         private String gender;
+        private TableTopStats stats;
         private string fullName;
 
         public String FName
         {
             get { return Fname; }
-            set { Fname = value;
+            set
+            {
+                Fname = value;
                 FullName = "";
                 FieldChanged();
             }
@@ -32,7 +41,9 @@ namespace App1.models
         public String LName
         {
             get { return Lname; }
-            set { Lname = value;
+            set
+            {
+                Lname = value;
                 FullName = "";
                 FieldChanged();
             }
@@ -41,7 +52,9 @@ namespace App1.models
         public int Age
         {
             get { return age; }
-            set { age = value; 
+            set
+            {
+                age = value;
                 FieldChanged();
             }
         }
@@ -49,7 +62,9 @@ namespace App1.models
         public String Profession
         {
             get { return profession; }
-            set { profession = value;
+            set
+            {
+                profession = value;
                 FieldChanged();
             }
         }
@@ -57,7 +72,9 @@ namespace App1.models
         public String Race
         {
             get { return race; }
-            set { race = value;
+            set
+            {
+                race = value;
                 FieldChanged();
             }
         }
@@ -65,14 +82,29 @@ namespace App1.models
         public String Gender
         {
             get { return gender; }
-            set { gender = value;
+            set
+            {
+                gender = value;
                 FieldChanged();
             }
         }
+
+
+        public TableTopStats Stats
+        {
+            get { return stats; }
+            set { stats = value;
+                FieldChanged();
+            }
+        }
+
+
         public string FullName
         {
             get { return fullName; }
-            set { fullName = $"{FName} {Lname}";
+            set
+            {
+                fullName = $"{FName} {Lname}";
                 FieldChanged();
             }
         }
@@ -85,11 +117,9 @@ namespace App1.models
             }
         }
 
-
         public override string ToString()
         {
             return FName + " " + LName + "\n " + Age + "\n " + Race + "\n " + Profession + "\n " + Gender;
         }
-
     }
 }
