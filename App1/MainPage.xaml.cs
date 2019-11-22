@@ -150,7 +150,7 @@ namespace CharacterMaker
             traitsList.Clear();
 
 
-            if(complock == Complexity.Simple)
+            if (complock == Complexity.Simple)
             {
                 if (genderLock)
                 {
@@ -215,7 +215,7 @@ namespace CharacterMaker
                     pagePerson.Race = Races[rand.Next(Races.Count)];
                 }
             }
-            else if(complock == Complexity.ModeratlyComplex) //complexity
+            else if (complock == Complexity.ModeratlyComplex) //complexity
             {
                 if (genderLock)
                 {
@@ -324,7 +324,7 @@ namespace CharacterMaker
                 }
 
             }
-            else if(complock == Complexity.Complex) // complexity
+            else if (complock == Complexity.Complex) // complexity
             {
                 if (genderLock)
                 {
@@ -449,7 +449,7 @@ namespace CharacterMaker
                 }
 
             }
-            else if(complock == Complexity.ModeratlyComplexTableTop) //complexity
+            else if (complock == Complexity.ModeratlyComplexTableTop) //complexity
             {
                 if (genderLock)
                 {
@@ -536,7 +536,7 @@ namespace CharacterMaker
 
                 ModeratelyComplexPerson_Tabletop_PagePerson.Wisdom = rand.Next(36);
 
-                ModeratelyComplexPerson_Tabletop_PagePerson.Constiution = rand.Next(36);
+                ModeratelyComplexPerson_Tabletop_PagePerson.Constitution = rand.Next(36);
 
                 ModeratelyComplexPerson_Tabletop_PagePerson.Will = rand.Next(36);
 
@@ -577,7 +577,7 @@ namespace CharacterMaker
                     }
                 }
             }
-            else if(complock == Complexity.ComplexTableTop)
+            else if (complock == Complexity.ComplexTableTop)
             {
                 if (genderLock)
                 {
@@ -740,10 +740,138 @@ namespace CharacterMaker
             }
 
             // Adds the basic traits; use this format wherever you randomize a value on the pagePerson and then remove these
-            traitsList.Add(new CharacterTrait("Age", pagePerson.Age));
-            traitsList.Add(new CharacterTrait("Profession", pagePerson.Profession));
-            traitsList.Add(new CharacterTrait("Race", pagePerson.Race));
-            traitsList.Add(new CharacterTrait("Gender", pagePerson.Gender));
+            if (complock == Complexity.Simple)
+            {
+                traitsList.Add(new CharacterTrait("Age", pagePerson.Age));
+                traitsList.Add(new CharacterTrait("Profession", pagePerson.Profession));
+                traitsList.Add(new CharacterTrait("Race", pagePerson.Race));
+                traitsList.Add(new CharacterTrait("Gender", pagePerson.Gender));
+
+            }
+            else if (complock == Complexity.ModeratlyComplex)
+            {
+
+                traitsList.Add(new CharacterTrait("Age", ModeratlyComplexPagePerson.Age));
+                traitsList.Add(new CharacterTrait("Profession", ModeratlyComplexPagePerson.Profession));
+                traitsList.Add(new CharacterTrait("Race", ModeratlyComplexPagePerson.Race));
+                traitsList.Add(new CharacterTrait("Gender", ModeratlyComplexPagePerson.Gender));
+                traitsList.Add(new CharacterTrait("FullName", ModeratlyComplexPagePerson.FullName));
+                traitsList.Add(new CharacterTrait("Nationality", ModeratlyComplexPagePerson.Nationality));
+                traitsList.Add(new CharacterTrait("", ModeratlyComplexPagePerson.Age));
+                traitsList.Add(new CharacterTrait("HeightFeet", ModeratlyComplexPagePerson.Heightfeet));
+                traitsList.Add(new CharacterTrait("HeightInches", ModeratlyComplexPagePerson.HeightInches));
+                traitsList.Add(new CharacterTrait("Weight", ModeratlyComplexPagePerson.Weight));
+                traitsList.Add(new CharacterTrait("HairColor", ModeratlyComplexPagePerson.HairColor));
+                traitsList.Add(new CharacterTrait("EyeColor", ModeratlyComplexPagePerson.EyeColor));
+                traitsList.Add(new CharacterTrait("Personality", ModeratlyComplexPagePerson.Personality));
+                traitsList.Add(new CharacterTrait("Likes", ModeratlyComplexPagePerson.Likes));
+                traitsList.Add(new CharacterTrait("Dislikes", ModeratlyComplexPagePerson.Dislikes));
+
+
+            }
+            else if (complock == Complexity.ModeratlyComplexTableTop)
+            {
+
+                traitsList.Add(new CharacterTrait("Age", ModeratelyComplexPerson_Tabletop_PagePerson.Age));
+                traitsList.Add(new CharacterTrait("Profession", ModeratelyComplexPerson_Tabletop_PagePerson.Profession));
+                traitsList.Add(new CharacterTrait("Race", ModeratelyComplexPerson_Tabletop_PagePerson.Race));
+                traitsList.Add(new CharacterTrait("Gender", ModeratelyComplexPerson_Tabletop_PagePerson.Gender));
+                traitsList.Add(new CharacterTrait("FullName", ModeratelyComplexPerson_Tabletop_PagePerson.FullName));
+                traitsList.Add(new CharacterTrait("Nationality", ModeratelyComplexPerson_Tabletop_PagePerson.Nationality));
+                traitsList.Add(new CharacterTrait("HeightFeet", ModeratelyComplexPerson_Tabletop_PagePerson.Heightfeet));
+                traitsList.Add(new CharacterTrait("HeightInches", ModeratelyComplexPerson_Tabletop_PagePerson.HeightInches));
+                traitsList.Add(new CharacterTrait("Weight", ModeratelyComplexPerson_Tabletop_PagePerson.Weight));
+                traitsList.Add(new CharacterTrait("HairColor", ModeratelyComplexPerson_Tabletop_PagePerson.HairColor));
+                traitsList.Add(new CharacterTrait("EyeColor", ModeratelyComplexPerson_Tabletop_PagePerson.EyeColor));
+                traitsList.Add(new CharacterTrait("Personality", ModeratelyComplexPerson_Tabletop_PagePerson.Personality));
+                traitsList.Add(new CharacterTrait("Likes", ModeratelyComplexPerson_Tabletop_PagePerson.Likes));
+                traitsList.Add(new CharacterTrait("Dislikes", ModeratelyComplexPerson_Tabletop_PagePerson.Dislikes));
+                traitsList.Add(new CharacterTrait("HitPoints", ModeratelyComplexPerson_Tabletop_PagePerson.HitPoints));
+                traitsList.Add(new CharacterTrait("SpecialPoints", ModeratelyComplexPerson_Tabletop_PagePerson.SpecialPoints));
+                traitsList.Add(new CharacterTrait("Level", ModeratelyComplexPerson_Tabletop_PagePerson.Level));
+                traitsList.Add(new CharacterTrait("Strength", ModeratelyComplexPerson_Tabletop_PagePerson.Strength));
+                traitsList.Add(new CharacterTrait("Dexterity", ModeratelyComplexPerson_Tabletop_PagePerson.Dexterity));
+                traitsList.Add(new CharacterTrait("Intelligence", ModeratelyComplexPerson_Tabletop_PagePerson.Intelligence));
+                traitsList.Add(new CharacterTrait("Wisdom", ModeratelyComplexPerson_Tabletop_PagePerson.Wisdom));
+                traitsList.Add(new CharacterTrait("Constitution", ModeratelyComplexPerson_Tabletop_PagePerson.Constitution));
+                traitsList.Add(new CharacterTrait("Will", ModeratelyComplexPerson_Tabletop_PagePerson.Will));
+                traitsList.Add(new CharacterTrait("Charisma", ModeratelyComplexPerson_Tabletop_PagePerson.Charisma));
+
+            }
+            else if (complock == Complexity.Complex)
+            {
+                traitsList.Add(new CharacterTrait("Age", ComplexPagePerson.Age));
+                traitsList.Add(new CharacterTrait("Profession", ComplexPagePerson.Profession));
+                traitsList.Add(new CharacterTrait("Race", ComplexPagePerson.Race));
+                traitsList.Add(new CharacterTrait("Gender", ComplexPagePerson.Gender));
+                traitsList.Add(new CharacterTrait("FullName", ComplexPagePerson.FullName));
+                traitsList.Add(new CharacterTrait("Nationality", ComplexPagePerson.Nationality));
+                traitsList.Add(new CharacterTrait("HeightFeet", ComplexPagePerson.Heightfeet));
+                traitsList.Add(new CharacterTrait("HeightInches", ComplexPagePerson.HeightInches));
+                traitsList.Add(new CharacterTrait("Weight", ComplexPagePerson.Weight));
+                traitsList.Add(new CharacterTrait("HairColor", ComplexPagePerson.HairColor));
+                traitsList.Add(new CharacterTrait("EyeColor", ComplexPagePerson.EyeColor));
+                traitsList.Add(new CharacterTrait("Personality", ComplexPagePerson.Personality));
+                traitsList.Add(new CharacterTrait("Likes", ComplexPagePerson.Likes));
+                traitsList.Add(new CharacterTrait("Dislikes", ComplexPagePerson.Dislikes));
+                traitsList.Add(new CharacterTrait("Accent", ComplexPagePerson.Accent));
+                traitsList.Add(new CharacterTrait("StyleOfDress", ComplexPagePerson.StyleOfDress));
+                traitsList.Add(new CharacterTrait("Friends", ComplexPagePerson.Friends));
+                traitsList.Add(new CharacterTrait("Enemies", ComplexPagePerson.Enemies));
+                traitsList.Add(new CharacterTrait("SignificantOther", ComplexPagePerson.SignificantOther));
+                traitsList.Add(new CharacterTrait("FavoriteFood", ComplexPagePerson.FavoriteFood));
+                traitsList.Add(new CharacterTrait("Groups", ComplexPagePerson.Groups));
+
+
+
+            }
+            else if (complock == Complexity.ComplexTableTop)
+            {
+                traitsList.Add(new CharacterTrait("Age", ComplexPagePerson.Age));
+                traitsList.Add(new CharacterTrait("Profession", ComplexPagePerson.Profession));
+                traitsList.Add(new CharacterTrait("Race", ComplexPagePerson.Race));
+                traitsList.Add(new CharacterTrait("Gender", ComplexPagePerson.Gender));
+                traitsList.Add(new CharacterTrait("FullName", ComplexPagePerson.FullName));
+                traitsList.Add(new CharacterTrait("Nationality", ComplexPagePerson.Nationality));
+                traitsList.Add(new CharacterTrait("", ComplexPagePerson.Age));
+                traitsList.Add(new CharacterTrait("HeightFeet", ComplexPagePerson.HeightFeet));
+                traitsList.Add(new CharacterTrait("HeightInches", ComplexPagePerson.HeightInches));
+                traitsList.Add(new CharacterTrait("Weight", ComplexPagePerson.Weight));
+                traitsList.Add(new CharacterTrait("HairColor", ComplexPagePerson.HairColor));
+                traitsList.Add(new CharacterTrait("EyeColor", ComplexPagePerson.EyeColor));
+                traitsList.Add(new CharacterTrait("Personality", ComplexPagePerson.Personality));
+                traitsList.Add(new CharacterTrait("Likes", ComplexPagePerson.Likes));
+                traitsList.Add(new CharacterTrait("Dislikes", ComplexPagePerson.Dislikes));
+                traitsList.Add(new CharacterTrait("HitPoints", ComplexPagePerson.HitPoints));
+                traitsList.Add(new CharacterTrait("SpecialPoints", ComplexPagePerson.SpecialPoints));
+                traitsList.Add(new CharacterTrait("Level", ComplexPagePerson.Level));
+                traitsList.Add(new CharacterTrait("Strength", ComplexPagePerson.Strength));
+                traitsList.Add(new CharacterTrait("Dexterity", ComplexPagePerson.Dexterity));
+                traitsList.Add(new CharacterTrait("Intelligence", ComplexPagePerson.Intelligence));
+                traitsList.Add(new CharacterTrait("Wisdom", ComplexPagePerson.Wisdom));
+                traitsList.Add(new CharacterTrait("Constitution", ComplexPagePerson.Constitution));
+                traitsList.Add(new CharacterTrait("Will", ComplexPagePerson.Will));
+                traitsList.Add(new CharacterTrait("Charisma", ComplexPagePerson.Charisma));
+                traitsList.Add(new CharacterTrait("Accent", ComplexPagePerson.Accent));
+                traitsList.Add(new CharacterTrait("StyleOfDress", ComplexPagePerson.StyleOfDress));
+                traitsList.Add(new CharacterTrait("Friends", ComplexPagePerson.Friends));
+                traitsList.Add(new CharacterTrait("Enemies", ComplexPagePerson.Enemies));
+                traitsList.Add(new CharacterTrait("SignificantOther", ComplexPagePerson.SignificantOther));
+                traitsList.Add(new CharacterTrait("FightingStyle", ComplexPagePerson.FightingStyle));
+                traitsList.Add(new CharacterTrait("PreferredWeapon", ComplexPagePerson.PreferredWeapon));
+                traitsList.Add(new CharacterTrait("FavoriteFood", ComplexPagePerson.FavoriteFood));
+                traitsList.Add(new CharacterTrait("ArmorClass", ComplexPagePerson.ArmorClass));
+                traitsList.Add(new CharacterTrait("ProficiencyBonus", ComplexPagePerson.ProficiencyBonus));
+                traitsList.Add(new CharacterTrait("Inspiration", ComplexPagePerson.Inspiration));
+                traitsList.Add(new CharacterTrait("Perception", ComplexPagePerson.perception));
+                traitsList.Add(new CharacterTrait("SpellCastingAbility", ComplexPagePerson.SpellCastingAbility));
+                traitsList.Add(new CharacterTrait("SpellSaveDC", ComplexPagePerson.SpellSaveDC));
+                traitsList.Add(new CharacterTrait("SpellAttackBonus", ComplexPagePerson.SpellAttackBonus));
+                traitsList.Add(new CharacterTrait("Exp", ComplexPagePerson.Exp));
+                traitsList.Add(new CharacterTrait("Groups", ComplexPagePerson.Groups));
+
+
+            }
         }
 
 

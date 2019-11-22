@@ -255,7 +255,7 @@ namespace App1.models
             }
         }
 
-        public int Constiution
+        public int Constitution
         {
             get { return constitution; }
             set
