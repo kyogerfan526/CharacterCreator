@@ -124,6 +124,7 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="models\ComplexPerson.cs" />
+    <Compile Include="models\ComplexPerson_Tabletop.cs" />
     <Compile Include="models\ModeratelyComplexPerson_Tabletop.cs" />
     <Compile Include="models\ModeratelyComplexPerson.cs" />
     <Compile Include="models\DefaultPerson.cs" />
