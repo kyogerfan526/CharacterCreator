@@ -201,6 +201,7 @@ namespace App1.models
 
             string compiledDislikes = "dislikes: " + sb.ToString();
 
+            sb.Clear();
 
             return FName + LName + "\n" + Age + "\n" + Race + "\n" + Profession + "\n" + Gender + "\n" + hairColor + "\n" + eyeColor + "\n" + heightFeet + "." + heightInches +
                 "\n" + weight + "\n" + nationality + "\n" + personality + "\n" + compiledLikes + "\n" + compiledDislikes;

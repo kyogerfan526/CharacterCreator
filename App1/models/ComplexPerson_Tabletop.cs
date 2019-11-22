@@ -29,6 +29,13 @@ namespace App1.models
         private string personality;
         private string[] likes;
         private string[] dislikes;
+        private string accent;
+        private string styleOfDress;
+        private string[] friends;
+        private string[] enemies;
+        private string significantOther;
+        private string favoriteFood;
+        private string[] groups;
 
         private string armor_class;
 
@@ -211,7 +218,7 @@ namespace App1.models
             }
         }
 
-        public string[] Disikes
+        public string[] Dislikes
         {
             get { return dislikes; }
             set
@@ -391,6 +398,77 @@ namespace App1.models
             }
         }
 
+        public string Accent
+        {
+            get { return accent; }
+            set
+            {
+                accent = value;
+                FieldChanged();
+            }
+        }
+
+        public string StyleOfDress
+        {
+            get { return styleOfDress; }
+            set
+            {
+                styleOfDress = value;
+                FieldChanged();
+            }
+        }
+
+        public string[] Friends
+        {
+            get { return friends; }
+            set
+            {
+                friends = value;
+                FieldChanged();
+            }
+        }
+
+        public string[] Enemies
+        {
+            get { return enemies; }
+            set
+            {
+                enemies = value;
+                FieldChanged();
+            }
+        }
+
+        public string SignificantOther
+        {
+            get { return significantOther; }
+            set
+            {
+                significantOther = value;
+                FieldChanged();
+            }
+        }
+
+
+        public string FavoriteFood
+        {
+            get { return favoriteFood; }
+            set
+            {
+                favoriteFood = value;
+                FieldChanged();
+            }
+        }
+
+        public string[] Groups
+        {
+            get { return groups; }
+            set
+            {
+                groups = value;
+                FieldChanged();
+            }
+        }
+
         protected void FieldChanged([CallerMemberName] string field = null)
         {
             if (PropertyChanged != null)
@@ -419,13 +497,42 @@ namespace App1.models
 
             string compiledDislikes = "dislikes: " + sb.ToString();
 
+            sb.Clear();
+
+            foreach (string friend in friends)
+            {
+                sb.Append(friend + ", ");
+            }
+
+            string compiledFriends = "friends: " + sb.ToString();
+
+            sb.Clear();
+
+            foreach (string enemy in enemies)
+            {
+                sb.Append(enemy + ", ");
+            }
+
+            string compiledEnemies = "enemies: " + sb.ToString();
+
+            sb.Clear();
+
+            foreach (string group in groups)
+            {
+                sb.Append(group + ", ");
+            }
+
+            string compiledGroups = "groups: " + sb.ToString();
+
+            sb.Clear();
 
             return FName + LName + "\n" + Age + "\n" + Race + "\n" + Profession + "\n" + Gender + "\n" + armor_class + "\n" + "HP: " + hitPoints + "\n" + "SP: " + specialPoints + "\n" + "LV: " + level +
                 "\n" + "STR: " + strength + "\n" + "DEX: " + dexterity + "\n" + "INT: " + intelligence + "\n" + "WIS: " + wisdom + "\n" + "CON: " + constitution + "WIL: " + will +
                 "\n" + "CHR: " + charisma + "\n" + inspiration + "\n" + perception + "\n" + proficiency_bonus + "\n" + spellcasting_ability + "\n" + spell_save_DC + "\n" + Spell_attack_bonus +
                 "\n" + Exp + "\n" +
                 "\n" + hairColor + "\n" + eyeColor + "\n" + heightFeet + "." + heightInches +
-                "\n" + weight + "\n" + nationality + "\n" + personality + "\n" + compiledLikes + "\n" + compiledDislikes;
+                "\n" + weight + "\n" + nationality + "\n" + personality + "\n" + compiledLikes + "\n" + compiledDislikes + "\n" + "Significant Other:" + significantOther + "\n" + "\n" + favoriteFood
+                + "\n" + accent + styleOfDress + "\n" + compiledFriends + "\n" + compiledEnemies + "\n" + compiledGroups + "\n";
         }
 
     }
