@@ -257,7 +257,6 @@ namespace CharacterMaker
                 {
                     pagePerson.Profession = FantasyProfessions[rand.Next(FantasyProfessions.Count)];
                 }
-                traitsList.Add(new CharacterTrait("Profession", pagePerson.Profession));
 
                 if (genderLock)
                 {
@@ -301,6 +300,7 @@ namespace CharacterMaker
                 pagePerson.LName = LNames[rand.Next(LNames.Count)];
 
                 pagePerson.Age = rand.Next(101);
+
                 if (genreLock == Genre.CONTEMPORARY)
                 {
                     if (pagePerson.Age < 18)
@@ -348,6 +348,7 @@ namespace CharacterMaker
 
 
 
+
             }
 
             // Adds the basic traits; use this format wherever you randomize a value on the pagePerson and then remove these
@@ -355,6 +356,8 @@ namespace CharacterMaker
             traitsList.Add(new CharacterTrait("Profession", pagePerson.Profession));
             traitsList.Add(new CharacterTrait("Race", pagePerson.Race));
             traitsList.Add(new CharacterTrait("Gender", pagePerson.Gender));
+
+            traitsList.Add(new CharacterTrait("Full Name", pagePerson));
         }
 
 

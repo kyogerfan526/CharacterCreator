@@ -6,6 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
+    Foreground="Black"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
 
@@ -202,12 +203,14 @@
                                            Grid.Column="0"
                                            Margin="0 0 25 0"
                                            VerticalAlignment="Bottom"
-                                           FontWeight="Bold"/>
+                                           FontWeight="Bold"
+                                           Foreground="Black"/>
                                 <TextBlock x:Name="TraitValue"
                                            Text="{Binding TraitValue}"
                                            FontSize="24"
                                            Grid.Column="1"
-                                           VerticalAlignment="Bottom"/>
+                                           VerticalAlignment="Bottom"
+                                           Foreground="Black"/>
                             </Grid>
                         </DataTemplate>
                     </ListView.ItemTemplate>
