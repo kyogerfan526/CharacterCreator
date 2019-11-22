@@ -664,7 +664,7 @@ namespace CharacterMaker
 
                 ComplexPerson_Tabletop_PagePerson.Wisdom = rand.Next(36);
 
-                ComplexPerson_Tabletop_PagePerson.Constiution = rand.Next(36);
+                ComplexPerson_Tabletop_PagePerson.Constitution = rand.Next(36);
 
                 ComplexPerson_Tabletop_PagePerson.Will = rand.Next(36);
 
@@ -834,7 +834,7 @@ namespace CharacterMaker
                 traitsList.Add(new CharacterTrait("FullName", ComplexPerson_Tabletop_PagePerson.FullName));
                 traitsList.Add(new CharacterTrait("Nationality", ComplexPerson_Tabletop_PagePerson.Nationality));
                 traitsList.Add(new CharacterTrait("", ComplexPerson_Tabletop_PagePerson.Age));
-                traitsList.Add(new CharacterTrait("HeightFeet", ComplexPerson_Tabletop_PagePerson.HeightFeet));
+                traitsList.Add(new CharacterTrait("HeightFeet", ComplexPerson_Tabletop_PagePerson.Heightfeet));
                 traitsList.Add(new CharacterTrait("HeightInches", ComplexPerson_Tabletop_PagePerson.HeightInches));
                 traitsList.Add(new CharacterTrait("Weight", ComplexPerson_Tabletop_PagePerson.Weight));
                 traitsList.Add(new CharacterTrait("HairColor", ComplexPerson_Tabletop_PagePerson.HairColor));
@@ -860,14 +860,14 @@ namespace CharacterMaker
                 traitsList.Add(new CharacterTrait("FightingStyle", ComplexPerson_Tabletop_PagePerson.FightingStyle));
                 traitsList.Add(new CharacterTrait("PreferredWeapon", ComplexPerson_Tabletop_PagePerson.PreferredWeapon));
                 traitsList.Add(new CharacterTrait("FavoriteFood", ComplexPerson_Tabletop_PagePerson.FavoriteFood));
-                traitsList.Add(new CharacterTrait("ArmorClass", ComplexPerson_Tabletop_PagePerson.ArmorClass));
-                traitsList.Add(new CharacterTrait("ProficiencyBonus", ComplexPerson_Tabletop_PagePerson.ProficiencyBonus));
+                traitsList.Add(new CharacterTrait("ArmorClass", ComplexPerson_Tabletop_PagePerson.Armor_Class));
+                traitsList.Add(new CharacterTrait("ProficiencyBonus", ComplexPerson_Tabletop_PagePerson.Proficiency_bonus));
                 traitsList.Add(new CharacterTrait("Inspiration", ComplexPerson_Tabletop_PagePerson.Inspiration));
-                traitsList.Add(new CharacterTrait("Perception", ComplexPerson_Tabletop_PagePerson.perception));
-                traitsList.Add(new CharacterTrait("SpellCastingAbility", ComplexPerson_Tabletop_PagePerson.SpellCastingAbility));
-                traitsList.Add(new CharacterTrait("SpellSaveDC", ComplexPerson_Tabletop_PagePerson.SpellSaveDC));
-                traitsList.Add(new CharacterTrait("SpellAttackBonus", ComplexPerson_Tabletop_PagePerson.SpellAttackBonus));
-                traitsList.Add(new CharacterTrait("Exp", ComplexPerson_Tabletop_PagePerson.Exp));
+                traitsList.Add(new CharacterTrait("Perception", ComplexPerson_Tabletop_PagePerson.Perception));
+                traitsList.Add(new CharacterTrait("SpellCastingAbility", ComplexPerson_Tabletop_PagePerson.Spellcasting_ability));
+                traitsList.Add(new CharacterTrait("SpellSaveDC", ComplexPerson_Tabletop_PagePerson.Spell_save_DC));
+                traitsList.Add(new CharacterTrait("SpellAttackBonus", ComplexPerson_Tabletop_PagePerson.Spell_attack_bonus));
+                traitsList.Add(new CharacterTrait("Exp", ComplexPerson_Tabletop_PagePerson.EXP));
                 traitsList.Add(new CharacterTrait("Groups", ComplexPerson_Tabletop_PagePerson.Groups));
 
 

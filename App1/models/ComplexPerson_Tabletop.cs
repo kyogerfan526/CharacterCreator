@@ -36,6 +36,8 @@ namespace App1.models
         private string significantOther;
         private string favoriteFood;
         private string[] groups;
+        private string fightingstyle;
+        private string preferredweapon;
 
         private string armor_class;
 
@@ -59,7 +61,25 @@ namespace App1.models
         int spell_attack_bonus;
         int Exp;
 
+        public String FightingStyle
+        {
+            get { return fightingstyle; }
+            set
+            {
+                fightingstyle = value;
+                FieldChanged();
+            }
+        }
 
+        public String PreferredWeapon
+        {
+            get { return preferredweapon; }
+            set
+            {
+                preferredweapon = value;
+                FieldChanged();
+            }
+        }
 
         public String FName
         {
@@ -298,7 +318,7 @@ namespace App1.models
             }
         }
 
-        public int Constiution
+        public int Constitution
         {
             get { return constitution; }
             set
