@@ -110,12 +110,18 @@ namespace CharacterMaker
 
         List<String> scifiGroups = new List<String> { "Megacorp Union", "Hacker Gang", "Space Mafia", "Cyborg Advocates" };
 
+        List<String> ArmorClasses = new List<string> { "Heavy", "Light", "Cloke", "Shroud", "Wizard robes", "Leaves", "Wood", "Chainmail" };
+
         Random rand = new Random();
 
         ObservableCollection<CharacterTrait> traitsList = new ObservableCollection<CharacterTrait>();
         private DefaultPerson pagePerson;
+        private ModeratelyComplexPerson ModeratlyComplexPagePerson;
+        private ComplexPerson ComplexPagePerson;
+        private ModeratelyComplexPerson_Tabletop ModeratelyComplexPerson_Tabletop_PagePerson;
+        private ComplexPerson_Tabletop ComplexPerson_Tabletop_PagePerson;
         public enum Genre { CONTEMPORARY, FANTASY, SCIFI };
-        public enum Complexity { Simple, ModeratlyComplex, Complex, ModeratlyComplexTableTop };
+        public enum Complexity { Simple, ModeratlyComplex, Complex, ModeratlyComplexTableTop, ComplexTableTop };
 
         //Bool for male/female lock
         //Gender for male/female lock
@@ -216,137 +222,353 @@ namespace CharacterMaker
                 {
                     if (lockedGender == "Male")
                     {
-                        pagePerson.FName = MFNames[rand.Next(MFNames.Count)];
-                        traitsList.Add(new CharacterTrait("First Name", pagePerson.FName));
+                        ModeratlyComplexPagePerson.FName = MFNames[rand.Next(MFNames.Count)];
+                        traitsList.Add(new CharacterTrait("First Name", ModeratlyComplexPagePerson.FName));
                     }
                     else if (lockedGender == "Female")
                     {
-                        pagePerson.FName = FFNames[rand.Next(FFNames.Count)];
+                        ModeratlyComplexPagePerson.FName = FFNames[rand.Next(FFNames.Count)];
                     }
                 }
                 else
                 {
-                    pagePerson.FName = FNames[rand.Next(FNames.Count)];
+                    ModeratlyComplexPagePerson.FName = FNames[rand.Next(FNames.Count)];
                 }
-                pagePerson.LName = LNames[rand.Next(LNames.Count)];
+                ModeratlyComplexPagePerson.LName = LNames[rand.Next(LNames.Count)];
 
-                pagePerson.Age = rand.Next(101);
+                ModeratlyComplexPagePerson.Age = rand.Next(101);
                 if (genreLock == Genre.CONTEMPORARY)
                 {
-                    if (pagePerson.Age < 18)
+                    if (ModeratlyComplexPagePerson.Age < 18)
                     {
-                        if (pagePerson.Age < 14)
+                        if (ModeratlyComplexPagePerson.Age < 14)
                         {
-                            pagePerson.Profession = "Unemployed";
+                            ModeratlyComplexPagePerson.Profession = "Unemployed";
                         }
                         else
                         {
-                            pagePerson.Profession = MinorProfessions[rand.Next(MinorProfessions.Count)];
+                            ModeratlyComplexPagePerson.Profession = MinorProfessions[rand.Next(MinorProfessions.Count)];
                         }
                     }
                     else
                     {
-                        pagePerson.Profession = Professions[rand.Next(Professions.Count)];
+                        ModeratlyComplexPagePerson.Profession = Professions[rand.Next(Professions.Count)];
                     }
                 }
                 else if (genreLock == Genre.FANTASY)
                 {
-                    pagePerson.Profession = FantasyProfessions[rand.Next(FantasyProfessions.Count)];
+                    ModeratlyComplexPagePerson.Profession = FantasyProfessions[rand.Next(FantasyProfessions.Count)];
                 }
                 else if (genreLock == Genre.SCIFI)
                 {
-                    pagePerson.Profession = FantasyProfessions[rand.Next(FantasyProfessions.Count)];
+                    ModeratlyComplexPagePerson.Profession = FantasyProfessions[rand.Next(FantasyProfessions.Count)];
                 }
                 traitsList.Add(new CharacterTrait("Profession", pagePerson.Profession));
 
                 if (genderLock)
                 {
-                    pagePerson.Gender = lockedGender;
+                    ModeratlyComplexPagePerson.Gender = lockedGender;
                 }
                 else
                 {
-                    pagePerson.Gender = Genders[rand.Next(Genders.Count)];
+                    ModeratlyComplexPagePerson.Gender = Genders[rand.Next(Genders.Count)];
                 }
 
                 if (raceLock != null)
                 {
-                    pagePerson.Race = raceLock;
+                    ModeratlyComplexPagePerson.Race = raceLock;
                 }
                 else
                 {
-                    pagePerson.Race = Races[rand.Next(Races.Count)];
+                    ModeratlyComplexPagePerson.Race = Races[rand.Next(Races.Count)];
                 }
 
+                ModeratlyComplexPagePerson.Nationality = Nationalities[rand.Next(Nationalities.Count)];
 
+                ModeratlyComplexPagePerson.HairColor = hairColors[rand.Next(hairColors.Count)];
 
+                ModeratlyComplexPagePerson.EyeColor = eyeColors[rand.Next(eyeColors.Count)];
+
+                ModeratlyComplexPagePerson.Personality = personalities[rand.Next(personalities.Count)];
 
             }
-            else if(complock == Complexity.Complex)
+            else if(complock == Complexity.Complex) // complexity
             {
                 if (genderLock)
                 {
                     if (lockedGender == "Male")
                     {
-                        pagePerson.FName = MFNames[rand.Next(MFNames.Count)];
+                        ComplexPagePerson.FName = MFNames[rand.Next(MFNames.Count)];
                     }
                     else if (lockedGender == "Female")
                     {
-                        pagePerson.FName = FFNames[rand.Next(FFNames.Count)];
+                        ComplexPagePerson.FName = FFNames[rand.Next(FFNames.Count)];
                     }
                 }
                 else
                 {
-                    pagePerson.FName = FNames[rand.Next(FNames.Count)];
+                    ComplexPagePerson.FName = FNames[rand.Next(FNames.Count)];
                 }
-                pagePerson.LName = LNames[rand.Next(LNames.Count)];
+                ComplexPagePerson.LName = LNames[rand.Next(LNames.Count)];
 
-                pagePerson.Age = rand.Next(101);
+                ComplexPagePerson.Age = rand.Next(101);
                 if (genreLock == Genre.CONTEMPORARY)
                 {
-                    if (pagePerson.Age < 18)
+                    if (ComplexPagePerson.Age < 18)
                     {
-                        if (pagePerson.Age < 14)
+                        if (ComplexPagePerson.Age < 14)
                         {
-                            pagePerson.Profession = "Unemployed";
+                            ComplexPagePerson.Profession = "Unemployed";
                         }
                         else
                         {
-                            pagePerson.Profession = MinorProfessions[rand.Next(MinorProfessions.Count)];
+                            ComplexPagePerson.Profession = MinorProfessions[rand.Next(MinorProfessions.Count)];
                         }
                     }
                     else
                     {
-                        pagePerson.Profession = Professions[rand.Next(Professions.Count)];
+                        ComplexPagePerson.Profession = Professions[rand.Next(Professions.Count)];
                     }
                 }
                 else if (genreLock == Genre.FANTASY)
                 {
-                    pagePerson.Profession = FantasyProfessions[rand.Next(FantasyProfessions.Count)];
+                    ComplexPagePerson.Profession = FantasyProfessions[rand.Next(FantasyProfessions.Count)];
                 }
                 else if (genreLock == Genre.SCIFI)
                 {
-                    pagePerson.Profession = FantasyProfessions[rand.Next(FantasyProfessions.Count)];
+                    ComplexPagePerson.Profession = FantasyProfessions[rand.Next(FantasyProfessions.Count)];
                 }
 
                 if (genderLock)
                 {
-                    pagePerson.Gender = lockedGender;
+                    ComplexPagePerson.Gender = lockedGender;
                 }
                 else
                 {
-                    pagePerson.Gender = Genders[rand.Next(Genders.Count)];
+                    ComplexPagePerson.Gender = Genders[rand.Next(Genders.Count)];
                 }
 
                 if (raceLock != null)
                 {
-                    pagePerson.Race = raceLock;
+                    ComplexPagePerson.Race = raceLock;
                 }
                 else
                 {
-                    pagePerson.Race = Races[rand.Next(Races.Count)];
+                    ComplexPagePerson.Race = Races[rand.Next(Races.Count)];
                 }
 
+                ComplexPagePerson.Nationality = Nationalities[rand.Next(Nationalities.Count)];
 
+                ComplexPagePerson.HairColor = hairColors[rand.Next(hairColors.Count)];
+
+                ComplexPagePerson.EyeColor = eyeColors[rand.Next(eyeColors.Count)];
+
+                ComplexPagePerson.Personality = personalities[rand.Next(personalities.Count)];
+
+            }
+            else if(complock == Complexity.ModeratlyComplexTableTop) //complexity
+            {
+                if (genderLock)
+                {
+                    if (lockedGender == "Male")
+                    {
+                        ModeratelyComplexPerson_Tabletop_PagePerson.FName = MFNames[rand.Next(MFNames.Count)];
+                    }
+                    else if (lockedGender == "Female")
+                    {
+                        ModeratelyComplexPerson_Tabletop_PagePerson.FName = FFNames[rand.Next(FFNames.Count)];
+                    }
+                }
+                else
+                {
+                    ModeratelyComplexPerson_Tabletop_PagePerson.FName = FNames[rand.Next(FNames.Count)];
+                }
+                ModeratelyComplexPerson_Tabletop_PagePerson.LName = LNames[rand.Next(LNames.Count)];
+
+                ModeratelyComplexPerson_Tabletop_PagePerson.Age = rand.Next(101);
+                if (genreLock == Genre.CONTEMPORARY)
+                {
+                    if (ModeratelyComplexPerson_Tabletop_PagePerson.Age < 18)
+                    {
+                        if (ModeratelyComplexPerson_Tabletop_PagePerson.Age < 14)
+                        {
+                            ModeratelyComplexPerson_Tabletop_PagePerson.Profession = "Unemployed";
+                        }
+                        else
+                        {
+                            ModeratelyComplexPerson_Tabletop_PagePerson.Profession = MinorProfessions[rand.Next(MinorProfessions.Count)];
+                        }
+                    }
+                    else
+                    {
+                        ModeratelyComplexPerson_Tabletop_PagePerson.Profession = Professions[rand.Next(Professions.Count)];
+                    }
+                }
+                else if (genreLock == Genre.FANTASY)
+                {
+                    ModeratelyComplexPerson_Tabletop_PagePerson.Profession = FantasyProfessions[rand.Next(FantasyProfessions.Count)];
+                }
+                else if (genreLock == Genre.SCIFI)
+                {
+                    ModeratelyComplexPerson_Tabletop_PagePerson.Profession = FantasyProfessions[rand.Next(FantasyProfessions.Count)];
+                }
+
+                if (genderLock)
+                {
+                    ModeratelyComplexPerson_Tabletop_PagePerson.Gender = lockedGender;
+                }
+                else
+                {
+                    ModeratelyComplexPerson_Tabletop_PagePerson.Gender = Genders[rand.Next(Genders.Count)];
+                }
+
+                if (raceLock != null)
+                {
+                    ModeratelyComplexPerson_Tabletop_PagePerson.Race = raceLock;
+                }
+                else
+                {
+                    ModeratelyComplexPerson_Tabletop_PagePerson.Race = Races[rand.Next(Races.Count)];
+                }
+
+                ModeratelyComplexPerson_Tabletop_PagePerson.Nationality = Nationalities[rand.Next(Nationalities.Count)];
+
+                ModeratelyComplexPerson_Tabletop_PagePerson.HairColor = hairColors[rand.Next(hairColors.Count)];
+
+                ModeratelyComplexPerson_Tabletop_PagePerson.EyeColor = eyeColors[rand.Next(eyeColors.Count)];
+
+                ModeratelyComplexPerson_Tabletop_PagePerson.Personality = personalities[rand.Next(personalities.Count)];
+
+                ModeratelyComplexPerson_Tabletop_PagePerson.HitPoints = rand.Next(301);
+
+                ModeratelyComplexPerson_Tabletop_PagePerson.SpecialPoints = rand.Next(126);
+
+                ModeratelyComplexPerson_Tabletop_PagePerson.Level = rand.Next(101);
+
+                ModeratelyComplexPerson_Tabletop_PagePerson.Strength = rand.Next(36);
+
+                ModeratelyComplexPerson_Tabletop_PagePerson.Dexterity = rand.Next(36);
+
+                ModeratelyComplexPerson_Tabletop_PagePerson.Intelligence = rand.Next(36);
+
+                ModeratelyComplexPerson_Tabletop_PagePerson.Wisdom = rand.Next(36);
+
+                ModeratelyComplexPerson_Tabletop_PagePerson.Constiution = rand.Next(36);
+
+                ModeratelyComplexPerson_Tabletop_PagePerson.Will = rand.Next(36);
+
+                ModeratelyComplexPerson_Tabletop_PagePerson.Charisma = rand.Next(36);
+
+
+            }
+            else if(complock == Complexity.ComplexTableTop)
+            {
+                if (genderLock)
+                {
+                    if (lockedGender == "Male")
+                    {
+                        ComplexPerson_Tabletop_PagePerson.FName = MFNames[rand.Next(MFNames.Count)];
+                    }
+                    else if (lockedGender == "Female")
+                    {
+                        ComplexPerson_Tabletop_PagePerson.FName = FFNames[rand.Next(FFNames.Count)];
+                    }
+                }
+                else
+                {
+                    ComplexPerson_Tabletop_PagePerson.FName = FNames[rand.Next(FNames.Count)];
+                }
+                ComplexPerson_Tabletop_PagePerson.LName = LNames[rand.Next(LNames.Count)];
+
+                ComplexPerson_Tabletop_PagePerson.Age = rand.Next(101);
+                if (genreLock == Genre.CONTEMPORARY)
+                {
+                    if (ComplexPerson_Tabletop_PagePerson.Age < 18)
+                    {
+                        if (ComplexPerson_Tabletop_PagePerson.Age < 14)
+                        {
+                            ComplexPerson_Tabletop_PagePerson.Profession = "Unemployed";
+                        }
+                        else
+                        {
+                            ComplexPerson_Tabletop_PagePerson.Profession = MinorProfessions[rand.Next(MinorProfessions.Count)];
+                        }
+                    }
+                    else
+                    {
+                        ComplexPerson_Tabletop_PagePerson.Profession = Professions[rand.Next(Professions.Count)];
+                    }
+                }
+                else if (genreLock == Genre.FANTASY)
+                {
+                    ComplexPerson_Tabletop_PagePerson.Profession = FantasyProfessions[rand.Next(FantasyProfessions.Count)];
+                }
+                else if (genreLock == Genre.SCIFI)
+                {
+                    ComplexPerson_Tabletop_PagePerson.Profession = FantasyProfessions[rand.Next(FantasyProfessions.Count)];
+                }
+
+                if (genderLock)
+                {
+                    ComplexPerson_Tabletop_PagePerson.Gender = lockedGender;
+                }
+                else
+                {
+                    ComplexPerson_Tabletop_PagePerson.Gender = Genders[rand.Next(Genders.Count)];
+                }
+
+                if (raceLock != null)
+                {
+                    ComplexPerson_Tabletop_PagePerson.Race = raceLock;
+                }
+                else
+                {
+                    ComplexPerson_Tabletop_PagePerson.Race = Races[rand.Next(Races.Count)];
+                }
+
+                ComplexPerson_Tabletop_PagePerson.Nationality = Nationalities[rand.Next(Nationalities.Count)];
+
+                ComplexPerson_Tabletop_PagePerson.HairColor = hairColors[rand.Next(hairColors.Count)];
+
+                ComplexPerson_Tabletop_PagePerson.EyeColor = eyeColors[rand.Next(eyeColors.Count)];
+
+                ComplexPerson_Tabletop_PagePerson.Personality = personalities[rand.Next(personalities.Count)];
+
+                ComplexPerson_Tabletop_PagePerson.HitPoints = rand.Next(301);
+
+                ComplexPerson_Tabletop_PagePerson.SpecialPoints = rand.Next(126);
+
+                ComplexPerson_Tabletop_PagePerson.Level = rand.Next(101);
+
+                ComplexPerson_Tabletop_PagePerson.Strength = rand.Next(36);
+
+                ComplexPerson_Tabletop_PagePerson.Dexterity = rand.Next(36);
+
+                ComplexPerson_Tabletop_PagePerson.Intelligence = rand.Next(36);
+
+                ComplexPerson_Tabletop_PagePerson.Wisdom = rand.Next(36);
+
+                ComplexPerson_Tabletop_PagePerson.Constiution = rand.Next(36);
+
+                ComplexPerson_Tabletop_PagePerson.Will = rand.Next(36);
+
+                ComplexPerson_Tabletop_PagePerson.Charisma = rand.Next(36);
+
+                ComplexPerson_Tabletop_PagePerson.Armor_Class = ArmorClasses[rand.Next(ArmorClasses.Count)];
+
+                ComplexPerson_Tabletop_PagePerson.Proficiency_bonus = rand.Next(51);
+
+                ComplexPerson_Tabletop_PagePerson.Inspiration = rand.Next(36);
+
+                ComplexPerson_Tabletop_PagePerson.Perception = rand.Next(36);
+
+                ComplexPerson_Tabletop_PagePerson.Spellcasting_ability = rand.Next(101);
+
+                ComplexPerson_Tabletop_PagePerson.Spell_save_DC = rand.Next(11);
+
+                ComplexPerson_Tabletop_PagePerson.Spell_attack_bonus = rand.Next(16);
+
+                ComplexPerson_Tabletop_PagePerson.EXP = rand.Next(10001);
 
             }
 
@@ -445,6 +667,10 @@ namespace CharacterMaker
             complock = Complexity.Complex;
         }
 
+        private void complex_table_top_Click(object sender, RoutedEventArgs e)
+        {
+            complock = Complexity.ComplexTableTop;
+        }
     }
 
     public struct CharacterTrait

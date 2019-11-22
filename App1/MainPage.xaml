@@ -71,6 +71,12 @@
                     Click="Complex_Click">
                 </MenuFlyoutItem>
 
+                <MenuFlyoutItem 
+                    x:Name="complex_table_top"
+                    Text="Complex table top"
+                    Click="complex_table_top_Click">
+                </MenuFlyoutItem>
+
             </MenuBarItem>
         </MenuBar>
 
@@ -185,6 +191,7 @@
                       Grid.RowSpan="2"
                       Grid.ColumnSpan="2"
                       Margin="50">
+              
                 <ListView x:Name="CharacterTraitsArea"
                           SelectionMode="None">
                     <ListView.ItemTemplate>
