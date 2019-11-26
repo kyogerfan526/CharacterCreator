@@ -140,6 +140,10 @@ namespace CharacterMaker
             this.InitializeComponent();
             
             pagePerson = new DefaultPerson();
+            ModeratlyComplexPagePerson = new ModeratelyComplexPerson();
+            ComplexPagePerson = new ComplexPerson();
+            ModeratelyComplexPerson_Tabletop_PagePerson = new ModeratelyComplexPerson_Tabletop();
+            ComplexPerson_Tabletop_PagePerson = new ComplexPerson_Tabletop();
 
             CharacterNameBlock.DataContext = pagePerson;
             CharacterTraitsArea.ItemsSource = traitsList;
@@ -986,7 +990,7 @@ namespace CharacterMaker
             complock = Complexity.ComplexTableTop;
         }
 
-        private void Custom_randomization_Click(object sender, RoutedEventArgs e)
+        private void Custom_Randomization_Click(object sender, RoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(CustomComplexityScreen));
         }
