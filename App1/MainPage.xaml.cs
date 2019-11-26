@@ -454,6 +454,96 @@ namespace CharacterMaker
                     ComplexPagePerson.Enemies[i] = tempEnemy;
                 }
 
+                ComplexPagePerson.Groups = new string[3];
+
+                if (genreLock == Genre.CONTEMPORARY)
+                {
+                    for (int i = 0; i < ComplexPagePerson.Groups.Length; i++)
+                    {
+                        bool same = false;
+                        string tempGroup = groups[rand.Next(groups.Count)];
+
+                        foreach (string group in ComplexPagePerson.Groups)
+                        {
+                            if (tempGroup == group)
+                            {
+                                same = true;
+                            }
+                            else
+                            {
+
+                            }
+                        }
+
+                        if (!same)
+                        {
+                            ComplexPagePerson.Groups[i] = tempGroup;
+                        }
+                        else 
+                        {
+                            i--;
+                        }
+                    }
+                }
+                else if (genreLock == Genre.FANTASY)
+                {
+                    for (int i = 0; i < ComplexPagePerson.Groups.Length; i++)
+                    {
+                        bool same = false;
+                        string tempGroup = fantasyGroups[rand.Next(groups.Count)];
+
+                        foreach (string group in ComplexPagePerson.Groups)
+                        {
+                            if (tempGroup == group)
+                            {
+                                same = true;
+                            }
+                            else
+                            {
+
+                            }
+                        }
+
+                        if (!same)
+                        {
+                            ComplexPagePerson.Groups[i] = tempGroup;
+                        }
+                        else
+                        {
+                            i--;
+                        }
+                    }
+                }
+                else if (genreLock == Genre.SCIFI)
+                {
+                    for (int i = 0; i < ComplexPagePerson.Groups.Length; i++)
+                    {
+                        bool same = false;
+                        string tempGroup = scifiGroups[rand.Next(groups.Count)];
+
+                        foreach (string group in ComplexPagePerson.Groups)
+                        {
+                            if (tempGroup == group)
+                            {
+                                same = true;
+                            }
+                            else
+                            {
+
+                            }
+                        }
+
+                        if (!same)
+                        {
+                            ComplexPagePerson.Groups[i] = tempGroup;
+                        }
+                        else
+                        {
+                            i--;
+                        }
+                    }
+                }
+
             }
             else if (complock == Complexity.ModeratlyComplexTableTop) //complexity
             {
@@ -741,6 +831,94 @@ namespace CharacterMaker
                     string tempEnemy = FNames[rand.Next(FNames.Count)] + LNames[rand.Next(LNames.Count)];
 
                     ComplexPerson_Tabletop_PagePerson.Enemies[i] = tempEnemy;
+                }
+
+                if (genreLock == Genre.CONTEMPORARY)
+                {
+                    for (int i = 0; i < ComplexPagePerson.Groups.Length; i++)
+                    {
+                        bool same = false;
+                        string tempGroup = groups[rand.Next(groups.Count)];
+
+                        foreach (string group in ComplexPagePerson.Groups)
+                        {
+                            if (tempGroup == group)
+                            {
+                                same = true;
+                            }
+                            else
+                            {
+
+                            }
+                        }
+
+                        if (!same)
+                        {
+                            ComplexPagePerson.Groups[i] = tempGroup;
+                        }
+                        else
+                        {
+                            i--;
+                        }
+                    }
+                }
+                else if (genreLock == Genre.FANTASY)
+                {
+                    for (int i = 0; i < ComplexPagePerson.Groups.Length; i++)
+                    {
+                        bool same = false;
+                        string tempGroup = fantasyGroups[rand.Next(groups.Count)];
+
+                        foreach (string group in ComplexPagePerson.Groups)
+                        {
+                            if (tempGroup == group)
+                            {
+                                same = true;
+                            }
+                            else
+                            {
+
+                            }
+                        }
+
+                        if (!same)
+                        {
+                            ComplexPagePerson.Groups[i] = tempGroup;
+                        }
+                        else
+                        {
+                            i--;
+                        }
+                    }
+                }
+                else if (genreLock == Genre.SCIFI)
+                {
+                    for (int i = 0; i < ComplexPagePerson.Groups.Length; i++)
+                    {
+                        bool same = false;
+                        string tempGroup = scifiGroups[rand.Next(groups.Count)];
+
+                        foreach (string group in ComplexPagePerson.Groups)
+                        {
+                            if (tempGroup == group)
+                            {
+                                same = true;
+                            }
+                            else
+                            {
+
+                            }
+                        }
+
+                        if (!same)
+                        {
+                            ComplexPagePerson.Groups[i] = tempGroup;
+                        }
+                        else
+                        {
+                            i--;
+                        }
+                    }
                 }
 
             }
