@@ -13,15 +13,14 @@
     <!-- Comment by Lane -->
     <!-- This will be a test page to show off layout of the character info screen -->
 
-    <StackPanel>
+   <StackPanel>
         <MenuBar x:Name="TopBar" 
                  Height="45"
                  Background="DarkGray" 
                  VerticalAlignment="Top">
             <MenuBarItem 
                 x:Name="Genre_selction"
-                Title="Genre selection"  
-                >
+                Title="Genre selection">
 
                 <MenuFlyoutItem 
                     x:Name="Real_Life"
@@ -47,7 +46,7 @@
                 x:Name="Complexity_selction"
                 Title="Complexity"  
                 >
-
+                
                 <MenuFlyoutItem 
                     x:Name="Simple"
                     Text="Simple"
@@ -77,7 +76,13 @@
                     Text="Complex table top"
                     Click="complex_table_top_Click">
                 </MenuFlyoutItem>
+            </MenuBarItem>
 
+            <MenuBarItem x:Name="Custom_Complexity"
+                         Title="Custom Complexity">
+                <MenuFlyoutItem x:Name="Custom_Randomization"
+                                Text="Custom Randomize"
+                                Click="Custom_Randomization_Click"/>
             </MenuBarItem>
         </MenuBar>
 
@@ -192,7 +197,6 @@
                       Grid.RowSpan="2"
                       Grid.ColumnSpan="2"
                       Margin="50">
-              
                 <ListView x:Name="CharacterTraitsArea"
                           SelectionMode="None">
                     <ListView.ItemTemplate>
@@ -210,14 +214,12 @@
                                            Grid.Column="0"
                                            Margin="0 0 25 0"
                                            VerticalAlignment="Bottom"
-                                           FontWeight="Bold"
-                                           Foreground="Black"/>
+                                           FontWeight="Bold"/>
                                 <TextBlock x:Name="TraitValue"
                                            Text="{Binding TraitValue}"
                                            FontSize="24"
                                            Grid.Column="1"
-                                           VerticalAlignment="Bottom"
-                                           Foreground="Black"/>
+                                           VerticalAlignment="Bottom"/>
                             </Grid>
                         </DataTemplate>
                     </ListView.ItemTemplate>
