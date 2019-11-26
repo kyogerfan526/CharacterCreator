@@ -319,7 +319,6 @@ namespace CharacterMaker
                         if (tempDislike == like)
                         {
                             same = true;
-                            i--;
                         }
                         else 
                         {
@@ -330,6 +329,11 @@ namespace CharacterMaker
                     if (!same)
                     { 
                         ModeratlyComplexPagePerson.Dislikes[i] = tempDislike;
+                    }
+                    else
+                    {
+                            i--;
+
                     }
                 }
 
@@ -581,7 +585,6 @@ namespace CharacterMaker
                         if (tempDislike == like)
                         {
                             same = true;
-                            i--;
                         }
                         else
                         {
@@ -592,6 +595,11 @@ namespace CharacterMaker
                     if (!same)
                     {
                         ModeratelyComplexPerson_Tabletop_PagePerson.Dislikes[i] = tempDislike;
+                    }
+                    else
+                    {
+                            i--;
+
                     }
                 }
             }
