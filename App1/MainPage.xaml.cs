@@ -292,6 +292,10 @@ namespace CharacterMaker
 
                 ModeratlyComplexPagePerson.HairColor = hairColors[rand.Next(hairColors.Count)];
 
+                ModeratlyComplexPagePerson.Heightfeet = rand.Next(3, 6);
+
+                ModeratlyComplexPagePerson.HeightInches = rand.Next(12);
+
                 ModeratlyComplexPagePerson.EyeColor = eyeColors[rand.Next(eyeColors.Count)];
 
                 ModeratlyComplexPagePerson.Personality = personalities[rand.Next(personalities.Count)];
@@ -396,6 +400,10 @@ namespace CharacterMaker
                 }
 
                 ComplexPagePerson.Nationality = Nationalities[rand.Next(Nationalities.Count)];
+
+                ComplexPagePerson.Heightfeet = rand.Next(3, 6);
+
+                ComplexPagePerson.HeightInches = rand.Next(12);
 
                 ComplexPagePerson.HairColor = hairColors[rand.Next(hairColors.Count)];
 
@@ -522,6 +530,10 @@ namespace CharacterMaker
 
                 ModeratelyComplexPerson_Tabletop_PagePerson.Nationality = Nationalities[rand.Next(Nationalities.Count)];
 
+                ModeratelyComplexPerson_Tabletop_PagePerson.Heightfeet = rand.Next(3, 6);
+
+                ModeratelyComplexPerson_Tabletop_PagePerson.HeightInches = rand.Next(12);
+
                 ModeratelyComplexPerson_Tabletop_PagePerson.HairColor = hairColors[rand.Next(hairColors.Count)];
 
                 ModeratelyComplexPerson_Tabletop_PagePerson.EyeColor = eyeColors[rand.Next(eyeColors.Count)];
@@ -554,7 +566,7 @@ namespace CharacterMaker
 
                 for (int i = 0; i < ModeratelyComplexPerson_Tabletop_PagePerson.Likes.Length; i++)
                 {
-                    ModeratlyComplexPagePerson.Likes[i] = likes[rand.Next(likes.Count)];
+                    ModeratelyComplexPerson_Tabletop_PagePerson.Likes[i] = likes[rand.Next(likes.Count)];
                 }
 
                 ModeratelyComplexPerson_Tabletop_PagePerson.Dislikes = new string[3];
@@ -650,6 +662,10 @@ namespace CharacterMaker
 
                 ComplexPerson_Tabletop_PagePerson.Nationality = Nationalities[rand.Next(Nationalities.Count)];
 
+                ComplexPerson_Tabletop_PagePerson.Heightfeet = rand.Next(3, 6);
+
+                ComplexPerson_Tabletop_PagePerson.HeightInches = rand.Next(12);
+
                 ComplexPerson_Tabletop_PagePerson.HairColor = hairColors[rand.Next(hairColors.Count)];
 
                 ComplexPerson_Tabletop_PagePerson.EyeColor = eyeColors[rand.Next(eyeColors.Count)];
@@ -688,7 +704,7 @@ namespace CharacterMaker
 
                 ComplexPerson_Tabletop_PagePerson.Spell_save_DC = rand.Next(11);
 
-                ComplexPerson_Tabletop_PagePerson.Spell_attack_bonus = rand.Next(16);
+                ComplexPerson_Tabletop_PagePerson.Spell_attack_bonus = rand.Next(15);
 
                 ComplexPerson_Tabletop_PagePerson.EXP = rand.Next(10001);
 
