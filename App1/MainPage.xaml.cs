@@ -759,12 +759,23 @@ namespace CharacterMaker
 
                 StringBuilder sb = new StringBuilder();
 
-                foreach (string like in ComplexPagePerson.Likes)
+                foreach (string like in ModeratlyComplexPagePerson.Likes)
                 {
                     sb.Append(like + ", ");
                 }
 
                 string compiledLikes = sb.ToString();
+
+                sb.Clear();
+
+                foreach (string dislike in ModeratlyComplexPagePerson.Dislikes)
+                {
+                    sb.Append(dislike + ", ");
+                }
+
+                string compiledDislikes = sb.ToString();
+
+                sb.Clear();
 
                 traitsList.Add(new CharacterTrait("Age", ModeratlyComplexPagePerson.Age));
                 traitsList.Add(new CharacterTrait("Profession", ModeratlyComplexPagePerson.Profession));
@@ -778,8 +789,8 @@ namespace CharacterMaker
                 traitsList.Add(new CharacterTrait("HairColor", ModeratlyComplexPagePerson.HairColor));
                 traitsList.Add(new CharacterTrait("EyeColor", ModeratlyComplexPagePerson.EyeColor));
                 traitsList.Add(new CharacterTrait("Personality", ModeratlyComplexPagePerson.Personality));
-                traitsList.Add(new CharacterTrait("Likes", ModeratlyComplexPagePerson.Likes));
-                traitsList.Add(new CharacterTrait("Dislikes", ModeratlyComplexPagePerson.Dislikes));
+                traitsList.Add(new CharacterTrait("Likes", compiledLikes));
+                traitsList.Add(new CharacterTrait("Dislikes", compiledDislikes));
 
 
             }
@@ -787,12 +798,23 @@ namespace CharacterMaker
             {
                 StringBuilder sb = new StringBuilder();
 
-                foreach (string like in ComplexPagePerson.Likes)
+                foreach (string like in ModeratelyComplexPerson_Tabletop_PagePerson.Likes)
                 {
                     sb.Append(like + ", ");
                 }
 
                 string compiledLikes = sb.ToString();
+
+                sb.Clear();
+
+                foreach (string dislike in ModeratelyComplexPerson_Tabletop_PagePerson.Dislikes)
+                {
+                    sb.Append(dislike + ", ");
+                }
+
+                string compiledDislikes = sb.ToString();
+
+                sb.Clear();
 
 
 
@@ -809,8 +831,8 @@ namespace CharacterMaker
                 traitsList.Add(new CharacterTrait("HairColor", ModeratelyComplexPerson_Tabletop_PagePerson.HairColor));
                 traitsList.Add(new CharacterTrait("EyeColor", ModeratelyComplexPerson_Tabletop_PagePerson.EyeColor));
                 traitsList.Add(new CharacterTrait("Personality", ModeratelyComplexPerson_Tabletop_PagePerson.Personality));
-                traitsList.Add(new CharacterTrait("Likes", ModeratelyComplexPerson_Tabletop_PagePerson.Likes));
-                traitsList.Add(new CharacterTrait("Dislikes", ModeratelyComplexPerson_Tabletop_PagePerson.Dislikes));
+                traitsList.Add(new CharacterTrait("Likes", compiledLikes));
+                traitsList.Add(new CharacterTrait("Dislikes", compiledDislikes));
                 traitsList.Add(new CharacterTrait("HitPoints", ModeratelyComplexPerson_Tabletop_PagePerson.HitPoints));
                 traitsList.Add(new CharacterTrait("SpecialPoints", ModeratelyComplexPerson_Tabletop_PagePerson.SpecialPoints));
                 traitsList.Add(new CharacterTrait("Level", ModeratelyComplexPerson_Tabletop_PagePerson.Level));
@@ -844,6 +866,35 @@ namespace CharacterMaker
 
                 string compiledDislikes =  sb.ToString();
 
+                sb.Clear();
+
+                foreach (string friend in ComplexPagePerson.Friends)
+                {
+                    sb.Append(friend + ", ");
+                }
+
+                string compiledFriends = sb.ToString();
+
+                sb.Clear();
+
+                foreach (string enemy in ComplexPagePerson.Enemies)
+                {
+                    sb.Append(enemy + ", ");
+                }
+
+                string compiledEnemies = sb.ToString();
+
+                sb.Clear();
+
+                foreach (string group in ComplexPagePerson.Groups)
+                {
+                    sb.Append(group + ", ");
+                }
+
+                string compiledGroups = sb.ToString();
+
+                sb.Clear();
+
 
                 traitsList.Add(new CharacterTrait("Age", ComplexPagePerson.Age));
                 traitsList.Add(new CharacterTrait("Profession", ComplexPagePerson.Profession));
@@ -861,11 +912,11 @@ namespace CharacterMaker
                 traitsList.Add(new CharacterTrait("Dislikes", compiledDislikes));
                 traitsList.Add(new CharacterTrait("Accent", ComplexPagePerson.Accent));
                 traitsList.Add(new CharacterTrait("StyleOfDress", ComplexPagePerson.StyleOfDress));
-                traitsList.Add(new CharacterTrait("Friends", ComplexPagePerson.Friends));
-                traitsList.Add(new CharacterTrait("Enemies", ComplexPagePerson.Enemies));
+                traitsList.Add(new CharacterTrait("Friends", compiledFriends));
+                traitsList.Add(new CharacterTrait("Enemies", compiledEnemies));
                 traitsList.Add(new CharacterTrait("SignificantOther", ComplexPagePerson.SignificantOther));
                 traitsList.Add(new CharacterTrait("FavoriteFood", ComplexPagePerson.FavoriteFood));
-                traitsList.Add(new CharacterTrait("Groups", ComplexPagePerson.Groups));
+                traitsList.Add(new CharacterTrait("Groups", compiledGroups));
 
 
 
@@ -874,12 +925,50 @@ namespace CharacterMaker
             {
                 StringBuilder sb = new StringBuilder();
 
-                foreach (string like in ComplexPagePerson.Likes)
+                foreach (string like in ComplexPerson_Tabletop_PagePerson.Likes)
                 {
                     sb.Append(like + ", ");
                 }
 
                 string compiledLikes = sb.ToString();
+
+                sb.Clear();
+
+                foreach (string dislike in ComplexPerson_Tabletop_PagePerson.Dislikes)
+                {
+                    sb.Append(dislike + ", ");
+                }
+
+                string compiledDislikes = sb.ToString();
+
+                sb.Clear();
+
+                foreach (string friend in ComplexPerson_Tabletop_PagePerson.Friends)
+                {
+                    sb.Append(friend + ", ");
+                }
+
+                string compiledFriends = sb.ToString();
+
+                sb.Clear();
+
+                foreach (string enemy in ComplexPerson_Tabletop_PagePerson.Enemies)
+                {
+                    sb.Append(enemy + ", ");
+                }
+
+                string compiledEnemies = sb.ToString();
+
+                sb.Clear();
+
+                foreach (string group in ComplexPerson_Tabletop_PagePerson.Groups)
+                {
+                    sb.Append(group + ", ");
+                }
+
+                string compiledGroups = sb.ToString();
+
+                sb.Clear();
 
                 traitsList.Add(new CharacterTrait("Age", ComplexPerson_Tabletop_PagePerson.Age));
                 traitsList.Add(new CharacterTrait("Profession", ComplexPerson_Tabletop_PagePerson.Profession));
@@ -893,8 +982,8 @@ namespace CharacterMaker
                 traitsList.Add(new CharacterTrait("HairColor", ComplexPerson_Tabletop_PagePerson.HairColor));
                 traitsList.Add(new CharacterTrait("EyeColor", ComplexPerson_Tabletop_PagePerson.EyeColor));
                 traitsList.Add(new CharacterTrait("Personality", ComplexPerson_Tabletop_PagePerson.Personality));
-                traitsList.Add(new CharacterTrait("Likes", ComplexPerson_Tabletop_PagePerson.Likes));
-                traitsList.Add(new CharacterTrait("Dislikes", ComplexPerson_Tabletop_PagePerson.Dislikes));
+                traitsList.Add(new CharacterTrait("Likes", compiledLikes));
+                traitsList.Add(new CharacterTrait("Dislikes", compiledDislikes));
                 traitsList.Add(new CharacterTrait("HitPoints", ComplexPerson_Tabletop_PagePerson.HitPoints));
                 traitsList.Add(new CharacterTrait("SpecialPoints", ComplexPerson_Tabletop_PagePerson.SpecialPoints));
                 traitsList.Add(new CharacterTrait("Level", ComplexPerson_Tabletop_PagePerson.Level));
@@ -907,8 +996,8 @@ namespace CharacterMaker
                 traitsList.Add(new CharacterTrait("Charisma", ComplexPerson_Tabletop_PagePerson.Charisma));
                 traitsList.Add(new CharacterTrait("Accent", ComplexPerson_Tabletop_PagePerson.Accent));
                 traitsList.Add(new CharacterTrait("StyleOfDress", ComplexPerson_Tabletop_PagePerson.StyleOfDress));
-                traitsList.Add(new CharacterTrait("Friends", ComplexPerson_Tabletop_PagePerson.Friends));
-                traitsList.Add(new CharacterTrait("Enemies", ComplexPerson_Tabletop_PagePerson.Enemies));
+                traitsList.Add(new CharacterTrait("Friends", compiledFriends));
+                traitsList.Add(new CharacterTrait("Enemies", compiledEnemies));
                 traitsList.Add(new CharacterTrait("SignificantOther", ComplexPerson_Tabletop_PagePerson.SignificantOther));
                 traitsList.Add(new CharacterTrait("FightingStyle", ComplexPerson_Tabletop_PagePerson.FightingStyle));
                 traitsList.Add(new CharacterTrait("PreferredWeapon", ComplexPerson_Tabletop_PagePerson.PreferredWeapon));
@@ -921,7 +1010,7 @@ namespace CharacterMaker
                 traitsList.Add(new CharacterTrait("SpellSaveDC", ComplexPerson_Tabletop_PagePerson.Spell_save_DC));
                 traitsList.Add(new CharacterTrait("SpellAttackBonus", ComplexPerson_Tabletop_PagePerson.Spell_attack_bonus));
                 traitsList.Add(new CharacterTrait("Exp", ComplexPerson_Tabletop_PagePerson.EXP));
-                traitsList.Add(new CharacterTrait("Groups", ComplexPerson_Tabletop_PagePerson.Groups));
+                traitsList.Add(new CharacterTrait("Groups", compiledGroups));
 
 
             }
