@@ -33,31 +33,8 @@ namespace App1.models
         private string[] friends;
         private string[] enemies;
         private string significantOther;
-        private string fightingStyle;
-        private string preferredWeapon;
         private string favoriteFood;
-        private int armorClass;
-        private int proficiencyBonus;
-        private int inspiration;
-        private int perception;
-        private int spellcastingAbility;
-        private int spellSaveDC;
-        private int spellAttackBonus;
-        private int exp;
         private string[] groups;
-
-
-        //tabletop parameters
-        int hitPoints;
-        int specialPoints;
-        int level;
-        int strength;
-        int dexterity;
-        int intelligence;
-        int wisdom;
-        int constitution;
-        int will;
-        int charisma;
 
 
         public String FName
@@ -192,113 +169,12 @@ namespace App1.models
             }
         }
 
-        public string[] Disikes
+        public string[] Dislikes
         {
             get { return dislikes; }
             set
             {
                 dislikes = value;
-                FieldChanged();
-            }
-        }
-
-        //Tabletop props
-                public int HitPoints
-        {
-            get { return hitPoints; }
-            set
-            {
-                hitPoints = value;
-                FieldChanged();
-            }
-        }
-
-        public int SpecialPoints
-        {
-            get { return specialPoints; }
-            set
-            {
-                specialPoints = value;
-                FieldChanged();
-            }
-        }
-
-        public int Level
-        {
-            get { return level; }
-            set
-            {
-                level = value;
-                FieldChanged();
-            }
-        }
-
-        public int Strength
-        {
-            get { return strength; }
-            set
-            {
-                strength = value;
-                FieldChanged();
-            }
-        }
-
-        public int Dexterity
-        {
-            get { return dexterity; }
-            set
-            {
-                dexterity = value;
-                FieldChanged();
-            }
-        }
-
-        public int Intelligence
-        {
-            get { return intelligence; }
-            set
-            {
-                intelligence = value;
-                FieldChanged();
-            }
-        }
-
-        public int Wisdom
-        {
-            get { return wisdom; }
-            set
-            {
-                wisdom = value;
-                FieldChanged();
-            }
-        }
-
-        public int Constiution
-        {
-            get { return constitution; }
-            set
-            {
-                constitution = value;
-                FieldChanged();
-            }
-        }
-
-        public int Will
-        {
-            get { return will; }
-            set
-            {
-                will = value;
-                FieldChanged();
-            }
-        }
-
-        public int Charisma
-        {
-            get { return charisma; }
-            set
-            {
-                charisma = value;
                 FieldChanged();
             }
         }
@@ -353,25 +229,6 @@ namespace App1.models
             }
         }
 
-        public string FightingStyle
-        {
-            get { return fightingStyle; }
-            set
-            {
-                fightingStyle = value;
-                FieldChanged();
-            }
-        }
-
-        public string PreferredWeapon
-        {
-            get { return preferredWeapon; }
-            set
-            {
-                preferredWeapon = value;
-                FieldChanged();
-            }
-        }
 
         public string FavoriteFood
         {
@@ -379,76 +236,6 @@ namespace App1.models
             set
             {
                 favoriteFood = value;
-                FieldChanged();
-            }
-        }
-
-        public int ProficiencyBonus
-        {
-            get { return proficiencyBonus; }
-            set
-            {
-                proficiencyBonus = value;
-                FieldChanged();
-            }
-        }
-
-        public int Inspiration
-        {
-            get { return inspiration; }
-            set
-            {
-                inspiration = value;
-                FieldChanged();
-            }
-        }
-
-        public int Perception
-        {
-            get { return perception; }
-            set
-            {
-                perception = value;
-                FieldChanged();
-            }
-        }
-
-        public int SpellcastingAbilty
-        {
-            get { return spellcastingAbility; }
-            set
-            {
-                spellcastingAbility = value;
-                FieldChanged();
-            }
-        }
-
-        public int SpellSaveDC
-        {
-            get { return spellSaveDC; }
-            set
-            {
-                spellSaveDC = value;
-                FieldChanged();
-            }
-        }
-
-        public int SpellAttackBonus
-        {
-            get { return spellAttackBonus; }
-            set
-            {
-                spellAttackBonus = value;
-                FieldChanged();
-            }
-        }
-
-        public int Exp
-        {
-            get { return exp; }
-            set
-            {
-                exp = value;
                 FieldChanged();
             }
         }
@@ -498,6 +285,8 @@ namespace App1.models
                 sb.Append(friend + ", ");
             }
 
+            sb.Clear();
+
             string compiledFriends = "friends: " + sb.ToString();
 
             foreach (string enemy in enemies)
@@ -514,15 +303,14 @@ namespace App1.models
                 sb.Append(group + ", ");
             }
 
+            sb.Clear();
+
             string compiledGroups = "groups: " + sb.ToString();
 
-            return FName + LName + "\n" + Age + "\n" + Race + "\n" + Profession + "\n" + Gender + "\n" + "HP: " + hitPoints + "\n" + "SP: " + specialPoints + "\n" + "LV: " + level +
-                "\n" + "EXP: " + exp + "\n" + "STR: " + strength + "\n" + "DEX: " + dexterity + "\n" + "INT: " + intelligence + "\n" + "WIS: " + wisdom + "\n" + "CON: " + constitution + "WIL: " + will +
-                "\n" + "CHR: " + charisma + "\n" + "Armor Class: " + armorClass + "\n" + "Proficiency Bonus: " + proficiencyBonus + "\n" + "Perception: " + perception + "\n" + "Spellcasting Ability: " +
-                spellcastingAbility + "\n" + "Spell Save DC: " + spellSaveDC + "\n" + "Spell Attack Bonus: " +
-                "\n" + hairColor + "\n" + eyeColor + "\n" + heightFeet + "." + heightInches +
-                "\n" + weight + "\n" + nationality + "\n" + personality + "\n" + compiledLikes + "\n" + compiledDislikes + "\n" + accent + styleOfDress + "\n" + compiledFriends
-                + "\n" + compiledEnemies + "\n" + compiledGroups + "\n" + "Significant Other: " + significantOther + "\n" + preferredWeapon + "\n" + favoriteFood;
+            return FName + LName + "\n" + Age + "\n" + Race + "\n" + Profession + "\n" + Gender + "\n" +
+                "\n" + hairColor + "\n" + eyeColor + "\n" + heightFeet + "." + heightInches + "\n" + weight + "\n" + nationality + "\n" + personality +
+                "\n" + "Significant Other:"  + significantOther + "\n" + "\n" + favoriteFood + "\n" + compiledLikes + "\n" + compiledDislikes + 
+                "\n" + accent + styleOfDress + "\n" + compiledFriends + "\n" + compiledEnemies + "\n" + compiledGroups + "\n";
         }
 
     }

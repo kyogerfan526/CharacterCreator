@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
-using System.IO;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -16,6 +15,7 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using App1;
 
+using System.Collections.ObjectModel;
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
 namespace CharacterMaker
@@ -114,6 +114,7 @@ namespace CharacterMaker
 
         Random rand = new Random();
 
+        ObservableCollection<CharacterTrait> traitsList = new ObservableCollection<CharacterTrait>();
         private DefaultPerson pagePerson;
         private ModeratelyComplexPerson ModeratlyComplexPagePerson;
         private ComplexPerson ComplexPagePerson;
@@ -134,20 +135,23 @@ namespace CharacterMaker
         Genre genreLock = Genre.FANTASY;
         Complexity complock = Complexity.Simple;
 
-
-
         public MainPage()
         {
             this.InitializeComponent();
             
             pagePerson = new DefaultPerson();
 
-            MainGrid.DataContext = pagePerson;
+            CharacterNameBlock.DataContext = pagePerson;
+            CharacterTraitsArea.ItemsSource = traitsList;
         }
 
         private void GeneratePerson()
         {
-            if(complock == Complexity.Simple)
+            // Clears the traitsList so that all previous values are discarded and new values can take their place.
+            traitsList.Clear();
+
+
+            if (complock == Complexity.Simple)
             {
                 if (genderLock)
                 {
@@ -212,13 +216,14 @@ namespace CharacterMaker
                     pagePerson.Race = Races[rand.Next(Races.Count)];
                 }
             }
-            else if(complock == Complexity.ModeratlyComplex) //complexity
+            else if (complock == Complexity.ModeratlyComplex) //complexity
             {
                 if (genderLock)
                 {
                     if (lockedGender == "Male")
                     {
                         ModeratlyComplexPagePerson.FName = MFNames[rand.Next(MFNames.Count)];
+                        traitsList.Add(new CharacterTrait("First Name", ModeratlyComplexPagePerson.FName));
                     }
                     else if (lockedGender == "Female")
                     {
@@ -258,6 +263,7 @@ namespace CharacterMaker
                 {
                     ModeratlyComplexPagePerson.Profession = FantasyProfessions[rand.Next(FantasyProfessions.Count)];
                 }
+                traitsList.Add(new CharacterTrait("Profession", pagePerson.Profession));
 
                 if (genderLock)
                 {
@@ -285,8 +291,41 @@ namespace CharacterMaker
 
                 ModeratlyComplexPagePerson.Personality = personalities[rand.Next(personalities.Count)];
 
+                ModeratlyComplexPagePerson.Likes = new string[3];
+
+                for (int i = 0; i < ModeratlyComplexPagePerson.Likes.Length - 1; i++)
+                {
+                    ModeratlyComplexPagePerson.Likes[i] = likes[rand.Next(likes.Count)];
+                }
+
+                ModeratlyComplexPagePerson.Dislikes = new string[3];
+
+                for (int i = 0; i < ModeratlyComplexPagePerson.Dislikes.Length - 1; i++)
+                {
+                    bool same = false;
+                    string tempDislike = likes[rand.Next(likes.Count)];
+
+                    foreach (string like in ModeratlyComplexPagePerson.Likes)
+                    {
+                        if (tempDislike == like)
+                        {
+                            same = true;
+                            i--;
+                        }
+                        else 
+                        {
+
+                        }
+                    }
+
+                    if (!same)
+                    { 
+                        ModeratlyComplexPagePerson.Dislikes[i] = tempDislike;
+                    }
+                }
+
             }
-            else if(complock == Complexity.Complex) // complexity
+            else if (complock == Complexity.Complex) // complexity
             {
                 if (genderLock)
                 {
@@ -359,8 +398,59 @@ namespace CharacterMaker
 
                 ComplexPagePerson.Personality = personalities[rand.Next(personalities.Count)];
 
+                ComplexPagePerson.Likes = new string[3];
+
+                for (int i = 0; i < ComplexPagePerson.Likes.Length - 1; i++)
+                {
+                    ComplexPagePerson.Likes[i] = likes[rand.Next(likes.Count)];
+                }
+
+                ComplexPagePerson.Dislikes = new string[3];
+
+                for (int i = 0; i < ComplexPagePerson.Dislikes.Length - 1; i++)
+                {
+                    bool same = false;
+                    string tempDislike = likes[rand.Next(likes.Count)];
+
+                    foreach (string like in ComplexPagePerson.Likes)
+                    {
+                        if (tempDislike == like)
+                        {
+                            same = true;
+                            i--;
+                        }
+                        else
+                        {
+
+                        }
+                    }
+
+                    if (!same)
+                    {
+                        ComplexPagePerson.Dislikes[i] = tempDislike;
+                    }
+                }
+
+                ComplexPagePerson.Friends = new string[3];
+
+                for (int i = 0; i < ComplexPagePerson.Friends.Length - 1; i++)
+                {
+                    string tempFriend = FNames[rand.Next(FNames.Count)] + LNames[rand.Next(LNames.Count)];
+
+                    ComplexPagePerson.Friends[i] = tempFriend;
+                }
+
+                ComplexPagePerson.Enemies = new string[3];
+
+                for (int i = 0; i < ComplexPagePerson.Enemies.Length - 1; i++)
+                {
+                    string tempEnemy = FNames[rand.Next(FNames.Count)] + LNames[rand.Next(LNames.Count)];
+
+                    ComplexPagePerson.Enemies[i] = tempEnemy;
+                }
+
             }
-            else if(complock == Complexity.ModeratlyComplexTableTop) //complexity
+            else if (complock == Complexity.ModeratlyComplexTableTop) //complexity
             {
                 if (genderLock)
                 {
@@ -447,15 +537,48 @@ namespace CharacterMaker
 
                 ModeratelyComplexPerson_Tabletop_PagePerson.Wisdom = rand.Next(36);
 
-                ModeratelyComplexPerson_Tabletop_PagePerson.Constiution = rand.Next(36);
+                ModeratelyComplexPerson_Tabletop_PagePerson.Constitution = rand.Next(36);
 
                 ModeratelyComplexPerson_Tabletop_PagePerson.Will = rand.Next(36);
 
                 ModeratelyComplexPerson_Tabletop_PagePerson.Charisma = rand.Next(36);
 
 
+
+                ModeratelyComplexPerson_Tabletop_PagePerson.Likes = new string[3];
+
+                for (int i = 0; i < ModeratelyComplexPerson_Tabletop_PagePerson.Likes.Length - 1; i++)
+                {
+                    ModeratlyComplexPagePerson.Likes[i] = likes[rand.Next(likes.Count)];
+                }
+
+                ModeratelyComplexPerson_Tabletop_PagePerson.Dislikes = new string[3];
+
+                for (int i = 0; i < ModeratelyComplexPerson_Tabletop_PagePerson.Dislikes.Length - 1; i++)
+                {
+                    bool same = false;
+                    string tempDislike = likes[rand.Next(likes.Count)];
+
+                    foreach (string like in ModeratelyComplexPerson_Tabletop_PagePerson.Likes)
+                    {
+                        if (tempDislike == like)
+                        {
+                            same = true;
+                            i--;
+                        }
+                        else
+                        {
+
+                        }
+                    }
+
+                    if (!same)
+                    {
+                        ModeratelyComplexPerson_Tabletop_PagePerson.Dislikes[i] = tempDislike;
+                    }
+                }
             }
-            else if(complock == Complexity.ComplexTableTop)
+            else if (complock == Complexity.ComplexTableTop)
             {
                 if (genderLock)
                 {
@@ -542,7 +665,7 @@ namespace CharacterMaker
 
                 ComplexPerson_Tabletop_PagePerson.Wisdom = rand.Next(36);
 
-                ComplexPerson_Tabletop_PagePerson.Constiution = rand.Next(36);
+                ComplexPerson_Tabletop_PagePerson.Constitution = rand.Next(36);
 
                 ComplexPerson_Tabletop_PagePerson.Will = rand.Next(36);
 
@@ -564,10 +687,192 @@ namespace CharacterMaker
 
                 ComplexPerson_Tabletop_PagePerson.EXP = rand.Next(10001);
 
+                ComplexPerson_Tabletop_PagePerson.Likes = new string[3];
+
+                for (int i = 0; i < ComplexPerson_Tabletop_PagePerson.Likes.Length - 1; i++)
+                {
+                    ComplexPerson_Tabletop_PagePerson.Likes[i] = likes[rand.Next(likes.Count)];
+                }
+
+                ComplexPerson_Tabletop_PagePerson.Dislikes = new string[3];
+
+                for (int i = 0; i < ComplexPerson_Tabletop_PagePerson.Dislikes.Length - 1; i++)
+                {
+                    bool same = false;
+                    string tempDislike = likes[rand.Next(likes.Count)];
+
+                    foreach (string like in ComplexPerson_Tabletop_PagePerson.Likes)
+                    {
+                        if (tempDislike == like)
+                        {
+                            same = true;
+                            i--;
+                        }
+                        else
+                        {
+
+                        }
+                    }
+
+                    if (!same)
+                    {
+                        ComplexPerson_Tabletop_PagePerson.Dislikes[i] = tempDislike;
+                    }
+                }
+
+                ComplexPerson_Tabletop_PagePerson.Friends = new string[3];
+
+                for (int i = 0; i < ComplexPerson_Tabletop_PagePerson.Friends.Length - 1; i++)
+                {
+                    string tempFriend = FNames[rand.Next(FNames.Count)] + LNames[rand.Next(LNames.Count)];
+
+                    ComplexPerson_Tabletop_PagePerson.Friends[i] = tempFriend;
+                }
+
+                ComplexPerson_Tabletop_PagePerson.Enemies = new string[3];
+
+                for (int i = 0; i < ComplexPerson_Tabletop_PagePerson.Enemies.Length - 1; i++)
+                {
+                    string tempEnemy = FNames[rand.Next(FNames.Count)] + LNames[rand.Next(LNames.Count)];
+
+                    ComplexPerson_Tabletop_PagePerson.Enemies[i] = tempEnemy;
+                }
+
             }
 
-            
-        
+            // Adds the basic traits; use this format wherever you randomize a value on the pagePerson and then remove these
+            if (complock == Complexity.Simple)
+            {
+                traitsList.Add(new CharacterTrait("Age", pagePerson.Age));
+                traitsList.Add(new CharacterTrait("Profession", pagePerson.Profession));
+                traitsList.Add(new CharacterTrait("Race", pagePerson.Race));
+                traitsList.Add(new CharacterTrait("Gender", pagePerson.Gender));
+
+            }
+            else if (complock == Complexity.ModeratlyComplex)
+            {
+
+                traitsList.Add(new CharacterTrait("Age", ModeratlyComplexPagePerson.Age));
+                traitsList.Add(new CharacterTrait("Profession", ModeratlyComplexPagePerson.Profession));
+                traitsList.Add(new CharacterTrait("Race", ModeratlyComplexPagePerson.Race));
+                traitsList.Add(new CharacterTrait("Gender", ModeratlyComplexPagePerson.Gender));
+                traitsList.Add(new CharacterTrait("FullName", ModeratlyComplexPagePerson.FullName));
+                traitsList.Add(new CharacterTrait("Nationality", ModeratlyComplexPagePerson.Nationality));
+                traitsList.Add(new CharacterTrait("", ModeratlyComplexPagePerson.Age));
+                traitsList.Add(new CharacterTrait("HeightFeet", ModeratlyComplexPagePerson.Heightfeet));
+                traitsList.Add(new CharacterTrait("HeightInches", ModeratlyComplexPagePerson.HeightInches));
+                traitsList.Add(new CharacterTrait("Weight", ModeratlyComplexPagePerson.Weight));
+                traitsList.Add(new CharacterTrait("HairColor", ModeratlyComplexPagePerson.HairColor));
+                traitsList.Add(new CharacterTrait("EyeColor", ModeratlyComplexPagePerson.EyeColor));
+                traitsList.Add(new CharacterTrait("Personality", ModeratlyComplexPagePerson.Personality));
+                traitsList.Add(new CharacterTrait("Likes", ModeratlyComplexPagePerson.Likes));
+                traitsList.Add(new CharacterTrait("Dislikes", ModeratlyComplexPagePerson.Dislikes));
+
+
+            }
+            else if (complock == Complexity.ModeratlyComplexTableTop)
+            {
+
+                traitsList.Add(new CharacterTrait("Age", ModeratelyComplexPerson_Tabletop_PagePerson.Age));
+                traitsList.Add(new CharacterTrait("Profession", ModeratelyComplexPerson_Tabletop_PagePerson.Profession));
+                traitsList.Add(new CharacterTrait("Race", ModeratelyComplexPerson_Tabletop_PagePerson.Race));
+                traitsList.Add(new CharacterTrait("Gender", ModeratelyComplexPerson_Tabletop_PagePerson.Gender));
+                traitsList.Add(new CharacterTrait("FullName", ModeratelyComplexPerson_Tabletop_PagePerson.FullName));
+                traitsList.Add(new CharacterTrait("Nationality", ModeratelyComplexPerson_Tabletop_PagePerson.Nationality));
+                traitsList.Add(new CharacterTrait("HeightFeet", ModeratelyComplexPerson_Tabletop_PagePerson.Heightfeet));
+                traitsList.Add(new CharacterTrait("HeightInches", ModeratelyComplexPerson_Tabletop_PagePerson.HeightInches));
+                traitsList.Add(new CharacterTrait("Weight", ModeratelyComplexPerson_Tabletop_PagePerson.Weight));
+                traitsList.Add(new CharacterTrait("HairColor", ModeratelyComplexPerson_Tabletop_PagePerson.HairColor));
+                traitsList.Add(new CharacterTrait("EyeColor", ModeratelyComplexPerson_Tabletop_PagePerson.EyeColor));
+                traitsList.Add(new CharacterTrait("Personality", ModeratelyComplexPerson_Tabletop_PagePerson.Personality));
+                traitsList.Add(new CharacterTrait("Likes", ModeratelyComplexPerson_Tabletop_PagePerson.Likes));
+                traitsList.Add(new CharacterTrait("Dislikes", ModeratelyComplexPerson_Tabletop_PagePerson.Dislikes));
+                traitsList.Add(new CharacterTrait("HitPoints", ModeratelyComplexPerson_Tabletop_PagePerson.HitPoints));
+                traitsList.Add(new CharacterTrait("SpecialPoints", ModeratelyComplexPerson_Tabletop_PagePerson.SpecialPoints));
+                traitsList.Add(new CharacterTrait("Level", ModeratelyComplexPerson_Tabletop_PagePerson.Level));
+                traitsList.Add(new CharacterTrait("Strength", ModeratelyComplexPerson_Tabletop_PagePerson.Strength));
+                traitsList.Add(new CharacterTrait("Dexterity", ModeratelyComplexPerson_Tabletop_PagePerson.Dexterity));
+                traitsList.Add(new CharacterTrait("Intelligence", ModeratelyComplexPerson_Tabletop_PagePerson.Intelligence));
+                traitsList.Add(new CharacterTrait("Wisdom", ModeratelyComplexPerson_Tabletop_PagePerson.Wisdom));
+                traitsList.Add(new CharacterTrait("Constitution", ModeratelyComplexPerson_Tabletop_PagePerson.Constitution));
+                traitsList.Add(new CharacterTrait("Will", ModeratelyComplexPerson_Tabletop_PagePerson.Will));
+                traitsList.Add(new CharacterTrait("Charisma", ModeratelyComplexPerson_Tabletop_PagePerson.Charisma));
+
+            }
+            else if (complock == Complexity.Complex)
+            {
+                traitsList.Add(new CharacterTrait("Age", ComplexPagePerson.Age));
+                traitsList.Add(new CharacterTrait("Profession", ComplexPagePerson.Profession));
+                traitsList.Add(new CharacterTrait("Race", ComplexPagePerson.Race));
+                traitsList.Add(new CharacterTrait("Gender", ComplexPagePerson.Gender));
+                traitsList.Add(new CharacterTrait("FullName", ComplexPagePerson.FullName));
+                traitsList.Add(new CharacterTrait("Nationality", ComplexPagePerson.Nationality));
+                traitsList.Add(new CharacterTrait("HeightFeet", ComplexPagePerson.Heightfeet));
+                traitsList.Add(new CharacterTrait("HeightInches", ComplexPagePerson.HeightInches));
+                traitsList.Add(new CharacterTrait("Weight", ComplexPagePerson.Weight));
+                traitsList.Add(new CharacterTrait("HairColor", ComplexPagePerson.HairColor));
+                traitsList.Add(new CharacterTrait("EyeColor", ComplexPagePerson.EyeColor));
+                traitsList.Add(new CharacterTrait("Personality", ComplexPagePerson.Personality));
+                traitsList.Add(new CharacterTrait("Likes", ComplexPagePerson.Likes));
+                traitsList.Add(new CharacterTrait("Dislikes", ComplexPagePerson.Dislikes));
+                traitsList.Add(new CharacterTrait("Accent", ComplexPagePerson.Accent));
+                traitsList.Add(new CharacterTrait("StyleOfDress", ComplexPagePerson.StyleOfDress));
+                traitsList.Add(new CharacterTrait("Friends", ComplexPagePerson.Friends));
+                traitsList.Add(new CharacterTrait("Enemies", ComplexPagePerson.Enemies));
+                traitsList.Add(new CharacterTrait("SignificantOther", ComplexPagePerson.SignificantOther));
+                traitsList.Add(new CharacterTrait("FavoriteFood", ComplexPagePerson.FavoriteFood));
+                traitsList.Add(new CharacterTrait("Groups", ComplexPagePerson.Groups));
+
+
+
+            }
+            else if (complock == Complexity.ComplexTableTop)
+            {
+                traitsList.Add(new CharacterTrait("Age", ComplexPerson_Tabletop_PagePerson.Age));
+                traitsList.Add(new CharacterTrait("Profession", ComplexPerson_Tabletop_PagePerson.Profession));
+                traitsList.Add(new CharacterTrait("Race", ComplexPerson_Tabletop_PagePerson.Race));
+                traitsList.Add(new CharacterTrait("Gender", ComplexPerson_Tabletop_PagePerson.Gender));
+                traitsList.Add(new CharacterTrait("FullName", ComplexPerson_Tabletop_PagePerson.FullName));
+                traitsList.Add(new CharacterTrait("Nationality", ComplexPerson_Tabletop_PagePerson.Nationality));
+                traitsList.Add(new CharacterTrait("", ComplexPerson_Tabletop_PagePerson.Age));
+                traitsList.Add(new CharacterTrait("HeightFeet", ComplexPerson_Tabletop_PagePerson.Heightfeet));
+                traitsList.Add(new CharacterTrait("HeightInches", ComplexPerson_Tabletop_PagePerson.HeightInches));
+                traitsList.Add(new CharacterTrait("Weight", ComplexPerson_Tabletop_PagePerson.Weight));
+                traitsList.Add(new CharacterTrait("HairColor", ComplexPerson_Tabletop_PagePerson.HairColor));
+                traitsList.Add(new CharacterTrait("EyeColor", ComplexPerson_Tabletop_PagePerson.EyeColor));
+                traitsList.Add(new CharacterTrait("Personality", ComplexPerson_Tabletop_PagePerson.Personality));
+                traitsList.Add(new CharacterTrait("Likes", ComplexPerson_Tabletop_PagePerson.Likes));
+                traitsList.Add(new CharacterTrait("Dislikes", ComplexPerson_Tabletop_PagePerson.Dislikes));
+                traitsList.Add(new CharacterTrait("HitPoints", ComplexPerson_Tabletop_PagePerson.HitPoints));
+                traitsList.Add(new CharacterTrait("SpecialPoints", ComplexPerson_Tabletop_PagePerson.SpecialPoints));
+                traitsList.Add(new CharacterTrait("Level", ComplexPerson_Tabletop_PagePerson.Level));
+                traitsList.Add(new CharacterTrait("Strength", ComplexPerson_Tabletop_PagePerson.Strength));
+                traitsList.Add(new CharacterTrait("Dexterity", ComplexPerson_Tabletop_PagePerson.Dexterity));
+                traitsList.Add(new CharacterTrait("Intelligence", ComplexPerson_Tabletop_PagePerson.Intelligence));
+                traitsList.Add(new CharacterTrait("Wisdom", ComplexPerson_Tabletop_PagePerson.Wisdom));
+                traitsList.Add(new CharacterTrait("Constitution", ComplexPerson_Tabletop_PagePerson.Constitution));
+                traitsList.Add(new CharacterTrait("Will", ComplexPerson_Tabletop_PagePerson.Will));
+                traitsList.Add(new CharacterTrait("Charisma", ComplexPerson_Tabletop_PagePerson.Charisma));
+                traitsList.Add(new CharacterTrait("Accent", ComplexPerson_Tabletop_PagePerson.Accent));
+                traitsList.Add(new CharacterTrait("StyleOfDress", ComplexPerson_Tabletop_PagePerson.StyleOfDress));
+                traitsList.Add(new CharacterTrait("Friends", ComplexPerson_Tabletop_PagePerson.Friends));
+                traitsList.Add(new CharacterTrait("Enemies", ComplexPerson_Tabletop_PagePerson.Enemies));
+                traitsList.Add(new CharacterTrait("SignificantOther", ComplexPerson_Tabletop_PagePerson.SignificantOther));
+                traitsList.Add(new CharacterTrait("FightingStyle", ComplexPerson_Tabletop_PagePerson.FightingStyle));
+                traitsList.Add(new CharacterTrait("PreferredWeapon", ComplexPerson_Tabletop_PagePerson.PreferredWeapon));
+                traitsList.Add(new CharacterTrait("FavoriteFood", ComplexPerson_Tabletop_PagePerson.FavoriteFood));
+                traitsList.Add(new CharacterTrait("ArmorClass", ComplexPerson_Tabletop_PagePerson.Armor_Class));
+                traitsList.Add(new CharacterTrait("ProficiencyBonus", ComplexPerson_Tabletop_PagePerson.Proficiency_bonus));
+                traitsList.Add(new CharacterTrait("Inspiration", ComplexPerson_Tabletop_PagePerson.Inspiration));
+                traitsList.Add(new CharacterTrait("Perception", ComplexPerson_Tabletop_PagePerson.Perception));
+                traitsList.Add(new CharacterTrait("SpellCastingAbility", ComplexPerson_Tabletop_PagePerson.Spellcasting_ability));
+                traitsList.Add(new CharacterTrait("SpellSaveDC", ComplexPerson_Tabletop_PagePerson.Spell_save_DC));
+                traitsList.Add(new CharacterTrait("SpellAttackBonus", ComplexPerson_Tabletop_PagePerson.Spell_attack_bonus));
+                traitsList.Add(new CharacterTrait("Exp", ComplexPerson_Tabletop_PagePerson.EXP));
+                traitsList.Add(new CharacterTrait("Groups", ComplexPerson_Tabletop_PagePerson.Groups));
+
+
+            }
         }
 
 
@@ -635,6 +940,12 @@ namespace CharacterMaker
 
         }
 
+        private async void LoadButton_Click(object sender, RoutedEventArgs e)
+        {
+            // LoadButton
+
+        }
+
         private void Real_Life_Click(object sender, RoutedEventArgs e)
         {
             genreLock = Genre.CONTEMPORARY;
@@ -679,5 +990,16 @@ namespace CharacterMaker
         {
             this.Frame.Navigate(typeof(CustomComplexityScreen));
         }
+    }
+
+    public struct CharacterTrait
+    {
+        public CharacterTrait(string traitName, object traitValue)
+        {
+            TraitName = traitName;
+            TraitValue = traitValue;
+        }
+        public string TraitName { get; set; }
+        public object TraitValue { get; set; }
     }
 }
