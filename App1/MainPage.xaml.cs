@@ -126,6 +126,7 @@ namespace CharacterMaker
         //Bool for male/female lock
         //Gender for male/female lock
         bool genderLock = false;
+        bool tableTop = false;
         String lockedGender = null;
 
         //Race lock
@@ -971,24 +972,30 @@ namespace CharacterMaker
             complock = Complexity.ModeratlyComplex;
         }
 
-        private void Moderatly_complex_table_top_Click(object sender, RoutedEventArgs e)
-        {
-            complock = Complexity.ModeratlyComplexTableTop;
-        }
-
         private void Complex_Click(object sender, RoutedEventArgs e)
         {
             complock = Complexity.Complex;
         }
 
-        private void complex_table_top_Click(object sender, RoutedEventArgs e)
-        {
-            complock = Complexity.ComplexTableTop;
-        }
-
-        private void Custom_randomization_Click(object sender, RoutedEventArgs e)
+        private void Custom_Randomization_Click(object sender, RoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(CustomComplexityScreen));
+        }
+
+        private void Table_top_fields_Click(object sender, RoutedEventArgs e)
+        {
+            if(tableTop)
+            {
+                tableTop = false;
+                MenuFlyoutItem MFI = (MenuFlyoutItem)sender;
+                MFI.Text = "Table top fields: Off";
+            }
+            else
+            {
+                tableTop = true;
+                MenuFlyoutItem MFI = (MenuFlyoutItem)sender;
+                MFI.Text = "Table top fields: On";
+            }
         }
     }
 

@@ -60,21 +60,19 @@
                 </MenuFlyoutItem>
 
                 <MenuFlyoutItem 
-                    x:Name="Moderatly_complex_table_top"
-                    Text="Moderatly complex table top"
-                    Click="Moderatly_complex_table_top_Click">
-                </MenuFlyoutItem>
-
-                <MenuFlyoutItem 
                     x:Name="Complex"
                     Text="Complex"
                     Click="Complex_Click">
                 </MenuFlyoutItem>
 
                 <MenuFlyoutItem 
-                    x:Name="complex_table_top"
-                    Text="Complex table top"
-                    Click="complex_table_top_Click">
+                    x:Name="Table_top_fields"
+                    Text="Table top fields: Off"
+                    Click="Table_top_fields_Click">
+                </MenuFlyoutItem>
+
+                <MenuFlyoutItem>
+                    
                 </MenuFlyoutItem>
             </MenuBarItem>
 
