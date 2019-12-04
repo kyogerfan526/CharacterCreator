@@ -122,15 +122,16 @@
     <Compile Include="CustomComplexityScreen.xaml.cs">
       <DependentUpon>CustomComplexityScreen.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DataTemplates\TableTopStatsControl.xaml.cs" />
+    <Compile Include="Data\Data.cs" />
     <Compile Include="FileIO\FileIO.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="models\ComplexPerson.cs" />
-    <Compile Include="models\ComplexPerson_Tabletop.cs" />
-    <Compile Include="models\ModeratelyComplexPerson_Tabletop.cs" />
-    <Compile Include="models\ModeratelyComplexPerson.cs" />
-    <Compile Include="models\DefaultPerson.cs" />
+    <Compile Include="models\FullComplexPerson.cs" />
+    <Compile Include="models\ModComplexPerson.cs" />
+    <Compile Include="models\Person.cs" />
+    <Compile Include="models\TableTopStats.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Value Converters\PersonToFullNameStringConverter.cs" />
   </ItemGroup>
@@ -157,6 +158,10 @@
     <Page Include="CustomComplexityScreen.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DataTemplates\TableTopStatsControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
