@@ -124,7 +124,6 @@
     </Compile>
     <Compile Include="DataTemplates\TableTopStatsControl.xaml.cs" />
     <Compile Include="Data\Data.cs" />
-    <Compile Include="FileIO\FileIO.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>

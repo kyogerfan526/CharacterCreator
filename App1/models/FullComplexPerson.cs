@@ -105,6 +105,7 @@ namespace App1.models
 
             Random rng = new Random();
 
+            favoriteFood = Data.foods[rng.Next(Data.foods.Count())];
             Accent = Data.accents[rng.Next(Data.accents.Count() - 1)];
             StyleOfDress = Data.dressStyles[rng.Next(Data.dressStyles.Count() - 1)];
             FightingStyle = Data.fightingStyles[rng.Next(Data.fightingStyles.Count() - 1)];
