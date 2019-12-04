@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:CharacterMaker"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:uc="using:App1.DataTemplates"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
@@ -19,8 +20,7 @@
                  VerticalAlignment="Top">
             <MenuBarItem 
                 x:Name="Genre_selction"
-                Title="Genre selection"  
-                >
+                Title="Genre selection">
 
                 <MenuFlyoutItem 
                     x:Name="Real_Life"
@@ -76,6 +76,13 @@
                     Text="Complex table top"
                     Click="complex_table_top_Click">
                 </MenuFlyoutItem>
+            </MenuBarItem>
+
+            <MenuBarItem x:Name="Custom_Complexity"
+                         Title="Custom Complexity">
+                <MenuFlyoutItem x:Name="Custom_Randomization"
+                                Text="Custom Randomize"
+                                Click="Custom_Randomization_Click"/>
             </MenuBarItem>
         </MenuBar>
 
@@ -190,33 +197,44 @@
                       Grid.RowSpan="2"
                       Grid.ColumnSpan="2"
                       Margin="50">
-                <ListView x:Name="CharacterTraitsArea"
-                          SelectionMode="None">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="175"/>
-                                    <ColumnDefinition/>
-                                </Grid.ColumnDefinitions>
+                <StackPanel>
+                    <ListView x:Name="CharacterTraitsArea"
+                              SelectionMode="None">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="275"/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
 
-                                <TextBlock x:Name="TraitName"
-                                           Text="{Binding TraitName}"
-                                           HorizontalAlignment="Right"
-                                           FontSize="28"
-                                           Grid.Column="0"
-                                           Margin="0 0 25 0"
-                                           VerticalAlignment="Bottom"
-                                           FontWeight="Bold"/>
-                                <TextBlock x:Name="TraitValue"
-                                           Text="{Binding TraitValue}"
-                                           FontSize="24"
-                                           Grid.Column="1"
-                                           VerticalAlignment="Bottom"/>
-                            </Grid>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
+                                    <TextBlock x:Name="TraitName"
+                                               Text="{Binding TraitName}"
+                                               HorizontalAlignment="Right"
+                                               FontSize="28"
+                                               Grid.Column="0"
+                                               Margin="0 0 25 0"
+                                               VerticalAlignment="Bottom"
+                                               FontWeight="Bold"/>
+                                    <TextBlock x:Name="TraitValue"
+                                               Text="{Binding TraitValue}"
+                                               FontSize="24"
+                                               Grid.Column="1"
+                                               VerticalAlignment="Bottom"/>
+                                </Grid>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    <ListView x:Name="TTSArea" 
+                              HorizontalAlignment="Center"
+                              SelectionMode="None">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <uc:MyUserControl1 />
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackPanel>
             </ScrollViewer>
         </Grid>
     </StackPanel>

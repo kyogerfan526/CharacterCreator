@@ -1,4 +1,5 @@
-﻿using System;
+﻿using App1.Constant_Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -95,6 +96,18 @@ namespace App1.models
                 favoriteFood = value;
                 FieldChanged();
             }
+        }
+        public new void Randomize(bool genderLock = false, bool genreLock = false, bool raceLock = false,
+           Gender gender = Constant_Data.Gender.NoLock, Genre genre = Constant_Data.Genre.NoLock, string race = "",
+           bool tableTop = false)
+        {
+            base.Randomize(genderLock, genreLock, raceLock, gender, genre, race, tableTop);
+
+            Random rng = new Random();
+
+            Accent = Data.accents[rng.Next(Data.accents.Count() - 1)];
+            StyleOfDress = Data.dressStyles[rng.Next(Data.dressStyles.Count() - 1)];
+            FightingStyle = Data.fightingStyles[rng.Next(Data.fightingStyles.Count() - 1)];
         }
     }
 }
