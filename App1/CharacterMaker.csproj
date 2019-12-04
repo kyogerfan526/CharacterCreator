@@ -122,7 +122,6 @@
     <Compile Include="CustomComplexityScreen.xaml.cs">
       <DependentUpon>CustomComplexityScreen.xaml</DependentUpon>
     </Compile>
-    <Compile Include="FileIO\FileIO.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>

@@ -175,6 +175,18 @@ namespace App1
 
         private void Age_Click(object sender, RoutedEventArgs e)
         {
+            if (fields[2] == false)
+            {
+                fields[2] = true;
+            }
+            else
+            {
+                fields[2] = false;
+            }
+        }
+
+        private void Race_Click(object sender, RoutedEventArgs e)
+        {
             if (fields[3] == false)
             {
                 fields[3] = true;
@@ -185,7 +197,7 @@ namespace App1
             }
         }
 
-        private void Race_Click(object sender, RoutedEventArgs e)
+        private void Profession_Click(object sender, RoutedEventArgs e)
         {
             if (fields[4] == false)
             {
@@ -197,7 +209,7 @@ namespace App1
             }
         }
 
-        private void Profession_Click(object sender, RoutedEventArgs e)
+        private void Gender_Click(object sender, RoutedEventArgs e)
         {
             if (fields[5] == false)
             {
@@ -209,7 +221,7 @@ namespace App1
             }
         }
 
-        private void Gender_Click(object sender, RoutedEventArgs e)
+        private void Nationality_Click(object sender, RoutedEventArgs e)
         {
             if (fields[6] == false)
             {
@@ -221,7 +233,7 @@ namespace App1
             }
         }
 
-        private void Nationality_Click(object sender, RoutedEventArgs e)
+        private void Height_Click(object sender, RoutedEventArgs e)
         {
             if (fields[7] == false)
             {
@@ -233,7 +245,7 @@ namespace App1
             }
         }
 
-        private void Height_Click(object sender, RoutedEventArgs e)
+        private void Weight_Click(object sender, RoutedEventArgs e)
         {
             if (fields[8] == false)
             {
@@ -245,7 +257,7 @@ namespace App1
             }
         }
 
-        private void Weight_Click(object sender, RoutedEventArgs e)
+        private void Hair_color_Click(object sender, RoutedEventArgs e)
         {
             if (fields[9] == false)
             {
@@ -257,7 +269,7 @@ namespace App1
             }
         }
 
-        private void Hair_color_Click(object sender, RoutedEventArgs e)
+        private void Eye_color_Click(object sender, RoutedEventArgs e)
         {
             if (fields[10] == false)
             {
@@ -269,7 +281,7 @@ namespace App1
             }
         }
 
-        private void Eye_color_Click(object sender, RoutedEventArgs e)
+        private void Personality_Click(object sender, RoutedEventArgs e)
         {
             if (fields[11] == false)
             {
@@ -281,7 +293,7 @@ namespace App1
             }
         }
 
-        private void Personality_Click(object sender, RoutedEventArgs e)
+        private void Likes_Click_1(object sender, RoutedEventArgs e)
         {
             if (fields[12] == false)
             {
@@ -293,7 +305,7 @@ namespace App1
             }
         }
 
-        private void Likes_Click_1(object sender, RoutedEventArgs e)
+        private void Dislikes_Click_1(object sender, RoutedEventArgs e)
         {
             if (fields[13] == false)
             {
@@ -305,7 +317,7 @@ namespace App1
             }
         }
 
-        private void Dislikes_Click_1(object sender, RoutedEventArgs e)
+        private void Hit_Points_Click(object sender, RoutedEventArgs e)
         {
             if (fields[14] == false)
             {
@@ -317,7 +329,7 @@ namespace App1
             }
         }
 
-        private void Hit_Points_Click(object sender, RoutedEventArgs e)
+        private void Special_Points_Click(object sender, RoutedEventArgs e)
         {
             if (fields[15] == false)
             {
@@ -329,7 +341,7 @@ namespace App1
             }
         }
 
-        private void Special_Points_Click(object sender, RoutedEventArgs e)
+        private void Level_Click(object sender, RoutedEventArgs e)
         {
             if (fields[16] == false)
             {
@@ -341,7 +353,7 @@ namespace App1
             }
         }
 
-        private void Level_Click(object sender, RoutedEventArgs e)
+        private void Strength_Click(object sender, RoutedEventArgs e)
         {
             if (fields[17] == false)
             {
@@ -353,7 +365,7 @@ namespace App1
             }
         }
 
-        private void Strength_Click(object sender, RoutedEventArgs e)
+        private void Dexterity_Click(object sender, RoutedEventArgs e)
         {
             if (fields[18] == false)
             {
@@ -365,7 +377,7 @@ namespace App1
             }
         }
 
-        private void Dexterity_Click(object sender, RoutedEventArgs e)
+        private void Inteligence_Click(object sender, RoutedEventArgs e)
         {
             if (fields[19] == false)
             {
@@ -377,7 +389,7 @@ namespace App1
             }
         }
 
-        private void Inteligence_Click(object sender, RoutedEventArgs e)
+        private void Wisdom_Click(object sender, RoutedEventArgs e)
         {
             if (fields[20] == false)
             {
@@ -389,7 +401,7 @@ namespace App1
             }
         }
 
-        private void Wisdom_Click(object sender, RoutedEventArgs e)
+        private void Constitution_Click(object sender, RoutedEventArgs e)
         {
             if (fields[21] == false)
             {
@@ -401,7 +413,7 @@ namespace App1
             }
         }
 
-        private void Constitution_Click(object sender, RoutedEventArgs e)
+        private void Will_Click_1(object sender, RoutedEventArgs e)
         {
             if (fields[22] == false)
             {
@@ -413,7 +425,7 @@ namespace App1
             }
         }
 
-        private void Will_Click_1(object sender, RoutedEventArgs e)
+        private void Charisma_Click(object sender, RoutedEventArgs e)
         {
             if (fields[23] == false)
             {
@@ -425,7 +437,7 @@ namespace App1
             }
         }
 
-        private void Charisma_Click(object sender, RoutedEventArgs e)
+        private void Accent_Click(object sender, RoutedEventArgs e)
         {
             if (fields[24] == false)
             {
@@ -437,7 +449,7 @@ namespace App1
             }
         }
 
-        private void Accent_Click(object sender, RoutedEventArgs e)
+        private void Style_Of_Dress_Click(object sender, RoutedEventArgs e)
         {
             if (fields[25] == false)
             {
@@ -449,7 +461,7 @@ namespace App1
             }
         }
 
-        private void Style_Of_Dress_Click(object sender, RoutedEventArgs e)
+        private void Friends_Click(object sender, RoutedEventArgs e)
         {
             if (fields[26] == false)
             {
@@ -461,7 +473,7 @@ namespace App1
             }
         }
 
-        private void Friends_Click(object sender, RoutedEventArgs e)
+        private void Enimies_Click(object sender, RoutedEventArgs e)
         {
             if (fields[27] == false)
             {
@@ -473,7 +485,7 @@ namespace App1
             }
         }
 
-        private void Enimies_Click(object sender, RoutedEventArgs e)
+        private void Significant_Other_Click(object sender, RoutedEventArgs e)
         {
             if (fields[28] == false)
             {
@@ -485,7 +497,7 @@ namespace App1
             }
         }
 
-        private void Significant_Other_Click(object sender, RoutedEventArgs e)
+        private void Fighting_Style_Click(object sender, RoutedEventArgs e)
         {
             if (fields[29] == false)
             {
@@ -497,7 +509,7 @@ namespace App1
             }
         }
 
-        private void Fighting_Style_Click(object sender, RoutedEventArgs e)
+        private void Preferred_Weapon_Click(object sender, RoutedEventArgs e)
         {
             if (fields[30] == false)
             {
@@ -509,7 +521,7 @@ namespace App1
             }
         }
 
-        private void Preferred_Weapon_Click(object sender, RoutedEventArgs e)
+        private void Favorite_food_Click(object sender, RoutedEventArgs e)
         {
             if (fields[31] == false)
             {
@@ -521,7 +533,7 @@ namespace App1
             }
         }
 
-        private void Favorite_food_Click(object sender, RoutedEventArgs e)
+        private void Armor_Class_Click(object sender, RoutedEventArgs e)
         {
             if (fields[32] == false)
             {
@@ -533,7 +545,7 @@ namespace App1
             }
         }
 
-        private void Armor_Class_Click(object sender, RoutedEventArgs e)
+        private void Proficiency_Bonus_Click(object sender, RoutedEventArgs e)
         {
             if (fields[33] == false)
             {
@@ -545,7 +557,7 @@ namespace App1
             }
         }
 
-        private void Proficiency_Bonus_Click(object sender, RoutedEventArgs e)
+        private void insperation_Click(object sender, RoutedEventArgs e)
         {
             if (fields[34] == false)
             {
@@ -557,7 +569,7 @@ namespace App1
             }
         }
 
-        private void insperation_Click(object sender, RoutedEventArgs e)
+        private void perception_Click(object sender, RoutedEventArgs e)
         {
             if (fields[35] == false)
             {
@@ -569,7 +581,7 @@ namespace App1
             }
         }
 
-        private void perception_Click(object sender, RoutedEventArgs e)
+        private void Spellcasting_Ability_Click(object sender, RoutedEventArgs e)
         {
             if (fields[36] == false)
             {
@@ -581,7 +593,7 @@ namespace App1
             }
         }
 
-        private void Spellcasting_Ability_Click(object sender, RoutedEventArgs e)
+        private void Spell_Save_DC_Click(object sender, RoutedEventArgs e)
         {
             if (fields[37] == false)
             {
@@ -593,7 +605,7 @@ namespace App1
             }
         }
 
-        private void Spell_Save_DC_Click(object sender, RoutedEventArgs e)
+        private void Spell_Attack_Bonus_Click(object sender, RoutedEventArgs e)
         {
             if (fields[38] == false)
             {
@@ -605,7 +617,7 @@ namespace App1
             }
         }
 
-        private void Spell_Attack_Bonus_Click(object sender, RoutedEventArgs e)
+        private void EXP_Click(object sender, RoutedEventArgs e)
         {
             if (fields[39] == false)
             {
@@ -617,7 +629,7 @@ namespace App1
             }
         }
 
-        private void EXP_Click(object sender, RoutedEventArgs e)
+        private void Groups_Click(object sender, RoutedEventArgs e)
         {
             if (fields[40] == false)
             {
@@ -626,18 +638,6 @@ namespace App1
             else
             {
                 fields[40] = false;
-            }
-        }
-
-        private void Groups_Click(object sender, RoutedEventArgs e)
-        {
-            if (fields[41] == false)
-            {
-                fields[41] = true;
-            }
-            else
-            {
-                fields[41] = false;
             }
         }
     }

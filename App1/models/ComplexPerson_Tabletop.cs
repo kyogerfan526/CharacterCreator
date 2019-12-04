@@ -403,7 +403,7 @@ namespace App1.models
             get { return spell_attack_bonus; }
             set
             {
-                Spell_attack_bonus = value;
+                spell_attack_bonus = value;
                 FieldChanged();
             }
         }

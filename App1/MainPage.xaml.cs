@@ -16,6 +16,9 @@ using Windows.UI.Xaml.Navigation;
 using App1;
 
 using System.Collections.ObjectModel;
+using System.Xml.Serialization;
+using Windows.Storage;
+using Windows.Storage.Pickers;
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
 namespace CharacterMaker
@@ -129,6 +132,8 @@ namespace CharacterMaker
         bool tableTop = false;
         String lockedGender = null;
 
+        List<bool> Cparameters = new List<bool>();
+
         //Race lock
         //Genre lock
         String raceLock = null;
@@ -141,6 +146,10 @@ namespace CharacterMaker
             this.InitializeComponent();
             
             pagePerson = new DefaultPerson();
+            ModeratlyComplexPagePerson = new ModeratelyComplexPerson();
+            ComplexPagePerson = new ComplexPerson();
+            ModeratelyComplexPerson_Tabletop_PagePerson = new ModeratelyComplexPerson_Tabletop();
+            ComplexPerson_Tabletop_PagePerson = new ComplexPerson_Tabletop();
 
             CharacterNameBlock.DataContext = pagePerson;
             CharacterTraitsArea.ItemsSource = traitsList;
@@ -835,6 +844,237 @@ namespace CharacterMaker
                 traitsList.Add(new CharacterTrait("Gender", ComplexPerson_Tabletop_PagePerson.Gender));
                 traitsList.Add(new CharacterTrait("FullName", ComplexPerson_Tabletop_PagePerson.FullName));
                 traitsList.Add(new CharacterTrait("Nationality", ComplexPerson_Tabletop_PagePerson.Nationality));
+                
+                traitsList.Add(new CharacterTrait("HeightFeet", ComplexPerson_Tabletop_PagePerson.Heightfeet));
+                traitsList.Add(new CharacterTrait("HeightInches", ComplexPerson_Tabletop_PagePerson.HeightInches));
+                traitsList.Add(new CharacterTrait("Weight", ComplexPerson_Tabletop_PagePerson.Weight));
+                traitsList.Add(new CharacterTrait("HairColor", ComplexPerson_Tabletop_PagePerson.HairColor));
+                traitsList.Add(new CharacterTrait("EyeColor", ComplexPerson_Tabletop_PagePerson.EyeColor));
+                traitsList.Add(new CharacterTrait("Personality", ComplexPerson_Tabletop_PagePerson.Personality));
+                traitsList.Add(new CharacterTrait("Likes", ComplexPerson_Tabletop_PagePerson.Likes));
+                traitsList.Add(new CharacterTrait("Dislikes", ComplexPerson_Tabletop_PagePerson.Dislikes));
+                traitsList.Add(new CharacterTrait("HitPoints", ComplexPerson_Tabletop_PagePerson.HitPoints));
+                traitsList.Add(new CharacterTrait("SpecialPoints", ComplexPerson_Tabletop_PagePerson.SpecialPoints));
+                traitsList.Add(new CharacterTrait("Level", ComplexPerson_Tabletop_PagePerson.Level));
+                traitsList.Add(new CharacterTrait("Strength", ComplexPerson_Tabletop_PagePerson.Strength));
+                traitsList.Add(new CharacterTrait("Dexterity", ComplexPerson_Tabletop_PagePerson.Dexterity));
+                traitsList.Add(new CharacterTrait("Intelligence", ComplexPerson_Tabletop_PagePerson.Intelligence));
+                traitsList.Add(new CharacterTrait("Wisdom", ComplexPerson_Tabletop_PagePerson.Wisdom));
+                traitsList.Add(new CharacterTrait("Constitution", ComplexPerson_Tabletop_PagePerson.Constitution));
+                traitsList.Add(new CharacterTrait("Will", ComplexPerson_Tabletop_PagePerson.Will));
+                traitsList.Add(new CharacterTrait("Charisma", ComplexPerson_Tabletop_PagePerson.Charisma));
+                traitsList.Add(new CharacterTrait("Accent", ComplexPerson_Tabletop_PagePerson.Accent));
+                traitsList.Add(new CharacterTrait("StyleOfDress", ComplexPerson_Tabletop_PagePerson.StyleOfDress));
+                traitsList.Add(new CharacterTrait("Friends", ComplexPerson_Tabletop_PagePerson.Friends));
+                traitsList.Add(new CharacterTrait("Enemies", ComplexPerson_Tabletop_PagePerson.Enemies));
+                traitsList.Add(new CharacterTrait("SignificantOther", ComplexPerson_Tabletop_PagePerson.SignificantOther));
+                traitsList.Add(new CharacterTrait("FightingStyle", ComplexPerson_Tabletop_PagePerson.FightingStyle));
+                traitsList.Add(new CharacterTrait("PreferredWeapon", ComplexPerson_Tabletop_PagePerson.PreferredWeapon));
+                traitsList.Add(new CharacterTrait("FavoriteFood", ComplexPerson_Tabletop_PagePerson.FavoriteFood));
+                traitsList.Add(new CharacterTrait("ArmorClass", ComplexPerson_Tabletop_PagePerson.Armor_Class));
+                traitsList.Add(new CharacterTrait("ProficiencyBonus", ComplexPerson_Tabletop_PagePerson.Proficiency_bonus));
+                traitsList.Add(new CharacterTrait("Inspiration", ComplexPerson_Tabletop_PagePerson.Inspiration));
+                traitsList.Add(new CharacterTrait("Perception", ComplexPerson_Tabletop_PagePerson.Perception));
+                traitsList.Add(new CharacterTrait("SpellCastingAbility", ComplexPerson_Tabletop_PagePerson.Spellcasting_ability));
+                traitsList.Add(new CharacterTrait("SpellSaveDC", ComplexPerson_Tabletop_PagePerson.Spell_save_DC));
+                traitsList.Add(new CharacterTrait("SpellAttackBonus", ComplexPerson_Tabletop_PagePerson.Spell_attack_bonus));
+                traitsList.Add(new CharacterTrait("Exp", ComplexPerson_Tabletop_PagePerson.EXP));
+                traitsList.Add(new CharacterTrait("Groups", ComplexPerson_Tabletop_PagePerson.Groups));
+
+
+            }
+        }
+
+
+        private void GenerateCustomPerson(List<bool> CustomParameters)
+        {
+            // Clears the traitsList so that all previous values are discarded and new values can take their place.
+            traitsList.Clear();
+            int index = 0;
+
+            {
+                if (genderLock)
+                {
+                    if (lockedGender == "Male")
+                    {
+                        ComplexPerson_Tabletop_PagePerson.FName = MFNames[rand.Next(MFNames.Count)];
+                        if (index == 0 && CustomParameters[index] == true)
+                        {
+                            traitsList.Add(new CharacterTrait("First Name", ComplexPerson_Tabletop_PagePerson.FName));
+                        }
+                        index++;
+                    }
+                    else if (lockedGender == "Female")
+                    {
+                        ComplexPerson_Tabletop_PagePerson.FName = FFNames[rand.Next(FFNames.Count)];
+                        if (index == 0 && CustomParameters[index] == true)
+                        {
+                            traitsList.Add(new CharacterTrait("First Name", ComplexPerson_Tabletop_PagePerson.FName));
+                        }
+                        index++;
+                    }
+                }
+                else
+                {
+                    ComplexPerson_Tabletop_PagePerson.FName = FNames[rand.Next(FNames.Count)];
+                }
+                ComplexPerson_Tabletop_PagePerson.LName = LNames[rand.Next(LNames.Count)];
+                if (index == 1 && CustomParameters[index] == true)
+                {
+                    traitsList.Add(new CharacterTrait("Last Name", ComplexPerson_Tabletop_PagePerson.LName));
+                }
+                index++;
+
+                ComplexPerson_Tabletop_PagePerson.Age = rand.Next(101);
+                if (genreLock == Genre.CONTEMPORARY)
+                {
+                    if (ComplexPerson_Tabletop_PagePerson.Age < 18)
+                    {
+                        if (ComplexPerson_Tabletop_PagePerson.Age < 14)
+                        {
+                            ComplexPerson_Tabletop_PagePerson.Profession = "Unemployed";
+                        }
+                        else
+                        {
+                            ComplexPerson_Tabletop_PagePerson.Profession = MinorProfessions[rand.Next(MinorProfessions.Count)];
+                        }
+                    }
+                    else
+                    {
+                        ComplexPerson_Tabletop_PagePerson.Profession = Professions[rand.Next(Professions.Count)];
+                    }
+                }
+                else if (genreLock == Genre.FANTASY)
+                {
+                    ComplexPerson_Tabletop_PagePerson.Profession = FantasyProfessions[rand.Next(FantasyProfessions.Count)];
+                }
+                else if (genreLock == Genre.SCIFI)
+                {
+                    ComplexPerson_Tabletop_PagePerson.Profession = FantasyProfessions[rand.Next(FantasyProfessions.Count)];
+                }
+
+                if (genderLock)
+                {
+                    ComplexPerson_Tabletop_PagePerson.Gender = lockedGender;
+                }
+                else
+                {
+                    ComplexPerson_Tabletop_PagePerson.Gender = Genders[rand.Next(Genders.Count)];
+                }
+
+                if (raceLock != null)
+                {
+                    ComplexPerson_Tabletop_PagePerson.Race = raceLock;
+                }
+                else
+                {
+                    ComplexPerson_Tabletop_PagePerson.Race = Races[rand.Next(Races.Count)];
+                }
+
+                ComplexPerson_Tabletop_PagePerson.Nationality = Nationalities[rand.Next(Nationalities.Count)];
+
+                ComplexPerson_Tabletop_PagePerson.HairColor = hairColors[rand.Next(hairColors.Count)];
+
+                ComplexPerson_Tabletop_PagePerson.EyeColor = eyeColors[rand.Next(eyeColors.Count)];
+
+                ComplexPerson_Tabletop_PagePerson.Personality = personalities[rand.Next(personalities.Count)];
+
+                ComplexPerson_Tabletop_PagePerson.HitPoints = rand.Next(301);
+
+                ComplexPerson_Tabletop_PagePerson.SpecialPoints = rand.Next(126);
+
+                ComplexPerson_Tabletop_PagePerson.Level = rand.Next(101);
+
+                ComplexPerson_Tabletop_PagePerson.Strength = rand.Next(36);
+
+                ComplexPerson_Tabletop_PagePerson.Dexterity = rand.Next(36);
+
+                ComplexPerson_Tabletop_PagePerson.Intelligence = rand.Next(36);
+
+                ComplexPerson_Tabletop_PagePerson.Wisdom = rand.Next(36);
+
+                ComplexPerson_Tabletop_PagePerson.Constitution = rand.Next(36);
+
+                ComplexPerson_Tabletop_PagePerson.Will = rand.Next(36);
+
+                ComplexPerson_Tabletop_PagePerson.Charisma = rand.Next(36);
+
+                ComplexPerson_Tabletop_PagePerson.Armor_Class = ArmorClasses[rand.Next(ArmorClasses.Count)];
+
+                ComplexPerson_Tabletop_PagePerson.Proficiency_bonus = rand.Next(51);
+
+                ComplexPerson_Tabletop_PagePerson.Inspiration = rand.Next(36);
+
+                ComplexPerson_Tabletop_PagePerson.Perception = rand.Next(36);
+
+                ComplexPerson_Tabletop_PagePerson.Spellcasting_ability = rand.Next(101);
+
+                ComplexPerson_Tabletop_PagePerson.Spell_save_DC = rand.Next(11);
+
+                ComplexPerson_Tabletop_PagePerson.Spell_attack_bonus = rand.Next(16);
+
+                ComplexPerson_Tabletop_PagePerson.EXP = rand.Next(10001);
+
+                ComplexPerson_Tabletop_PagePerson.Likes = new string[3];
+
+                for (int i = 0; i < ComplexPerson_Tabletop_PagePerson.Likes.Length - 1; i++)
+                {
+                    ComplexPerson_Tabletop_PagePerson.Likes[i] = likes[rand.Next(likes.Count)];
+                }
+
+                ComplexPerson_Tabletop_PagePerson.Dislikes = new string[3];
+
+                for (int i = 0; i < ComplexPerson_Tabletop_PagePerson.Dislikes.Length - 1; i++)
+                {
+                    bool same = false;
+                    string tempDislike = likes[rand.Next(likes.Count)];
+
+                    foreach (string like in ComplexPerson_Tabletop_PagePerson.Likes)
+                    {
+                        if (tempDislike == like)
+                        {
+                            same = true;
+                            i--;
+                        }
+                        else
+                        {
+
+                        }
+                    }
+
+                    if (!same)
+                    {
+                        ComplexPerson_Tabletop_PagePerson.Dislikes[i] = tempDislike;
+                    }
+                }
+
+                ComplexPerson_Tabletop_PagePerson.Friends = new string[3];
+
+                for (int i = 0; i < ComplexPerson_Tabletop_PagePerson.Friends.Length - 1; i++)
+                {
+                    string tempFriend = FNames[rand.Next(FNames.Count)] + LNames[rand.Next(LNames.Count)];
+
+                    ComplexPerson_Tabletop_PagePerson.Friends[i] = tempFriend;
+                }
+
+                ComplexPerson_Tabletop_PagePerson.Enemies = new string[3];
+
+                for (int i = 0; i < ComplexPerson_Tabletop_PagePerson.Enemies.Length - 1; i++)
+                {
+                    string tempEnemy = FNames[rand.Next(FNames.Count)] + LNames[rand.Next(LNames.Count)];
+
+                    ComplexPerson_Tabletop_PagePerson.Enemies[i] = tempEnemy;
+                }
+
+            }
+
+            {
+                traitsList.Add(new CharacterTrait("Age", ComplexPerson_Tabletop_PagePerson.Age));
+                traitsList.Add(new CharacterTrait("Race", ComplexPerson_Tabletop_PagePerson.Race));
+                traitsList.Add(new CharacterTrait("Profession", ComplexPerson_Tabletop_PagePerson.Profession));
+                traitsList.Add(new CharacterTrait("Gender", ComplexPerson_Tabletop_PagePerson.Gender));
+                traitsList.Add(new CharacterTrait("FullName", ComplexPerson_Tabletop_PagePerson.FullName));
+                traitsList.Add(new CharacterTrait("Nationality", ComplexPerson_Tabletop_PagePerson.Nationality));
                 traitsList.Add(new CharacterTrait("", ComplexPerson_Tabletop_PagePerson.Age));
                 traitsList.Add(new CharacterTrait("HeightFeet", ComplexPerson_Tabletop_PagePerson.Heightfeet));
                 traitsList.Add(new CharacterTrait("HeightInches", ComplexPerson_Tabletop_PagePerson.HeightInches));
@@ -943,7 +1183,209 @@ namespace CharacterMaker
 
         private async void LoadButton_Click(object sender, RoutedEventArgs e)
         {
-            // LoadButton
+            FileOpenPicker picker = new FileOpenPicker();
+            picker.ViewMode = PickerViewMode.Thumbnail;
+            picker.SuggestedStartLocation = PickerLocationId.Desktop;
+            picker.FileTypeFilter.Add(".rndc");
+            picker.FileTypeFilter.Add(".xml");
+
+            StorageFile file = await picker.PickSingleFileAsync();
+            Read(file);
+
+        }
+
+        private async void Read(StorageFile file)
+        {
+            if (file == null)
+            {
+                return;
+            }
+
+            Stream stream = await file.OpenStreamForReadAsync();
+            XmlSerializer serializer = new XmlSerializer(typeof(List<bool>));
+            Cparameters = (List<bool>)serializer.Deserialize(stream);
+
+            complock = Complexity.ComplexTableTop;
+            traitsList.Clear();
+            GenerateCustomPerson(Cparameters);
+
+            int index = 0;
+
+            foreach (bool b in Cparameters)
+            {
+                if (b == true)
+                {
+                    if (index == 0)
+                    {
+                        traitsList.Add(new CharacterTrait("First Name", ComplexPerson_Tabletop_PagePerson.FName));
+                    }
+                    else if (index == 1)
+                    {
+                        traitsList.Add(new CharacterTrait("Last Name", ComplexPerson_Tabletop_PagePerson.LName));
+                    }
+                    else if (index == 2)
+                    {
+                        traitsList.Add(new CharacterTrait("Age", ComplexPerson_Tabletop_PagePerson.Age));
+                    }
+                    else if (index == 3)
+                    {
+                        traitsList.Add(new CharacterTrait("Race", ComplexPerson_Tabletop_PagePerson.Race));
+                    }
+                    else if (index == 4)
+                    {
+                        traitsList.Add(new CharacterTrait("Profession", ComplexPerson_Tabletop_PagePerson.Profession));
+                    }
+                    else if (index == 5)
+                    {
+                        traitsList.Add(new CharacterTrait("Gender", ComplexPerson_Tabletop_PagePerson.Gender));
+                    }
+                    else if (index == 6)
+                    {
+                        traitsList.Add(new CharacterTrait("Nationality", ComplexPerson_Tabletop_PagePerson.Nationality));
+                    }
+                    else if (index == 7)
+                    {
+                        traitsList.Add(new CharacterTrait("Height", ComplexPerson_Tabletop_PagePerson.Heightfeet));
+                    }
+                    else if (index == 8)
+                    {
+                        traitsList.Add(new CharacterTrait("Weight", ComplexPerson_Tabletop_PagePerson.Weight));
+                    }
+                    else if (index == 9)
+                    {
+                        traitsList.Add(new CharacterTrait("Hair color", ComplexPerson_Tabletop_PagePerson.HairColor));
+                    }
+                    else if (index == 10)
+                    {
+                        traitsList.Add(new CharacterTrait("Eye color", ComplexPerson_Tabletop_PagePerson.EyeColor));
+                    }
+                    else if (index == 11)
+                    {
+                        traitsList.Add(new CharacterTrait("Personality", ComplexPerson_Tabletop_PagePerson.Personality));
+                    }
+                    else if (index == 12)
+                    {
+                        traitsList.Add(new CharacterTrait("Likes", ComplexPerson_Tabletop_PagePerson.Likes));
+                    }
+                    else if (index == 13)
+                    {
+                        traitsList.Add(new CharacterTrait("Dislikes", ComplexPerson_Tabletop_PagePerson.Dislikes));
+                    }
+                    else if (index == 14)
+                    {
+                        traitsList.Add(new CharacterTrait("Hit points", ComplexPerson_Tabletop_PagePerson.HitPoints));
+                    }
+                    else if (index == 15)
+                    {
+                        traitsList.Add(new CharacterTrait("Special points", ComplexPerson_Tabletop_PagePerson.SpecialPoints));
+                    }
+                    else if (index == 16)
+                    {
+                        traitsList.Add(new CharacterTrait("Level", ComplexPerson_Tabletop_PagePerson.Level));
+                    }
+                    else if (index == 17)
+                    {
+                        traitsList.Add(new CharacterTrait("Strength", ComplexPerson_Tabletop_PagePerson.Strength));
+                    }
+                    else if (index == 18)
+                    {
+                        traitsList.Add(new CharacterTrait("Dexterity", ComplexPerson_Tabletop_PagePerson.Dexterity));
+                    }
+                    else if (index == 19)
+                    {
+                        traitsList.Add(new CharacterTrait("Inteligence", ComplexPerson_Tabletop_PagePerson.Intelligence));
+                    }
+                    else if (index == 20)
+                    {
+                        traitsList.Add(new CharacterTrait("Wisdom", ComplexPerson_Tabletop_PagePerson.Wisdom));
+                    }
+                    else if (index == 21)
+                    {
+                        traitsList.Add(new CharacterTrait("Constitution", ComplexPerson_Tabletop_PagePerson.Constitution));
+                    }
+                    else if (index == 22)
+                    {
+                        traitsList.Add(new CharacterTrait("Will", ComplexPerson_Tabletop_PagePerson.Will));
+                    }
+                    else if (index == 23)
+                    {
+                        traitsList.Add(new CharacterTrait("Charisma", ComplexPerson_Tabletop_PagePerson.Charisma));
+                    }
+                    else if (index == 24)
+                    {
+                        traitsList.Add(new CharacterTrait("Accent", ComplexPerson_Tabletop_PagePerson.Accent));
+                    }
+                    else if (index == 25)
+                    {
+                        traitsList.Add(new CharacterTrait("Style of dress", ComplexPerson_Tabletop_PagePerson.StyleOfDress));
+                    }
+                    else if (index == 26)
+                    {
+                        traitsList.Add(new CharacterTrait("Friends", ComplexPerson_Tabletop_PagePerson.Friends));
+                    }
+                    else if (index == 27)
+                    {
+                        traitsList.Add(new CharacterTrait("Enimes", ComplexPerson_Tabletop_PagePerson.Enemies));
+                    }
+                    else if (index == 28)
+                    {
+                        traitsList.Add(new CharacterTrait("Significant other", ComplexPerson_Tabletop_PagePerson.SignificantOther));
+                    }
+                    else if (index == 29)
+                    {
+                        traitsList.Add(new CharacterTrait("Fighting style", ComplexPerson_Tabletop_PagePerson.FightingStyle));
+                    }
+                    else if (index == 30)
+                    {
+                        traitsList.Add(new CharacterTrait("preferred weapon", ComplexPerson_Tabletop_PagePerson.PreferredWeapon));
+                    }
+                    else if (index == 31)
+                    {
+                        traitsList.Add(new CharacterTrait("Favorite food", ComplexPerson_Tabletop_PagePerson.FavoriteFood));
+                    }
+                    else if (index == 32)
+                    {
+                        traitsList.Add(new CharacterTrait("Armor class", ComplexPerson_Tabletop_PagePerson.Armor_Class));
+                    }
+                    else if (index == 33)
+                    {
+                        traitsList.Add(new CharacterTrait("Proficiency bonus", ComplexPerson_Tabletop_PagePerson.Proficiency_bonus));
+                    }
+                    else if (index == 34)
+                    {
+                        traitsList.Add(new CharacterTrait("Insperation", ComplexPerson_Tabletop_PagePerson.Inspiration));
+                    }
+                    else if (index == 35)
+                    {
+                        traitsList.Add(new CharacterTrait("Perception", ComplexPerson_Tabletop_PagePerson.Perception));
+                    }
+                    else if (index == 36)
+                    {
+                        traitsList.Add(new CharacterTrait("Spell casting ability", ComplexPerson_Tabletop_PagePerson.Spellcasting_ability));
+                    }
+                    else if (index == 37)
+                    {
+                        traitsList.Add(new CharacterTrait("Spell save DC", ComplexPerson_Tabletop_PagePerson.Spell_save_DC));
+                    }
+                    else if (index == 38)
+                    {
+                        traitsList.Add(new CharacterTrait("Spell attack bonus", ComplexPerson_Tabletop_PagePerson.Spell_attack_bonus));
+                    }
+                    else if (index == 39)
+                    {
+                        traitsList.Add(new CharacterTrait("EXP", ComplexPerson_Tabletop_PagePerson.EXP));
+                    }
+                    else if (index == 40)
+                    {
+                        traitsList.Add(new CharacterTrait("Groups", ComplexPerson_Tabletop_PagePerson.Groups));
+                    }
+                    index++;
+                }
+                else
+                {
+                    index++;
+                }
+            }
 
         }
 
@@ -1009,4 +1451,5 @@ namespace CharacterMaker
         public string TraitName { get; set; }
         public object TraitValue { get; set; }
     }
+
 }
