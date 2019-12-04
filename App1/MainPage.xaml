@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:CharacterMaker"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:uc="using:App1.DataTemplates"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Foreground="Black"
@@ -69,10 +70,6 @@
                     x:Name="Table_top_fields"
                     Text="Table top fields: Off"
                     Click="Table_top_fields_Click">
-                </MenuFlyoutItem>
-
-                <MenuFlyoutItem>
-                    
                 </MenuFlyoutItem>
             </MenuBarItem>
 
@@ -195,6 +192,7 @@
                       Grid.RowSpan="2"
                       Grid.ColumnSpan="2"
                       Margin="50">
+                <StackPanel>
                 <ListView x:Name="CharacterTraitsArea"
                           SelectionMode="None">
                     <ListView.ItemTemplate>
@@ -222,6 +220,16 @@
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
+                <ListView x:Name="TTSArea" 
+                              HorizontalAlignment="Center"
+                              SelectionMode="None">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <uc:MyUserControl1 />
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                </StackPanel>
             </ScrollViewer>
         </Grid>
     </StackPanel>

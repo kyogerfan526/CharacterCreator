@@ -12,7 +12,7 @@ namespace App1.Value_Converters
     {
         public object Convert(object value, Type targetType, object parameter, string language)
         {
-            DefaultPerson person = (DefaultPerson)value;
+            Person person = (Person)value;
 
             return $"{person.FName} {person.LName}";
         }
